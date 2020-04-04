@@ -1,4 +1,4 @@
-# PoryectoCVDS
+# ProyectoCVDS
 
 >- host : ec2-3-91-112-166.compute-1.amazonaws.com
 >- db: d52r0cth9ad4d6
