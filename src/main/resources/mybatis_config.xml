@@ -3,34 +3,29 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <!--<settings>
-        <setting name="logImpl" value="LOG4J"/>        
-    </settings>-->
-    
-    <properties resource="config.properties">
-    </properties>
-    <typeAliases>
-        <typeAlias type="edu.eci.cvds.samples.entities.Usuario" alias="Usuario"/>
-        <typeAlias type="edu.eci.cvds.samples.entities.Iniciativa" alias="Iniciativa"/>
-    </typeAliases>	
+	<!--<settings> <setting name="logImpl" value="LOG4J"/> </settings> -->
+	<typeAliases>
+		<typeAlias type="edu.eci.cvds.samples.entities.Usuario" alias="Usuario" />
+		<!-- typeAlias type="edu.eci.cvds.samples.entities.Iniciativa" alias="Iniciativa" / -->
+	</typeAliases>
 
-     <environments default="development">
-        <environment id="development">
-            <transactionManager type="JDBC" />
-            <dataSource type="POOLED">
-                <property name="driver" value="org.postgresql.Driver" />
-                <property name="jdbc:mysql://host : ec2-3-91-112-166.compute-1.amazonaws.com:5432/d52r0cth9ad4d6?useSSL=false"/> 
-                <property name="username" value="nxztwufxsnpfki" />
-                <property name="password" value="74afdfee69819ba81f37f0f3c0bbcf1d2142f6760609f62db15392a3f2303d17" />
-            </dataSource>
-        </environment>
-    </environments>
-    
-    
-    <mappers>
-        <mapper resource="mappers/UsuarioMapper.xml"></mapper>
-        <mapper resource="mappers/IniciativaMapper.xml"></mapper>
-    </mappers> 
-        
-        
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="org.postgresql.Driver" />
+				<property name ="url" value="jdbc:postgresql://ec2-3-91-112-166.compute-1.amazonaws.com:5432/d52r0cth9ad4d6?sslmode=require" />
+				<property name="username" value="nxztwufxsnpfki" />
+				<property name="password" value="74afdfee69819ba81f37f0f3c0bbcf1d2142f6760609f62db15392a3f2303d17" />
+			</dataSource>
+		</environment>
+	</environments>
+
+
+	<mappers>
+		<mapper resource="mappers/UsuarioMapper.xml"></mapper>
+		<!-- mapper resource="mappers/IniciativaMapper.xml"></mapper -->
+	</mappers>
+
+
 </configuration>

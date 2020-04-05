@@ -6,20 +6,22 @@
 <mapper namespace="edu.eci.cvds.persistencia.mybatisimpl.mappers.UsuarioMapper">
 
 
-	<select parameterType='map' id='consultaUsuarios' resultMap='UsuariosResult'>
-		select * 
+	<select id='consultaUsuarios' resultMap='UsuarioResult'>
+		select id, contraseña, nombre, rol
 		from usuario u
 		where u.contraseña = #{id};
 	</select>
+	
+	<insert id="insertarUsuario">
+		insert into usuario values(#{id}, #{cont}, #{name}, #{rol});
+	</insert>
 
 
 	<resultMap type='Usuario' id='UsuarioResult'>
-	
 		<id property='id' column='id'/>
 		<result property='contraseña' column='contraseña'/>
 		<result property='nombre' column='nombre'/>
 		<result property='rol' column='rol'/> 
-		
     </resultMap>
 
 </mapper>
