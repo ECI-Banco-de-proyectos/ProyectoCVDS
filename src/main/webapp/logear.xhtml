@@ -10,11 +10,25 @@
     </h:head>
 	<h:body>
 	<h:form>
-	<center><p:inputText id="Nombre" value="#{usuarioBean.nombre}"></p:inputText></center><br/>
-	<center><p:inputText id="Contraseña" value="#{usuarioBean.contraseña}"></p:inputText></center><br/>
-	<p:message for="Contraseña" />
-	<center><p:commandButton value="Ingresar" action="#{usuarioBean.insertarUsuario()}"></p:commandButton></center>
+	<center><p:inputText id="Nombre" value="#{usuarioBean.nombre}">
+		<f:validator validatorId="check_If_pass_is_valid"></f:validator>
+		<f:ajax execute="@form" render="@form"/>
+	</p:inputText></center><br/>
+	
+	<center><p:inputText id="Contraseña" value="#{usuarioBean.contraseña}">
+		<f:validator validatorId="check_If_pass_is_valid"></f:validator>
+		<f:ajax execute="@form" render="@form"/>
+	</p:inputText></center><br/>
+	
+	<h:message for="Contraseña" />
+	<center><p:commandButton value="Ingresar" action="hola.xhtml?faces-redirect=true">
+		
+	</p:commandButton></center>
 	</h:form>
 	</h:body>
 </html>	
+	
+	
+
+	
 	

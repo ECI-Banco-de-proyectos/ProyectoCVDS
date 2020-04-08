@@ -52,17 +52,6 @@ public class UsuarioBean implements Serializable {
 		ser.insertarUsuario(contraseña, nombre, rol);
 	}
 	
-	public void validar() {
-		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
-		boolean in = false;
-		for(Usuario s: ser.consultarUsuarios()) {
-			boolean res = s.getNombre().equals(this.nombre) && s.getContraseña().equals(this.contraseña);
-			if(res) {
-				in = true;
-			}
-		}
-		if(in) throw new ValidatorException(new FacesMessage("El usuario ya existe")); 
-	}
 	
 
 }
