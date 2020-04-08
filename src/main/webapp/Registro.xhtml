@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:p="http://primefaces.org/ui">
+	  <h:head>
+        <title>Registro de usuarios</title>
+    </h:head>
+	<h:body>
+        <center><h1>Registro de usuarios</h1></center>
+        <center><h:form>
+            <!--Por favor no cambiar el 'id':-->
+			<p:outputLabel value="Nombre" for="nombre" /><br/>
+            <p:inputText id="nombre" value="#{usuarioBean.nombre}"></p:inputText><br/>
+			<p:outputLabel value="Contraseña" for="contraseña" /><br/>
+			<p:inputText id="contraseña" value="#{usuarioBean.contraseña}"></p:inputText><br/>
+			<p:outputLabel value="Seleccione un rol para su usuario" for="rol" /><br/>
+            <p:selectOneMenu value="#{usuarioBean.rol}" id="rol">
+				<f:selectItem itemValue = "Administrador" itemLabel = "Administrador" />
+				<f:selectItem itemValue = "PMO_ODI" itemLabel = "PMO_ODI" />
+				<f:selectItem itemValue = "proponenteIniciativa" itemLabel = "proponenteIniciativa" />
+				<f:selectItem itemValue = "usuarioConsulta" itemLabel = "usuarioConsulta" />
+			</p:selectOneMenu><br/>
+            <!--Por favor no cambiar el 'value':-->
+            <p:commandButton value="Registrar" action="#{usuarioBean.insertarUsuario()}" validator="#{usuarioBean.validar()}"></p:commandButton>
+        </h:form></center>
+		<center><h1>Si ya está registrado ingrese aquí</h1></center>
+		<center><p:commandButton value="Login" action="logear.xhtml?faces-redirect=true" /></center>
+    </h:body>
+</html>

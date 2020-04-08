@@ -11,6 +11,8 @@ public interface UsuarioMapper {
 	
 	public List<Usuario> consultaUsuarios(@Param("id") String id);
 	
+	public List<Usuario> getUsuarios();
+	
 	public void insertarUsuario(@Param("id") int id,@Param("cont") String contraseña,@Param("name") String nombre,@Param("rol") TipoRol tipoRol);
 	
 }

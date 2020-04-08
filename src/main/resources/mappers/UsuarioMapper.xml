@@ -12,6 +12,11 @@
 		where u.contraseña = #{id};
 	</select>
 	
+	<select id='getUsuarios' resultMap='UsuarioResult'>
+		select id, contraseña, nombre, rol
+		from usuario u;
+	</select>
+	
 	<insert id="insertarUsuario">
 		insert into usuario values(#{id}, #{cont}, #{name}, #{rol});
 	</insert>
