@@ -24,11 +24,10 @@
 				<f:selectItem itemValue = "usuarioConsulta" itemLabel = "usuarioConsulta" />
 			</p:selectOneMenu><br/>
             <!--Por favor no cambiar el 'value':-->
-            <p:commandButton value="Registrar" action="#{usuarioBean.insertarUsuario()}" validator="#{usuarioBean.validar()}"></p:commandButton>
-			
+            <p:commandButton value="Registrar" action="#{usuarioBean.insertarUsuario()}"></p:commandButton>
         </h:form></center>
 		<center><h1>Si ya está registrado ingrese aquí</h1></center>
-		<center><p:commandButton value="Login" action="logear.xhtml?faces-redirect=true" ></p:commandButton></center>
+		<center><p:commandButton value="Login" action="logearV2.xhtml?faces-redirect=true" ></p:commandButton></center>
     </h:body>
 </html>
 

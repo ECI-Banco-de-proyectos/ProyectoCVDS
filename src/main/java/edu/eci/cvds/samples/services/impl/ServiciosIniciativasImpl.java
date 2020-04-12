@@ -2,11 +2,14 @@ package edu.eci.cvds.samples.services.impl;
 
 import java.util.List;
 
+import javax.faces.bean.ApplicationScoped;
+
 import edu.eci.cvds.samples.entities.TipoRol;
 import edu.eci.cvds.samples.entities.Usuario;
 import edu.eci.cvds.servicios.IniciativasFactory;
 import edu.eci.cvds.servicios.ServiciosIniciativas;
 
+@ApplicationScoped
 public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 
 	@Override
@@ -16,7 +19,7 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 
 	@Override
 	public void insertarUsuario(String contraseña, String nombre, TipoRol rol) {
-		int ultimoId = consultarUsuarios().get(consultarUsuarios().size()-1).id;
+		int ultimoId = consultarUsuarios().size();
 		IniciativasFactory.instancia().usuarioImplementado().insertarUsuario(ultimoId+1, contraseña, nombre, rol);
 
 	}

@@ -21,7 +21,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
-		ser.insertarUsuario("Hola", "Sebas", TipoRol.PMO_ODI);
+		System.out.print(ser.consultarUsuarios());
 		/*
 		InputStream inputStream;
 		try {
