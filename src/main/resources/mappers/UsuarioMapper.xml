@@ -20,6 +20,11 @@
 	<insert id="insertarUsuario">
 		insert into usuario values(#{id}, #{cont}, #{name}, #{rol});
 	</insert>
+	
+	<update id="updatePerfil">
+		update usuario set rol = #{rol}
+		where id = #{id}
+	</update>
 
 
 	<resultMap type='Usuario' id='UsuarioResult'>

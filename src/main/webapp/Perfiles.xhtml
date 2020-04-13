@@ -17,11 +17,18 @@
 		</p:tabMenu>
 		
 		<h:form>
-		<p:outputLabel for="@next" value="Seleccione: " /><br/>
-		<p:selectOneMenu id="Lista" value="#{adminBean.indice}" dynamic="true" style="width:125px">
+		<p:outputLabel for="@next" value="Seleccione ID: " /><br/>
+		<p:selectOneMenu id="Lista" value="#{adminBean.indice}" dynamic="true" style="width:125px" requerid="true">
 			<f:selectItem itemLabel="Select Id" itemValue="" />
 			<f:selectItems value="#{adminBean.list}"/>
-		</p:selectOneMenu>
+		</p:selectOneMenu><br/>
+		<p:message for="Lista" display="text" />
+		<p:outputLabel for="@next" value="Seleccione: rol" /><br/>
+		<p:selectOneMenu id="Roles" value="#{adminBean.rol}" dynamic="true" style="width:300px">
+			<f:selectItem itemLabel="Select rol" itemValue="" />
+			<f:selectItems value="#{adminBean.roles}"/>
+		</p:selectOneMenu><br/>
+		<p:commandButton value="Aplicar Cambios" action="#{adminBean.actualizarPerfil()}"/>
 		</h:form>
 	</h:body>
 

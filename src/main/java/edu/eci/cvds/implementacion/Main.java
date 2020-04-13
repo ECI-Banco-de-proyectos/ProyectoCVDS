@@ -21,7 +21,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
-		System.out.print(ser.consultarUsuarios());
+		ser.actualizarPerfil(1, TipoRol.Administrador);
+		
 		/*
 		InputStream inputStream;
 		try {

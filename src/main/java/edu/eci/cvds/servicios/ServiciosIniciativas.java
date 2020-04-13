@@ -12,4 +12,6 @@ public interface ServiciosIniciativas {
 	public List<Usuario> consultarUsuarios();
 	
 	public void insertarUsuario(String contraseña, String nombre, TipoRol rol);
+	
+	public void actualizarPerfil(int id, TipoRol tipoRol);
 }

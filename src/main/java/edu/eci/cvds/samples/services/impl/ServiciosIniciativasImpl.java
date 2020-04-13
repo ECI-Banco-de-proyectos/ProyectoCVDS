@@ -28,4 +28,10 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 	public List<Usuario> consultarUsuarios() {
 		return IniciativasFactory.instancia().usuarioImplementado().getUsuario();
 	}
+
+	@Override
+	public void actualizarPerfil(int id, TipoRol tipoRol) {
+		IniciativasFactory.instancia().usuarioImplementado().updatePerfil(id,tipoRol);
+		
+	}
 }

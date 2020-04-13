@@ -27,6 +27,13 @@ public class MyBatisDAOUsuario implements DAOUsuario{
 	public List<Usuario> getUsuario() {
 		return usuarioMapper.getUsuarios();
 	}
+
+	@Override
+	public void updatePerfil(int id, TipoRol tipoRol) {
+		usuarioMapper.updatePerfil(id,tipoRol);
+		IniciativasFactory.instancia().session.commit();
+		
+	}
 	
 	
 
