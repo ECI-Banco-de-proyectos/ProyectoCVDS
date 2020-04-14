@@ -3,6 +3,8 @@ package edu.eci.cvds.implementacion;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -11,6 +13,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import edu.eci.cvds.persistencia.mybatisimpl.mappers.UsuarioMapper;
+import edu.eci.cvds.samples.entities.EstadoIniciativa;
 import edu.eci.cvds.samples.entities.TipoRol;
 import edu.eci.cvds.samples.entities.Usuario;
 import edu.eci.cvds.samples.persistencia.DAOUsuario;
@@ -21,7 +24,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
-		ser.actualizarPerfil(1, TipoRol.Administrador);
+		System.out.println(ser.consultarIniciativas());
 		
 		/*
 		InputStream inputStream;

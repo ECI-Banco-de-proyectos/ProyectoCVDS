@@ -1,9 +1,13 @@
 package edu.eci.cvds.samples.services.impl;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.faces.bean.ApplicationScoped;
 
+import edu.eci.cvds.persistencia.mybatisimpl.mappers.IniciativaMapper;
+import edu.eci.cvds.samples.entities.EstadoIniciativa;
+import edu.eci.cvds.samples.entities.Iniciativa;
 import edu.eci.cvds.samples.entities.TipoRol;
 import edu.eci.cvds.samples.entities.Usuario;
 import edu.eci.cvds.servicios.IniciativasFactory;
@@ -33,5 +37,17 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 	public void actualizarPerfil(int id, TipoRol tipoRol) {
 		IniciativasFactory.instancia().usuarioImplementado().updatePerfil(id,tipoRol);
 		
+	}
+
+	@Override
+	public void insertarIniciativa(int id, int usuario, String nombre, EstadoIniciativa estado, int votos, Date fecha,
+			String descripcion) {
+		IniciativasFactory.instancia().iniciativaImplementado().insertIniciativa(id, usuario, nombre, estado, votos, fecha, descripcion);
+		
+	}
+
+	@Override
+	public List<Iniciativa> consultarIniciativas() {
+		return IniciativasFactory.instancia().iniciativaImplementado().selectIniciativa();
 	}
 }

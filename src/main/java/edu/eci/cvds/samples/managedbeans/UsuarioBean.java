@@ -97,6 +97,9 @@ public class UsuarioBean implements Serializable {
 			if(rolV.equals(TipoRol.Administrador)) {
 				setMensajeErrorLogin(" ");
 				dir = "Administrador.xhtml?faces-redirect=true";
+			}else if(rolV.equals(TipoRol.proponenteIniciativa)) {
+				setMensajeErrorLogin(" ");
+				dir = "Proponente.xhtml?faces-redirect=true";
 			}
 		}
 		return dir;
