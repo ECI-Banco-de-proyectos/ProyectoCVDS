@@ -1,5 +1,5 @@
-### Escuela Colombiana de Ingenieria Julio Garavito
-### Proyecto CVDS 2020-1
+## Escuela Colombiana de Ingenieria Julio Garavito
+## Proyecto CVDS 2020-1
 # Integrantes: 
 >- German Andres Ospina Quintero
 >- Nicolas Ortega Limas
@@ -17,4 +17,5 @@
 >- port: 5432
 >- pw: 74afdfee69819ba81f37f0f3c0bbcf1d2142f6760609f62db15392a3f2303d17 
 
-
+# Informacion de la entrada a Taiga:
+[Iniciativa y proyectos en Taiga]https://tree.taiga.io/project/germanaoq-plataforma-banco-de-iniciativas-de-proyectos/timeline
