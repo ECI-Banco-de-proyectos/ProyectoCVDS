@@ -16,9 +16,9 @@
 
           <h:form>
               <p:outputLabel for="@next" value="Seleccione ID: " /><br/>
-              <p:selectOneMenu id="Lista" value="#{adminBean.indice}" dynamic="true" style="width:125px" requerid="true">
+              <p:selectOneMenu id="Lista" value="#{proBean.id}" dynamic="true" style="width:125px" requerid="true">
                   <f:selectItem itemLabel="Select Id" itemValue="" />
-                  <f:selectItems value="#{adminBean.list}"/>
+                  <f:selectItems value="#{proBean.idIniciativa}"/>
               </p:selectOneMenu><br/>
               <p:message for="Lista" display="text" />
               <p:outputLabel value="Seleccione estado" for="estado" /><br/>
@@ -28,7 +28,7 @@
                   <f:selectItem itemValue = "Proyecto" itemLabel = "Proyecto" />
                   <f:selectItem itemValue = "Solucionado" itemLabel = "Solucionado" />
               </p:selectOneMenu><br/>
-              <p:commandButton value="Aplicar Cambios" action="#{adminBean.cambiarIniciativa()}"/>
+              <p:commandButton value="Aplicar Cambios" action="#{proBean.cambiarIniciativa()}"/>
           </h:form>
       </h:body>
 </html>

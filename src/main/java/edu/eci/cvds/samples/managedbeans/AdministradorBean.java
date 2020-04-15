@@ -78,11 +78,6 @@ public class AdministradorBean implements Serializable{
 		IniciativasFactory.instancia().serviciosIniciativas().actualizarPerfil(indice,rol);
 	}
 
-	public void cambiarIniciativa(){
-		System.out.println(estado);
-		System.out.println(indice);
-		IniciativasFactory.instancia().serviciosIniciativas().actualizarIniciativa(estado,indice);
-	}
 
 	public EstadoIniciativa getEstado(){
 		return estado;

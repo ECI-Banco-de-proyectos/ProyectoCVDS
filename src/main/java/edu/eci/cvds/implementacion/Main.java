@@ -24,7 +24,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
-		System.out.println(ser.consultarIniciativas());
+		ser.actualizarIniciativa(EstadoIniciativa.Proyecto, 2);
 		
 		/*
 		InputStream inputStream;

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -28,9 +29,18 @@ public class ProponenteBean implements Serializable{
 	int votos;
 	Date fechaInicio;
 	String descripcion;
+	List<Integer> idIniciativa;
 
-	
-	
+	@PostConstruct
+	public void init() {
+		idIniciativa = new ArrayList<Integer>();
+		int longitud = IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativas().size();
+		for(int i=1; i<longitud+1; i++) {
+			idIniciativa.add(i);
+		}
+	}
+
+
 	public void insertarIniciativa(String nombre, String contraseña) {
 		int ind = obtenerId(nombre, contraseña);
 		id = IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativas().size();
@@ -49,6 +59,12 @@ public class ProponenteBean implements Serializable{
 		
 		
 		return res;
+	}
+	
+	public void cambiarIniciativa(){
+		System.out.println(estado);
+		System.out.println(id);
+		IniciativasFactory.instancia().serviciosIniciativas().actualizarIniciativa(estado,id);
 	}
 
 	public int getId() {
@@ -105,6 +121,15 @@ public class ProponenteBean implements Serializable{
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+	
+	public List<Integer> getIdIniciativa() {
+		return idIniciativa;
+	}
+
+
+	public void setIdIniciativa(List<Integer> idIniciativa) {
+		this.idIniciativa = idIniciativa;
 	}
 	
 	
