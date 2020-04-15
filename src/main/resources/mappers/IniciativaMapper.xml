@@ -6,13 +6,22 @@
 <mapper namespace="edu.eci.cvds.persistencia.mybatisimpl.mappers.IniciativaMapper">
 
 
-	<insert id="insertIniciativa">
+	<insert id="insertIniciativa" >
 		insert into iniciativa values(#{id},#{user},#{name},#{est},#{vot},#{fec},#{desc})
 	</insert>
 	
 	<select id="selectIniciativas" resultMap='IniciativaResult'>
 		select * from iniciativa
 	</select>
+
+	<select id="claveIniciativas" resultMap='IniciativaResult'>
+		select * from iniciativa where nombreiniciativa like '%#{clave}%'
+	</select>
+
+	<update id="cambiarIniciativa" >
+		update iniciativa set estado=#{estado}
+		where id=#{id};
+	</update>
 	
 	<resultMap type="Iniciativa" id="IniciativaResult">
 		<id column="id" property="id"/>	

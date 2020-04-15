@@ -6,22 +6,10 @@
       xmlns:o="http://omnifaces.org/ui"
       xmlns:p="http://primefaces.org/ui">
 	  <h:head>
-        <title>#{usuarioBean.nombre}</title>
+        <title>Datos de Usuarios</title>
     </h:head>
 	<h:body>
-		<h:outputText value="#{usuarioBean.nombre}" />
-		<p:tabMenu activeIndex="0">
-			<p:menuitem value="Datos" outcome="Administrador.xhtml" icon="ui-icon-document">
-			</p:menuitem>
-			<p:menuitem value="Perfiles" outcome="Perfiles.xhtml" icon="ui-icon-script">
-			</p:menuitem>
-			<p:menuitem value="CambiarIniciativa" outcome="CambiarIniciativa.xhtml" icon="ui-icon-script">
-			</p:menuitem>
-			<p:menuitem value="busquedaIniciativa" outcome="busquedaIniciativa.xhtml" icon="ui-icon-script">
-			</p:menuitem>
-		</p:tabMenu>
-		
-		<p:dataTable var="user" value="#{usuarioBean.getLista()}">
+	<p:dataTable var="user" value="#{usuarioBean.getLista2()}">
 					<p:column headerText="Id">
 						<h:outputText value="#{user.id}"/>
 					</p:column>
@@ -35,7 +23,5 @@
 						<h:outputText value="#{user.rol}"/>
 					</p:column>
 				</p:dataTable>
-	
-	</h:body>
-
-</html>	
+    </h:body>
+</html>

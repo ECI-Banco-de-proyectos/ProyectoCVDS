@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6655d415-5a3d-4950-aa52-27fbbee47a84" name="Default Changelist" comment="">
+    <list default="true" id="f19594f0-5ffc-4ef8-ac90-7ea1fcf10f35" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/persistencia/mybatisimpl/mappers/IniciativaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/persistencia/mybatisimpl/mappers/IniciativaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/managedbeans/AdministradorBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/managedbeans/AdministradorBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/managedbeans/UsuarioBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/managedbeans/UsuarioBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/persistencia/DAOIniciativa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/persistencia/DAOIniciativa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/persistencia/mybatisimpl/MyBatisDAOIniciativa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/persistencia/mybatisimpl/MyBatisDAOIniciativa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/persistencia/mybatisimpl/MyBatisDAOUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/persistencia/mybatisimpl/MyBatisDAOUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/services/impl/ServiciosIniciativasImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/services/impl/ServiciosIniciativasImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/servicios/IniciativasFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/servicios/IniciativasFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/servicios/ServiciosIniciativas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/servicios/ServiciosIniciativas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/IniciativaMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/IniciativaMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Administrador.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Administrador.xhtml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,10 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1a5wameEt4Q6eCVl4BTalSkv9jX" />
-  <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-  </component>
+  <component name="ProjectId" id="1aYFrboYv36ifd6BVxanT97U6Ai" />
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -29,16 +38,36 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.eci.cvds.implementacion.Main" />
+      <module name="ProyectoCVDS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.eci.cvds.implementacion.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6655d415-5a3d-4950-aa52-27fbbee47a84" name="Default Changelist" comment="" />
-      <created>1586038828747</created>
+      <changelist id="f19594f0-5ffc-4ef8-ac90-7ea1fcf10f35" name="Default Changelist" comment="" />
+      <created>1586904819907</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1586038828747</updated>
+      <updated>1586904819907</updated>
     </task>
     <servers />
   </component>

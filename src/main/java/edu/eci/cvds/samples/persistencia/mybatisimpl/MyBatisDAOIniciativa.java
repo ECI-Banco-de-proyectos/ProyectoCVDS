@@ -21,6 +21,18 @@ public class MyBatisDAOIniciativa implements DAOIniciativa{
 	}
 
 	@Override
+	public void cambiarIniciativa(EstadoIniciativa estado, int id){
+		iniciativaMapper.cambiarIniciativa(estado, id);
+		IniciativasFactory.instancia().session.commit();
+	}
+
+	@Override
+	public DAOIniciativa claveIniciativa(String clave) {
+		iniciativaMapper.claveIniciativas(clave);
+		return null;
+	}
+
+	@Override
 	public List<Iniciativa> selectIniciativa() {
 		return iniciativaMapper.selectIniciativas();
 	}

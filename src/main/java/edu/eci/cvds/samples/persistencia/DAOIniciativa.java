@@ -9,6 +9,10 @@ import edu.eci.cvds.samples.entities.Iniciativa;
 public interface DAOIniciativa {
 
 	public void insertIniciativa(int id, int usuario, String nombre, EstadoIniciativa estado, int votos, Date fecha, String descripcion);
-	
+
+	public void cambiarIniciativa(EstadoIniciativa estado, int id);
+
+	public DAOIniciativa claveIniciativa(String clave);
+
 	public List<Iniciativa> selectIniciativa();
 }

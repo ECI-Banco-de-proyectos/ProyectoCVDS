@@ -38,17 +38,15 @@ public class IniciativasFactory extends AbstractModule{
 		}
 		
 	}
-	
+
 	@Override
 	protected void configure() {
 		bind(DAOUsuario.class).to(MyBatisDAOUsuario.class);
 		bind(ServiciosIniciativas.class).to(ServiciosIniciativasImpl.class);
 		bind(DAOIniciativa.class).to(MyBatisDAOIniciativa.class);
-		
-		
-		
 	}
-	
+
+
 	public DAOUsuario usuarioImplementado() {
 		Injector injector = Guice.createInjector(new IniciativasFactory());
 		return injector.getInstance(DAOUsuario.class);

@@ -5,16 +5,21 @@ import java.util.List;
 
 import javax.faces.bean.ApplicationScoped;
 
-import edu.eci.cvds.persistencia.mybatisimpl.mappers.IniciativaMapper;
 import edu.eci.cvds.samples.entities.EstadoIniciativa;
 import edu.eci.cvds.samples.entities.Iniciativa;
 import edu.eci.cvds.samples.entities.TipoRol;
 import edu.eci.cvds.samples.entities.Usuario;
+import edu.eci.cvds.samples.persistencia.DAOIniciativa;
 import edu.eci.cvds.servicios.IniciativasFactory;
 import edu.eci.cvds.servicios.ServiciosIniciativas;
 
 @ApplicationScoped
 public class ServiciosIniciativasImpl implements ServiciosIniciativas {
+
+	@Override
+	public DAOIniciativa buscarIniciativas(String clave) {
+		return IniciativasFactory.instancia().iniciativaImplementado().claveIniciativa(clave);
+	}
 
 	@Override
 	public List<Usuario> consultarUsuariosPorContraseña(String contraseña) {
@@ -36,7 +41,11 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 	@Override
 	public void actualizarPerfil(int id, TipoRol tipoRol) {
 		IniciativasFactory.instancia().usuarioImplementado().updatePerfil(id,tipoRol);
-		
+	}
+
+	@Override
+	public void actualizarIniciativa(EstadoIniciativa estado, int id) {
+		IniciativasFactory.instancia().iniciativaImplementado().cambiarIniciativa(estado,id);
 	}
 
 	@Override

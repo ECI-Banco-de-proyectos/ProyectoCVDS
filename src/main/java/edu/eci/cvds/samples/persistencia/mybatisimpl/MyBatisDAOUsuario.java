@@ -32,7 +32,6 @@ public class MyBatisDAOUsuario implements DAOUsuario{
 	public void updatePerfil(int id, TipoRol tipoRol) {
 		usuarioMapper.updatePerfil(id,tipoRol);
 		IniciativasFactory.instancia().session.commit();
-		
 	}
 	
 	

@@ -13,15 +13,17 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
-import javax.xml.bind.ValidationException;
+
 
 import com.google.inject.Inject;
 
+import edu.eci.cvds.samples.entities.Iniciativa;
 import edu.eci.cvds.samples.entities.TipoRol;
 import edu.eci.cvds.samples.entities.Usuario;
 import edu.eci.cvds.samples.services.impl.ServiciosIniciativasImpl;
 import edu.eci.cvds.servicios.IniciativasFactory;
 import edu.eci.cvds.servicios.ServiciosIniciativas;
+import org.apache.shiro.config.Ini;
 
 @ManagedBean
 @SessionScoped
@@ -34,6 +36,7 @@ public class UsuarioBean implements Serializable {
 	TipoRol rol;
 	String mensajeErrorLogin = "";
 	List<Usuario> lista;
+	List<Iniciativa> lista2;
 	
 	public String getMensajeErrorLogin() {
 		return mensajeErrorLogin;
@@ -50,6 +53,10 @@ public class UsuarioBean implements Serializable {
 		return lista;
 	}
 
+	public List<Iniciativa> getLista2(){
+		lista2=IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativas();
+		return lista2;
+	}
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -71,6 +78,7 @@ public class UsuarioBean implements Serializable {
 	public void setRol(TipoRol rol) {
 		this.rol = rol;
 	}
+
 	public void insertarUsuario() {
 		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
 		ser.insertarUsuario(contraseña, nombre, rol);
