@@ -19,3 +19,8 @@
 
 # Informacion de la entrada a Taiga:
 [Iniciativa y proyectos en Taiga]https://tree.taiga.io/project/germanaoq-plataforma-banco-de-iniciativas-de-proyectos/timeline
+
+# para poder compilar el proyecto:
+```mvn tomcat7:run``` 
+
+```mvn package```
