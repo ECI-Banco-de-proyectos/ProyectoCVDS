@@ -26,4 +26,6 @@ public interface ServiciosIniciativas {
 	public void insertarIniciativa(int id, int usuario, String nombre, EstadoIniciativa estado, int votos, Date fecha, String descripcion);
 	
 	public List<Iniciativa> consultarIniciativas();
+	
+	public List<Iniciativa> consultarIniciativasPalabraClave(String word);
 }

@@ -108,6 +108,9 @@ public class UsuarioBean implements Serializable {
 			}else if(rolV.equals(TipoRol.proponenteIniciativa)) {
 				setMensajeErrorLogin(" ");
 				dir = "Proponente.xhtml?faces-redirect=true";
+			}else if(rolV.equals(TipoRol.usuarioConsulta)) {
+				setMensajeErrorLogin(" ");
+				dir = "Datosl.xhtml?faces-redirect=true";
 			}
 		}
 		return dir;

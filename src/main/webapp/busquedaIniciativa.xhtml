@@ -9,7 +9,17 @@
         <title>Datos de Iniciativa</title>
     </h:head>
 	<h:body>
-
+	<p:tabMenu activeIndex="0">
+		<p:menuitem value="Busqueda de Iniciativa" outcome="busquedaIniciativa.xhtml" icon="ui-icon-script">
+        </p:menuitem>
+        <p:menuitem value="Datos" outcome="Administrador.xhtml" icon="ui-icon-script">
+        </p:menuitem>
+	    <p:menuitem value="Perfiles" outcome="Perfiles.xhtml" icon="ui-icon-script">
+        </p:menuitem>
+		<p:menuitem value="Cambiar Iniciativa" outcome="CambiarIniciativa.xhtml" icon="ui-icon-script">
+        </p:menuitem>
+	</p:tabMenu>
+		
 	<p:outputLabel value="Clave" for="cla" /><br/>
 	<p:inputText id="cla" value="#{adminBean.clave}" /><br/>
 

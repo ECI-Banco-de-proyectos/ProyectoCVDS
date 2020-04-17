@@ -18,10 +18,9 @@
 			<p:inputText id="contraseña" value="#{usuarioBean.contraseña}"></p:inputText><br/>
 			<p:outputLabel value="Seleccione un rol para su usuario" for="rol" /><br/>
             <p:selectOneMenu value="#{usuarioBean.rol}" id="rol">
-				<f:selectItem itemValue = "Administrador" itemLabel = "Administrador" />
 				<f:selectItem itemValue = "PMO_ODI" itemLabel = "PMO_ODI" />
-				<f:selectItem itemValue = "proponenteIniciativa" itemLabel = "proponenteIniciativa" />
-				<f:selectItem itemValue = "usuarioConsulta" itemLabel = "usuarioConsulta" />
+				<f:selectItem itemValue = "proponenteIniciativa" itemLabel = "Proponente" />
+				<f:selectItem itemValue = "usuarioConsulta" itemLabel = "Usuario" />
 			</p:selectOneMenu><br/>
             <!--Por favor no cambiar el 'value':-->
             <p:commandButton value="Registrar" action="#{usuarioBean.insertarUsuario()}"></p:commandButton>

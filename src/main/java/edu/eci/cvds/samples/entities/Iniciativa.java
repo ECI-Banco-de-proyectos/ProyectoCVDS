@@ -1,8 +1,11 @@
 package edu.eci.cvds.samples.entities;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Iniciativa {
+public class Iniciativa implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	
 	public int id;
 	public String nombre;

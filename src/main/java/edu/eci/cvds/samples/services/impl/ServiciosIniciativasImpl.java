@@ -1,6 +1,7 @@
 package edu.eci.cvds.samples.services.impl;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ApplicationScoped;
@@ -58,5 +59,19 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 	@Override
 	public List<Iniciativa> consultarIniciativas() {
 		return IniciativasFactory.instancia().iniciativaImplementado().selectIniciativa();
+	}
+
+	@Override
+	public List<Iniciativa> consultarIniciativasPalabraClave(String word) {
+		List<Iniciativa> iniciativas = consultarIniciativas();
+		ArrayList<Iniciativa> temp = new ArrayList<Iniciativa>();
+		String minus = word.toLowerCase();
+		for(Iniciativa in: iniciativas) {
+			if(in.getNombre().toLowerCase().contains(minus)) {
+				temp.add(in);
+			}
+		}
+		return temp;
+
 	}
 }
