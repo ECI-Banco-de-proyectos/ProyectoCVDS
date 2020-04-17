@@ -20,22 +20,33 @@
         </p:menuitem>
 	</p:tabMenu>
 		
-	<p:outputLabel value="Clave" for="cla" /><br/>
-	<p:inputText id="cla" value="#{adminBean.clave}" /><br/>
+	<h:form id = "RecolectInfo">
+	<p:outputLabel value="Clave" for="clave" /><br/>
+	<p:inputText id="clave" value="#{comunBean.clave}"/>
+	<p:commandButton value="Buscar" update="formaLista:tablaIniciativas"/>
+	</h:form>
 
-	<p:dataTable var="user" value="#{adminBean.getClave()}">
+	<h:form id="formaLista">
+	<p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.consultarIniciativasPalabraClave()}">
 					<p:column headerText="Id">
-						<h:outputText value="#{user.id}"/>
+						<h:outputText value="#{iniciativa.id}"/>
 					</p:column>
-					<p:column headerText="Contraseña">
-						<h:outputText value="#{user.contraseña}"/>
+					<p:column headerText="Id del proponente">
+						<h:outputText value="#{iniciativa.proponente}"/>
 					</p:column>
 					<p:column headerText="Nombre">
-						<h:outputText value="#{user.nombre}"/>
+						<h:outputText value="#{iniciativa.nombre}"/>
 					</p:column>
-					<p:column headerText="Rol">
-						<h:outputText value="#{user.rol}"/>
+					<p:column headerText="Fecha">
+						<h:outputText value="#{iniciativa.fecha}"/>
+					</p:column>
+					<p:column headerText="Estado">
+						<h:outputText value="#{iniciativa.estado}"/>
+					</p:column>
+					<p:column headerText="Votos">
+						<h:outputText value="#{iniciativa.numeroVotos}"/>
 					</p:column>
 				</p:dataTable>
+	</h:form>
     </h:body>
 </html>
