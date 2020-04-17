@@ -18,7 +18,7 @@
 >- pw: 74afdfee69819ba81f37f0f3c0bbcf1d2142f6760609f62db15392a3f2303d17 
 
 # Informacion de la entrada a Taiga:
-[Iniciativa y proyectos en Taiga] (https://tree.taiga.io/project/germanaoq-plataforma-banco-de-iniciativas-de-proyectos/timeline)
+[Iniciativa y proyectos en Taiga](https://tree.taiga.io/project/germanaoq-plataforma-banco-de-iniciativas-de-proyectos/timeline)
 
 # Comandos MVN para poder compilar el proyecto:
 ```mvn tomcat7:run``` 
