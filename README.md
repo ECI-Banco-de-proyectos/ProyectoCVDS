@@ -6,8 +6,8 @@
 >- Juan Sebastian Nieto Molina 
 >- Brayan Steven Burgos Delgado
 
-# Definicion del proyecto:
-[Definicion del proyecto](https://drive.google.com/drive/folders/10hZSD71sN9X_NY_igQVOm1d_Vlej7BjT)
+# Definicion del proyecto y documentacion del proyecto:
+[Definicion del proyecto](https://drive.google.com/file/d/1CUC9XXWHU8wnbFzoWo5ZUM3y5VEtSGhp/view?usp=sharing)
 
 
 # Informacion de sobre la entrada a la base de datos
