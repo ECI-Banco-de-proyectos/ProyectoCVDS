@@ -1,0 +1,11 @@
+0:0:0:0:0:0:0:1 - - [18/Apr/2020:01:49:36 -0500] "GET /faces/Registro.xhtml HTTP/1.1" 404 991 http-bio-8081-exec-1 88
+0:0:0:0:0:0:0:1 - - [18/Apr/2020:01:49:41 -0500] "GET /Registro.xhtml HTTP/1.1" 200 1699 http-bio-8081-exec-3 4
+0:0:0:0:0:0:0:1 - - [18/Apr/2020:01:49:59 -0500] "GET //Registro.xhtml HTTP/1.1" 200 1699 http-bio-8081-exec-4 2
+0:0:0:0:0:0:0:1 - - [18/Apr/2020:01:53:20 -0500] "GET /faces/Registro.xhtml HTTP/1.1" 200 5353 http-bio-8081-exec-2 4298
+0:0:0:0:0:0:0:1 - - [18/Apr/2020:01:53:20 -0500] "GET /faces/javax.faces.resource/core.js?ln=primefaces&v=7.0 HTTP/1.1" 304 - http-bio-8081-exec-3 195
+0:0:0:0:0:0:0:1 - - [18/Apr/2020:01:53:20 -0500] "GET /faces/javax.faces.resource/theme.css?ln=primefaces-aristo HTTP/1.1" 304 - http-bio-8081-exec-6 59
+0:0:0:0:0:0:0:1 - - [18/Apr/2020:01:53:20 -0500] "GET /faces/javax.faces.resource/components.css?ln=primefaces&v=7.0 HTTP/1.1" 304 - http-bio-8081-exec-5 60
+0:0:0:0:0:0:0:1 - - [18/Apr/2020:01:53:20 -0500] "GET /faces/javax.faces.resource/components.js?ln=primefaces&v=7.0 HTTP/1.1" 304 - http-bio-8081-exec-1 196
+0:0:0:0:0:0:0:1 - - [18/Apr/2020:01:53:20 -0500] "GET /faces/javax.faces.resource/jquery/jquery-plugins.js?ln=primefaces&v=7.0 HTTP/1.1" 304 - http-bio-8081-exec-4 157
+0:0:0:0:0:0:0:1 - - [18/Apr/2020:01:53:20 -0500] "GET /faces/javax.faces.resource/jquery/jquery.js?ln=primefaces&v=7.0 HTTP/1.1" 304 - http-bio-8081-exec-7 5
+0:0:0:0:0:0:0:1 - - [18/Apr/2020:01:53:21 -0500] "GET /faces/javax.faces.resource/images/ui-icons_38667f_256x240.png?ln=primefaces-aristo HTTP/1.1" 304 - http-bio-8081-exec-7 5
