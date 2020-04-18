@@ -23,8 +23,8 @@ import edu.eci.cvds.servicios.ServiciosIniciativas;
 public class Main {
 
 	public static void main(String[] args) {
-		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
-		ser.actualizarIniciativa(EstadoIniciativa.Proyecto, 2);
+		//ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
+		//ser.actualizarIniciativa(EstadoIniciativa.Proyecto, 2);
 		
 		/*
 		InputStream inputStream;

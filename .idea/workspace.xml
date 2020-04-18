@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f19594f0-5ffc-4ef8-ac90-7ea1fcf10f35" name="Default Changelist" comment="">
+    <list default="true" id="d1be71b8-9dca-4f2a-bbd8-bddcbac9d5a9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/persistencia/mybatisimpl/mappers/IniciativaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/persistencia/mybatisimpl/mappers/IniciativaMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/managedbeans/AdministradorBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/managedbeans/AdministradorBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/managedbeans/UsuarioBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/managedbeans/UsuarioBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/persistencia/DAOIniciativa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/persistencia/DAOIniciativa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/persistencia/mybatisimpl/MyBatisDAOIniciativa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/persistencia/mybatisimpl/MyBatisDAOIniciativa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/persistencia/mybatisimpl/MyBatisDAOUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/persistencia/mybatisimpl/MyBatisDAOUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/services/impl/ServiciosIniciativasImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/services/impl/ServiciosIniciativasImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/servicios/IniciativasFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/servicios/IniciativasFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/servicios/ServiciosIniciativas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/servicios/ServiciosIniciativas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/IniciativaMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/IniciativaMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Administrador.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Administrador.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/implementacion/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/implementacion/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,10 +12,20 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1aYFrboYv36ifd6BVxanT97U6Ai" />
+  <component name="ProjectId" id="1agIQsl6QROh2RJT33bzeNqZml7" />
+  <component name="PropertiesComponent">
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -39,12 +39,12 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.eci.cvds.implementacion.Main" />
+    <configuration name="ServiciosAlquilerTest" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.eci.cvds.samples.entities.ServiciosAlquilerTest" />
       <module name="ProyectoCVDS" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.eci.cvds.implementacion.*" />
+          <option name="PATTERN" value="edu.eci.cvds.samples.entities.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -52,22 +52,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f19594f0-5ffc-4ef8-ac90-7ea1fcf10f35" name="Default Changelist" comment="" />
-      <created>1586904819907</created>
+      <changelist id="d1be71b8-9dca-4f2a-bbd8-bddcbac9d5a9" name="Default Changelist" comment="" />
+      <created>1587150796241</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1586904819907</updated>
+      <updated>1587150796241</updated>
     </task>
     <servers />
   </component>
