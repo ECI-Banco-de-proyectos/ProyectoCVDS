@@ -19,6 +19,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>Registro.xhtml</welcome-file>
+        <welcome-file>/faces/Registro.xhtml</welcome-file>
     </welcome-file-list>
 </web-app>
