@@ -32,7 +32,14 @@
 			<f:selectItem itemLabel="Select rol" itemValue="" />
 			<f:selectItems value="#{adminBean.roles}"/>
 		</p:selectOneMenu><br/>
-		<p:commandButton value="Aplicar Cambios" action="#{adminBean.actualizarPerfil()}"/>
+		<p:commandButton value="Aplicar Cambios" action="#{adminBean.actualizarPerfil()}" update="confirmacion">
+			<p:confirm header="Cambiar rol de un usuario" message="¿Está seguro?" icon="pi pi-exclamation-triangle" />
+		</p:commandButton>
+		<p:growl id="confirmacion" showDetail="true" />	
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+			<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+			<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+		</p:confirmDialog>
 		</h:form>
 	</h:body>
 
