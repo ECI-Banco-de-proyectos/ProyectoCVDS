@@ -28,4 +28,6 @@ public interface ServiciosIniciativas {
 	public List<Iniciativa> consultarIniciativas();
 	
 	public List<Iniciativa> consultarIniciativasPalabraClave(String word);
+
+	public List<Iniciativa> ordenandoIniciativas(String clave,String columnaSeleccionada);
 }

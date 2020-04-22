@@ -13,6 +13,17 @@
 	<p:outputLabel value="Clave" for="clave" /><br/>
 	<p:inputText id="clave" value="#{comunBean.clave}"/>
 	<p:commandButton value="Buscar" update="formaLista:tablaIniciativas"/>
+		<p:selectOneMenu value="#{usuarioBean.columna}" id="columna">
+			<f:selectItem itemValue = "id" itemLabel = "Id" />
+			<f:selectItem itemValue = "usuario" itemLabel = "Usuario" />
+			<f:selectItem itemValue = "nombreIniciativa" itemLabel = "Nombre de la Iniciativa" />
+			<f:selectItem itemValue = "estado" itemLabel = "Estado" />
+			<f:selectItem itemValue = "numerovotos" itemLabel = "numero de votos" />
+			<f:selectItem itemValue = "fechaInicio" itemLabel = "Fecha de inicio de la iniciativa" />
+			<f:selectItem itemValue = "descripcion" itemLabel = "Descripcion" />
+		</p:selectOneMenu><br/>
+		<p:commandButton value="ordenar" update="formaLista:tablaIniciativas"/>
+
 	</h:form>
 	
 	<h:form id="formaLista">
@@ -37,5 +48,6 @@
 					</p:column>
 				</p:dataTable>
 	</h:form>
+
     </h:body>
 </html>

@@ -15,4 +15,6 @@ public interface DAOIniciativa {
 	public DAOIniciativa claveIniciativa(String clave);
 
 	public List<Iniciativa> selectIniciativa();
+
+	public List<Iniciativa> ordenDeIniciativa(String clave,String columnaSeleccionada);
 }

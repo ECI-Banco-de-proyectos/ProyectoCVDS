@@ -74,4 +74,10 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 		return temp;
 
 	}
+
+	@Override
+	public List<Iniciativa> ordenandoIniciativas(String clave, String columnaSeleccionada) {
+
+		return consultarIniciativasPalabraClave(clave);
+	}
 }

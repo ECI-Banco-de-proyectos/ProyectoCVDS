@@ -37,4 +37,7 @@ public class MyBatisDAOIniciativa implements DAOIniciativa{
 		return iniciativaMapper.selectIniciativas();
 	}
 
+	@Override
+	public List<Iniciativa> ordenDeIniciativa(String clave, String columnaSeleccionada)  {return iniciativaMapper.ordenDeIniciativa(clave, columnaSeleccionada);}
+
 }
