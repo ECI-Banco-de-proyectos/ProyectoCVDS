@@ -33,7 +33,7 @@ public class UsuarioBean implements Serializable {
 	int id;
 	String contraseña;
 	String nombre;
-	TipoRol rol;
+	TipoRol rol = TipoRol.usuarioConsulta;
 	String mensajeErrorLogin = "";
 	List<Usuario> lista;
 	List<Iniciativa> lista2;
@@ -80,9 +80,16 @@ public class UsuarioBean implements Serializable {
 	}
 
 	public void insertarUsuario() {
+		addMessage("Insertar usuario", "Usuario Insertado");
 		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
 		ser.insertarUsuario(contraseña, nombre, rol);
 	}
+	
+	private void addMessage(String summary, String detail) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
+	
 	public String validar() {
 		
 		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
@@ -110,7 +117,7 @@ public class UsuarioBean implements Serializable {
 				dir = "Proponente.xhtml?faces-redirect=true";
 			}else if(rolV.equals(TipoRol.usuarioConsulta)) {
 				setMensajeErrorLogin(" ");
-				dir = "Datosl.xhtml?faces-redirect=true";
+				dir = "DatosIniciativa.xhtml?faces-redirect=true";
 			}
 		}
 		return dir;

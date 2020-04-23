@@ -11,19 +11,20 @@
 	<h:body>
         <center><h1>Registro de usuarios</h1></center>
         <center><h:form>
+			<p:growl id="confirmacion" showDetail="true" />
             <!--Por favor no cambiar el 'id':-->
 			<p:outputLabel value="Nombre" for="nombre" /><br/>
             <p:inputText id="nombre" value="#{usuarioBean.nombre}"></p:inputText><br/>
 			<p:outputLabel value="Contraseña" for="contraseña" /><br/>
 			<p:inputText id="contraseña" value="#{usuarioBean.contraseña}"></p:inputText><br/>
-			<p:outputLabel value="Seleccione un rol para su usuario" for="rol" /><br/>
-            <p:selectOneMenu value="#{usuarioBean.rol}" id="rol">
-				<f:selectItem itemValue = "PMO_ODI" itemLabel = "PMO_ODI" />
-				<f:selectItem itemValue = "proponenteIniciativa" itemLabel = "Proponente" />
-				<f:selectItem itemValue = "usuarioConsulta" itemLabel = "Usuario" />
-			</p:selectOneMenu><br/>
             <!--Por favor no cambiar el 'value':-->
-            <p:commandButton value="Registrar" action="#{usuarioBean.insertarUsuario()}"></p:commandButton>
+            <p:commandButton value="Registrar" action="#{usuarioBean.insertarUsuario()}" update="confirmacion">
+				<p:confirm header="Insertar Usuario" message="¿Está seguro?" icon="pi pi-exclamation-triangle" />
+			</p:commandButton>
+			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+				<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+				<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="fa fa-close" />
+			</p:confirmDialog>
         </h:form></center>
 		<center><h1>Si ya está registrado ingrese aquí</h1></center>
 		<center><p:commandButton value="Login" action="logearV2.xhtml?faces-redirect=true" ></p:commandButton></center>

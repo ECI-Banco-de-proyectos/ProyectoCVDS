@@ -20,7 +20,12 @@
 			</p:menuitem>
 		</p:tabMenu>
 		
-		<p:dataTable var="user" value="#{usuarioBean.getLista()}">
+		<h:form id="form">
+		<p:growl id="msgs" showDetail="true"/>
+		<p:dataTable id="usuarios" var="user" value="#{usuarioBean.getLista()}">
+					<f:facet name="header">
+						Usuarios
+					</f:facet>
 					<p:column headerText="Id">
 						<h:outputText value="#{user.id}"/>
 					</p:column>
@@ -33,7 +38,13 @@
 					<p:column headerText="Rol">
 						<h:outputText value="#{user.rol}"/>
 					</p:column>
-				</p:dataTable>
+					<p:column style="width:32px;text-align: center">
+						<p:commandButton icon="fa fa-search" title="View" action="Perfiles.xhtml?faces-redirect=true">
+							<f:setPropertyActionListener value="#{user}" target="#{adminBean.selectedUser}" />
+						</p:commandButton>
+					</p:column>
+		</p:dataTable>
+		</h:form>
 	
 	</h:body>
 

@@ -27,6 +27,7 @@
 	</h:form>
 
 	<h:form id="formaLista">
+	<p:growl id="msgs" showDetail="true"/>
 	<p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.consultarIniciativasPalabraClave()}">
 					<p:column headerText="Id">
 						<h:outputText value="#{iniciativa.id}"/>
@@ -45,6 +46,11 @@
 					</p:column>
 					<p:column headerText="Votos">
 						<h:outputText value="#{iniciativa.numeroVotos}"/>
+					</p:column>
+					<p:column style="width:32px;text-align: center">
+						<p:commandButton icon="fa fa-search" title="View" action="CambiarIniciativa.xhtml?faces-redirect=true">
+							<f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
+						</p:commandButton>
 					</p:column>
 				</p:dataTable>
 	</h:form>

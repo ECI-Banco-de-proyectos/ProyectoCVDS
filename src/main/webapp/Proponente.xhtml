@@ -11,6 +11,7 @@
 	<h:body>
         <center><h1>Insertar Iniciativa</h1></center>
         <center><h:form>
+			<p:growl id="confirmacion" showDetail="true" />	
             <!--Por favor no cambiar el 'id':-->
 			<p:outputLabel value="Nombre" for="nombre" /><br/>
             <p:inputText id="nombre" value="#{proBean.nombreIniciativa}"></p:inputText><br/>
@@ -23,7 +24,13 @@
 			</p:selectOneMenu><br/>
 			<p:outputLabel value="Descripcion" for="des" /><br/>
             <p:inputText id="des" value="#{proBean.descripcion}" /><br/>
-            <p:commandButton value="Insertar iniciativa" action="#{proBean.insertarIniciativa(usuarioBean.getNombre(),usuarioBean.getContraseña())}"></p:commandButton>
+            <p:commandButton value="Insertar iniciativa" action="#{proBean.insertarIniciativa(usuarioBean.getNombre(),usuarioBean.getContraseña())}" update="confirmacion">
+				<p:confirm header="Insertar iniciativa" message="¿Está seguro?" icon="pi pi-exclamation-triangle" />
+			</p:commandButton>
+			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+				<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+				<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="fa fa-close" />
+			</p:confirmDialog>
         </h:form></center>
     </h:body>
 </html>

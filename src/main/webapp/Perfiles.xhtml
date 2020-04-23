@@ -21,13 +21,15 @@
 		</p:tabMenu>
 		
 		<h:form>
-		<p:outputLabel for="@next" value="Seleccione ID: " /><br/>
-		<p:selectOneMenu id="Lista" value="#{adminBean.indice}" dynamic="true" style="width:125px" requerid="true">
+		<p:growl id="confirmacion" showDetail="true" />	
+		<p:outputLabel value="ID Seleccionado: " />
+		<!--<p:selectOneMenu id="Lista" value="#{adminBean.indice}" dynamic="true" style="width:125px" requerid="true">
 			<f:selectItem itemLabel="Select Id" itemValue="" />
 			<f:selectItems value="#{adminBean.list}"/>
 		</p:selectOneMenu><br/>
-		<p:message for="Lista" display="text" />
-		<p:outputLabel for="@next" value="Seleccione: rol" /><br/>
+		<p:message for="Lista" display="text" />-->
+		<p:inputText value="#{adminBean.indice}" readonly="true" /><br/>
+		<p:outputLabel for="@next" value="Seleccione rol: " />
 		<p:selectOneMenu id="Roles" value="#{adminBean.rol}" dynamic="true" style="width:300px">
 			<f:selectItem itemLabel="Select rol" itemValue="" />
 			<f:selectItems value="#{adminBean.roles}"/>
@@ -35,10 +37,9 @@
 		<p:commandButton value="Aplicar Cambios" action="#{adminBean.actualizarPerfil()}" update="confirmacion">
 			<p:confirm header="Cambiar rol de un usuario" message="¿Está seguro?" icon="pi pi-exclamation-triangle" />
 		</p:commandButton>
-		<p:growl id="confirmacion" showDetail="true" />	
 		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
 			<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
-			<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+			<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="fa fa-close" />
 		</p:confirmDialog>
 		</h:form>
 	</h:body>

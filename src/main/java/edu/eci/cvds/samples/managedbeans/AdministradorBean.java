@@ -5,16 +5,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+
+import org.primefaces.event.CellEditEvent;
 
 import edu.eci.cvds.samples.entities.EstadoIniciativa;
 import edu.eci.cvds.samples.entities.Iniciativa;
 import edu.eci.cvds.samples.entities.TipoRol;
+import edu.eci.cvds.samples.entities.Usuario;
 import edu.eci.cvds.servicios.IniciativasFactory;
 
 @ManagedBean(name="adminBean")
-@RequestScoped
+@ApplicationScoped
 public class AdministradorBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -24,12 +30,32 @@ public class AdministradorBean implements Serializable{
 	int indice;
 	TipoRol rol;
 	String clave;
+	Usuario selectedUser;
+	Iniciativa selectedIniciativa;
+	int idIniciativa;
+	
+	public int getIdIniciativa() {
+		return idIniciativa;
+	}
+
+	public void setSelectedIniciativa(Iniciativa selectedIniciativa) {
+		this.idIniciativa = selectedIniciativa.getId();
+	}
+	
+	public void cambiarIniciativa(){
+		addMessage("Cambiar estado", "Cambios realizados");
+		IniciativasFactory.instancia().serviciosIniciativas().actualizarIniciativa(estado,idIniciativa);
+	}
 
 	ArrayList<Integer> list;
 	ArrayList<Integer> lon;
 	ArrayList<TipoRol> roles;
 
 	int lis;
+	public void setEstado(EstadoIniciativa estado) {
+		this.estado = estado;
+	}
+
 	int longitud;
 	public int getLongitud(){
 		return longitud;
@@ -73,9 +99,9 @@ public class AdministradorBean implements Serializable{
 	}
 
 	public void actualizarPerfil() {
-		System.out.println(estado);
-		System.out.println(indice);
 		IniciativasFactory.instancia().serviciosIniciativas().actualizarPerfil(indice,rol);
+		addMessage("Actualizar Perfil", "Cambios realizados");
+		System.out.println(indice);
 	}
 
 
@@ -109,10 +135,22 @@ public class AdministradorBean implements Serializable{
 
 	public void setList(ArrayList list) {
 		this.list = list;
-	}
+	}	
 
 	public void setIndice(int indice) {
 		this.indice = indice;
 	}
+	
+	public void setSelectedUser(Usuario user) {
+		this.indice = user.getId();
+		System.out.print(indice);
+	}
+	
+	private void addMessage(String summary, String detail) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
+	
+	
 
 }

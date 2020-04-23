@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -14,7 +15,7 @@ import edu.eci.cvds.samples.entities.TipoRol;
 import edu.eci.cvds.servicios.IniciativasFactory;
 
 @ManagedBean(name="comunBean")
-@RequestScoped
+@ApplicationScoped
 
 public class ComunBean {
 	String clave;
@@ -23,7 +24,7 @@ public class ComunBean {
 	public void init() {
 		clave = "";
 	}
-	
+
 	public String getClave() {
 		return clave;
 	}

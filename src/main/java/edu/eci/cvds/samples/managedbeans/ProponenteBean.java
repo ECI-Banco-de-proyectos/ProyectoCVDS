@@ -7,10 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import edu.eci.cvds.samples.entities.EstadoIniciativa;
 import edu.eci.cvds.samples.entities.TipoRol;
@@ -45,6 +47,7 @@ public class ProponenteBean implements Serializable{
 		int ind = obtenerId(nombre, contraseña);
 		id = IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativas().size();
 		IniciativasFactory.instancia().serviciosIniciativas().insertarIniciativa(id+1, ind, nombreIniciativa, estado, 0, Date.valueOf(LocalDate.now()), descripcion);
+		addMessage("Insertar iniciativa", "Iniciativa insertada");
 	}
 
 	public int obtenerId(String nombre, String contr) {
@@ -59,12 +62,6 @@ public class ProponenteBean implements Serializable{
 		
 		
 		return res;
-	}
-	
-	public void cambiarIniciativa(){
-		System.out.println(estado);
-		System.out.println(id);
-		IniciativasFactory.instancia().serviciosIniciativas().actualizarIniciativa(estado,id);
 	}
 
 	public int getId() {
@@ -131,6 +128,11 @@ public class ProponenteBean implements Serializable{
 	public void setIdIniciativa(List<Integer> idIniciativa) {
 		this.idIniciativa = idIniciativa;
 	}
+	
+	private void addMessage(String summary, String detail) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
 	
 	
 }
