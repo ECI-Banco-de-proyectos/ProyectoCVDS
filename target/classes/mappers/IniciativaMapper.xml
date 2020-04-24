@@ -24,9 +24,15 @@
 	</update>
 
 	<select id="ordenDeIniciativa" resultMap='IniciativaResult'>
-		select * from iniciativa
-		where nombreiniciativa like '%#{clave}%'
-		order by #{columnaSeleccionada}
+		select
+			*
+		from
+			iniciativa i
+		order by
+			case when #{columnaSeleccionada}='id' then i.id end,
+			case when #{columnaSeleccionada}='id del proponente' then i.usuario end,
+			case when #{columnaSeleccionada}='nombre' then i.nombreiniciativa end,
+			case when #{columnaSeleccionada}='estado' then i.estado end;
 	</select>
 
 	<resultMap type="Iniciativa" id="IniciativaResult">

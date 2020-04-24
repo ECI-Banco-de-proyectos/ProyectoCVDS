@@ -12,18 +12,25 @@ import edu.eci.cvds.samples.entities.EstadoIniciativa;
 import edu.eci.cvds.samples.entities.Iniciativa;
 import edu.eci.cvds.samples.entities.TipoRol;
 import edu.eci.cvds.servicios.IniciativasFactory;
+import edu.eci.cvds.servicios.ServiciosIniciativas;
 
 @ManagedBean(name="comunBean")
 @RequestScoped
 
 public class ComunBean {
 	String clave;
+	String columna;
 
 	@PostConstruct
 	public void init() {
 		clave = "";
+		columna = "id";
 	}
-	
+
+	public String getColumna(){	return columna; }
+
+	public void setColumna(String columna){ this.columna=columna;}
+
 	public String getClave() {
 		return clave;
 	}
@@ -35,6 +42,9 @@ public class ComunBean {
 	public List<Iniciativa> consultarIniciativasPalabraClave(){
 		return IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativasPalabraClave(clave);
 	}
-	
+
+	public List<Iniciativa> ordenarBusqueda(){
+		return IniciativasFactory.instancia().serviciosIniciativas().ordenandoIniciativas(columna);
+	}
 	
 }

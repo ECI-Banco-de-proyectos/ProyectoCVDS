@@ -29,5 +29,5 @@ public interface ServiciosIniciativas {
 	
 	public List<Iniciativa> consultarIniciativasPalabraClave(String word);
 
-	public List<Iniciativa> ordenandoIniciativas(String clave,String columnaSeleccionada);
+	public List<Iniciativa> ordenandoIniciativas(String columnaSeleccionada);
 }

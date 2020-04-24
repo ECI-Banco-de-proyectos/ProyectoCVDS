@@ -37,7 +37,6 @@ public class UsuarioBean implements Serializable {
 	String mensajeErrorLogin = "";
 	List<Usuario> lista;
 	List<Iniciativa> lista2;
-	String columna;
 	
 	public String getMensajeErrorLogin() {
 		return mensajeErrorLogin;
@@ -84,6 +83,7 @@ public class UsuarioBean implements Serializable {
 		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
 		ser.insertarUsuario(contraseña, nombre, rol);
 	}
+
 	public String validar() {
 		
 		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
@@ -117,14 +117,5 @@ public class UsuarioBean implements Serializable {
 		return dir;
 
 	}
-	public void ordenarBusqueda(String clave, String columnaSeleccionada){
-		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
-		ser.ordenandoIniciativas(clave, columnaSeleccionada);
-
-
-
-	}
-	
-	
 
 }

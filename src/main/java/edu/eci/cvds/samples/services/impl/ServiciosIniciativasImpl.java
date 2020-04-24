@@ -76,8 +76,7 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 	}
 
 	@Override
-	public List<Iniciativa> ordenandoIniciativas(String clave, String columnaSeleccionada) {
-
-		return consultarIniciativasPalabraClave(clave);
+	public List<Iniciativa> ordenandoIniciativas(String columnaSeleccionada) {
+		return IniciativasFactory.instancia().iniciativaImplementado().ordenDeIniciativa(columnaSeleccionada);
 	}
 }

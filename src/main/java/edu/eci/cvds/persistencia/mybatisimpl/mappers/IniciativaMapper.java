@@ -18,5 +18,5 @@ public interface IniciativaMapper {
 
 	public List<Iniciativa> selectIniciativas();
 
-	public List<Iniciativa> ordenDeIniciativa (@Param("clave") String palabraDeBusqueda, @Param("columnaSeleccionada") String columna);
+	public List<Iniciativa> ordenDeIniciativa (@Param("columnaSeleccionada") String columna);
 }
