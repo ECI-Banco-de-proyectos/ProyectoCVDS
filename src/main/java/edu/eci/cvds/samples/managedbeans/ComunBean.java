@@ -27,14 +27,10 @@ public class ComunBean {
 		clave = "";
 		columna = "id";
 	}
-
-<<<<<<< HEAD
-=======
 	public String getColumna(){	return columna; }
 
 	public void setColumna(String columna){ this.columna=columna;}
 
->>>>>>> master
 	public String getClave() {
 		return clave;
 	}
