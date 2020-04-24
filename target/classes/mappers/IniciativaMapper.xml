@@ -24,15 +24,13 @@
 	</update>
 
 	<select id="ordenDeIniciativa" resultMap='IniciativaResult'>
-		select
-			*
-		from
-			iniciativa i
+		select * from iniciativa i
 		order by
 			case when #{columnaSeleccionada}='id' then i.id end,
 			case when #{columnaSeleccionada}='id del proponente' then i.usuario end,
 			case when #{columnaSeleccionada}='nombre' then i.nombreiniciativa end,
-			case when #{columnaSeleccionada}='estado' then i.estado end;
+			case when #{columnaSeleccionada}='estado' then i.estado end,
+			case when #{columnaSeleccionada}='fecha' then i.fechainicio end;
 	</select>
 
 	<resultMap type="Iniciativa" id="IniciativaResult">

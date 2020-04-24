@@ -2,32 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ad65768-808c-412a-8306-baf81cfa5164" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/PoryectoCVDS.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/implementacion/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/implementacion/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/persistencia/mybatisimpl/mappers/IniciativaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/persistencia/mybatisimpl/mappers/IniciativaMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/managedbeans/ComunBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/managedbeans/ComunBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/managedbeans/UsuarioBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/managedbeans/UsuarioBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/persistencia/DAOIniciativa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/persistencia/DAOIniciativa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/persistencia/mybatisimpl/MyBatisDAOIniciativa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/persistencia/mybatisimpl/MyBatisDAOIniciativa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/services/impl/ServiciosIniciativasImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/samples/services/impl/ServiciosIniciativasImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/servicios/ServiciosIniciativas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/cvds/servicios/ServiciosIniciativas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/IniciativaMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/IniciativaMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Datosl.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Datosl.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/eci/cvds/persistencia/mybatisimpl/mappers/IniciativaMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/eci/cvds/persistencia/mybatisimpl/mappers/IniciativaMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/eci/cvds/samples/managedbeans/UsuarioBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/eci/cvds/samples/managedbeans/UsuarioBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/eci/cvds/samples/persistencia/DAOIniciativa.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/eci/cvds/samples/persistencia/DAOIniciativa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/eci/cvds/samples/persistencia/mybatisimpl/MyBatisDAOIniciativa.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/eci/cvds/samples/persistencia/mybatisimpl/MyBatisDAOIniciativa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/eci/cvds/samples/services/impl/ServiciosIniciativasImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/eci/cvds/samples/services/impl/ServiciosIniciativasImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/eci/cvds/servicios/ServiciosIniciativas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/eci/cvds/servicios/ServiciosIniciativas.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mappers/IniciativaMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mappers/IniciativaMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

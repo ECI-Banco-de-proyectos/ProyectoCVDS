@@ -17,7 +17,10 @@
 	</h:form>
 
 	<h:form id="formaLista">
-		<p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.ordenarBusqueda()}">
+		<p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.ordenarBusqueda()}"
+					 paginator="true" rows="4"
+					 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+		>
 			<p:column headerText="Id">
 				<h:outputText value="#{iniciativa.id}"/>
 			</p:column>
