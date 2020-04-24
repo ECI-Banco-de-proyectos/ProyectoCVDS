@@ -16,4 +16,6 @@ public interface UsuarioMapper {
 	public void insertarUsuario(@Param("id") int id,@Param("cont") String contraseña,@Param("name") String nombre,@Param("rol") TipoRol tipoRol);
 	
 	public void updatePerfil(@Param("id") int id, @Param("rol") TipoRol rol);
+
+
 }

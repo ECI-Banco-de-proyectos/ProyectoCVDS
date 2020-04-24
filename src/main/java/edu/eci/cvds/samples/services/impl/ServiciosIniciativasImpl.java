@@ -74,4 +74,9 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 		return temp;
 
 	}
+
+	@Override
+	public List<Iniciativa> ordenandoIniciativas(String columnaSeleccionada) {
+		return IniciativasFactory.instancia().iniciativaImplementado().ordenDeIniciativa(columnaSeleccionada);
+	}
 }

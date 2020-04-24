@@ -84,12 +84,16 @@ public class UsuarioBean implements Serializable {
 		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
 		ser.insertarUsuario(contraseña, nombre, rol);
 	}
+<<<<<<< HEAD
 	
 	private void addMessage(String summary, String detail) {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
 	
+=======
+
+>>>>>>> master
 	public String validar() {
 		
 		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
@@ -123,7 +127,5 @@ public class UsuarioBean implements Serializable {
 		return dir;
 
 	}
-	
-	
 
 }
