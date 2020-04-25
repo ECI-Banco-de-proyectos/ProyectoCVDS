@@ -79,4 +79,16 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 	public List<Iniciativa> ordenandoIniciativas(String columnaSeleccionada) {
 		return IniciativasFactory.instancia().iniciativaImplementado().ordenDeIniciativa(columnaSeleccionada);
 	}
+
+	@Override
+	public void insertarReacciones(int idIni, String nombre, String comentario, Date fecha) {
+		IniciativasFactory.instancia().reaccionImplementado().insertReaccion(idIni,nombre,comentario,fecha);
+		
+	}
+
+	@Override
+	public void actualizarIniciativasVotos(int id, int voto) {
+		IniciativasFactory.instancia().reaccionImplementado().updateIniciativa(id, voto);
+		
+	}
 }

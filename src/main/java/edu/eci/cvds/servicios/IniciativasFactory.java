@@ -13,10 +13,13 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 
 import edu.eci.cvds.persistencia.mybatisimpl.mappers.IniciativaMapper;
+import edu.eci.cvds.persistencia.mybatisimpl.mappers.ReaccionMapper;
 import edu.eci.cvds.persistencia.mybatisimpl.mappers.UsuarioMapper;
 import edu.eci.cvds.samples.persistencia.DAOIniciativa;
+import edu.eci.cvds.samples.persistencia.DAOReaccion;
 import edu.eci.cvds.samples.persistencia.DAOUsuario;
 import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOIniciativa;
+import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOReaccion;
 import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOUsuario;
 import edu.eci.cvds.samples.services.impl.ServiciosIniciativasImpl;
 
@@ -44,6 +47,7 @@ public class IniciativasFactory extends AbstractModule{
 		bind(DAOUsuario.class).to(MyBatisDAOUsuario.class);
 		bind(ServiciosIniciativas.class).to(ServiciosIniciativasImpl.class);
 		bind(DAOIniciativa.class).to(MyBatisDAOIniciativa.class);
+		bind(DAOReaccion.class).to(MyBatisDAOReaccion.class);
 	}
 
 
@@ -55,6 +59,11 @@ public class IniciativasFactory extends AbstractModule{
 	public DAOIniciativa iniciativaImplementado() {
 		Injector injector = Guice.createInjector(new IniciativasFactory());
 		return injector.getInstance(DAOIniciativa.class);
+	}
+	
+	public DAOReaccion reaccionImplementado() {
+		Injector injector = Guice.createInjector(new IniciativasFactory());
+		return injector.getInstance(DAOReaccion.class);
 	}
 	
 	public ServiciosIniciativas serviciosIniciativas() {
@@ -70,6 +79,11 @@ public class IniciativasFactory extends AbstractModule{
 	public IniciativaMapper iniciativaPersistencia() {
 		cargarSesion();
 		return session.getMapper(IniciativaMapper.class);
+	}
+	
+	public ReaccionMapper reaccionPersistencia() {
+		cargarSesion();
+		return session.getMapper(ReaccionMapper.class);
 	}
 	
 	public static IniciativasFactory instancia() {

@@ -30,4 +30,9 @@ public interface ServiciosIniciativas {
 	public List<Iniciativa> consultarIniciativasPalabraClave(String word);
 
 	public List<Iniciativa> ordenandoIniciativas(String columnaSeleccionada);
+	
+	public void insertarReacciones (int idIni,String nombre, String comentario, Date fecha);
+	
+	public void actualizarIniciativasVotos (int id, int voto);
+	
 }

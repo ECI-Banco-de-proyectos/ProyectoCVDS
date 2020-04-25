@@ -33,6 +33,7 @@ public class AdministradorBean implements Serializable{
 	Usuario selectedUser;
 	Iniciativa selectedIniciativa;
 	int idIniciativa;
+	int votosIniciativa;
 	
 	public int getIdIniciativa() {
 		return idIniciativa;
@@ -40,6 +41,7 @@ public class AdministradorBean implements Serializable{
 
 	public void setSelectedIniciativa(Iniciativa selectedIniciativa) {
 		this.idIniciativa = selectedIniciativa.getId();
+		this.votosIniciativa = selectedIniciativa.getNumeroVotos();
 	}
 	
 	public void cambiarIniciativa(){
@@ -150,6 +152,16 @@ public class AdministradorBean implements Serializable{
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
+
+	public int getVotosIniciativa() {
+		return votosIniciativa;
+	}
+
+	public void setVotosIniciativa(int votosIniciativa) {
+		this.votosIniciativa = votosIniciativa;
+	}
+
+
 	
 	
 

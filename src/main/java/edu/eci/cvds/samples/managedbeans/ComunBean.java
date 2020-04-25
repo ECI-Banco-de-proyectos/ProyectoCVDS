@@ -47,4 +47,7 @@ public class ComunBean {
 		return IniciativasFactory.instancia().serviciosIniciativas().ordenandoIniciativas(columna);
 	}
 	
+	
+	
+	
 }

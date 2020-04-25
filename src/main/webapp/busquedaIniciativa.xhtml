@@ -52,6 +52,11 @@
 							<f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
 						</p:commandButton>
 					</p:column>
+					<p:column style="width:32px;text-align: center">
+						<p:commandButton icon="fa fa-comment" title="View" action="DatosReaccion.xhtml?faces-redirect=true">
+							<f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
+						</p:commandButton>
+					</p:column>
 				</p:dataTable>
 	</h:form>
     </h:body>
