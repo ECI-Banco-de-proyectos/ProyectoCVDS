@@ -17,7 +17,7 @@
 	<p:message for="Nombre" display="text" />
 	
 	<p:outputLabel value="Contraseña" for="Contraseña"/>
-	<p:inputText id="Contraseña" value="#{usuarioBean.contraseña}" required="true"></p:inputText>
+	<p:password id="Contraseña" value="#{usuarioBean.contraseña}" required="true"></p:password>
 	<p:message for="Contraseña" display="text" />
  	</h:panelGrid></center><br/>
 	<center><h:outputText value="#{usuarioBean.getMensajeErrorLogin()}" id="mensajeError" escape="false" style="color:red;font-size:20px;"></h:outputText></center><br/>
