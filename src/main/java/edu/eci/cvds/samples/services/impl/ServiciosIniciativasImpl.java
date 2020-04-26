@@ -91,4 +91,13 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 		IniciativasFactory.instancia().reaccionImplementado().updateIniciativa(id, voto);
 		
 	}
+
+	@Override
+	public Usuario consultarUsuarioPorId(int id) {
+		Usuario res = null;
+		for(Usuario u: consultarUsuarios()) {
+			if(u.getId()==id) res=u;
+		}
+		return res;
+	}
 }

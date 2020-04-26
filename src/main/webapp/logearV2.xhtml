@@ -7,19 +7,54 @@
       xmlns:p="http://primefaces.org/ui">
 	  <h:head>
         <title>Ingrese sus datos de usuario</title>
+		
+		<style>
+		html{
+				background: url("Fondo.jpg");
+				background-size: 120% auto;
+				background-repeat: no-repeat;
+			}
+		.table{
+				border-color:black;
+				border-style: solid;
+			}
+		header {
+				width: 1350px;
+				margin-top:0px;
+				position:sticky;
+				background-color:rgba(255,0,0,0.5);
+				bottom:1;
+				<!--z-index: 100;-->
+			}
+		.wrapper {
+				width: 95%;
+				margin: auto;
+				overflow:hidden;
+				float:right;
+			}
+		img{
+				height:60px;
+				width:60px;
+			}
+		</style>
     </h:head>
 	<h:body>
-	<center><h1>Ingreso de Usuarios</h1></center>
+	<header>
+			<img src="logoEscuela.jpg" />
+			<section class="wrapper">
+				<h1>Ingreso de Usuarios</h1>
+			</section>
+		</header>
+	<h1></h1>
 	<h:form>
-	<center><h:panelGrid id="grid" columns="3" cellpadding="3">
+	<center><p:panelGrid id="grid" columns="3" cellpadding="3" styleClass="table">
 	<p:outputLabel value="Nombre" for="Nombre"/>
 	<p:inputText id="Nombre" value="#{usuarioBean.nombre}" required="true"></p:inputText>
 	<p:message for="Nombre" display="text" />
-	
 	<p:outputLabel value="Contraseña" for="Contraseña"/>
 	<p:password id="Contraseña" value="#{usuarioBean.contraseña}" required="true"></p:password>
 	<p:message for="Contraseña" display="text" />
- 	</h:panelGrid></center><br/>
+ 	</p:panelGrid></center><br/>
 	<center><h:outputText value="#{usuarioBean.getMensajeErrorLogin()}" id="mensajeError" escape="false" style="color:red;font-size:20px;"></h:outputText></center><br/>
 	<center><p:commandButton value="Ingresar" action="#{usuarioBean.validar()}" update="grid">
 	</p:commandButton></center>

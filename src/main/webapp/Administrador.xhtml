@@ -7,22 +7,26 @@
       xmlns:p="http://primefaces.org/ui">
 	  <h:head>
         <title>#{usuarioBean.nombre}</title>
+		<style>
+		html{
+				background: url("Fondo.jpg");
+				background-size: 120% auto;
+				background-repeat: no-repeat;
+			}
+		</style>
     </h:head>
 	<h:body>
 		<p:tabMenu activeIndex="0">
-			<p:menuitem value="Datos" outcome="Administrador.xhtml" icon="ui-icon-document">
+			<p:menuitem value="Datos del usuario" outcome="Administrador.xhtml" icon="ui-icon-document">
 			</p:menuitem>
-			<p:menuitem value="Perfiles" outcome="Perfiles.xhtml" icon="ui-icon-script">
-			</p:menuitem>
-			<p:menuitem value="Cambiar Iniciativa" outcome="CambiarIniciativa.xhtml" icon="ui-icon-script">
-			</p:menuitem>
-			<p:menuitem value="Busqueda de Iniciativa" outcome="busquedaIniciativa.xhtml" icon="ui-icon-script">
+			<p:menuitem value="Busqueda de iniciativas" outcome="busquedaIniciativa.xhtml" icon="ui-icon-script">
 			</p:menuitem>
 		</p:tabMenu>
 		
 		<h:form id="form">
 		<p:growl id="msgs" showDetail="true"/>
-		<p:dataTable id="usuarios" var="user" value="#{usuarioBean.getLista()}">
+		<p:dataTable id="usuarios" var="user" value="#{usuarioBean.getLista()}"
+			paginator="true" rows="10" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}">
 					<f:facet name="header">
 						Usuarios
 					</f:facet>

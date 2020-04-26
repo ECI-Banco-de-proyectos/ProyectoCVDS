@@ -7,41 +7,49 @@
       xmlns:p="http://primefaces.org/ui">
 	  <h:head>
         <title>#{usuarioBean.nombre}</title>
+		<style>
+		html{
+				background: url("Fondo.jpg");
+				background-size: 120% auto;
+				background-repeat: no-repeat;
+			}
+		</style>
     </h:head>
 	<h:body>
 		<p:tabMenu activeIndex="0">
 			<p:menuitem value="Perfiles" outcome="Perfiles.xhtml" icon="ui-icon-script">
 			</p:menuitem>
-			<p:menuitem value="Datos" outcome="Administrador.xhtml" icon="ui-icon-document">
+			<p:menuitem value="Datos del Usuario" outcome="Administrador.xhtml" icon="ui-icon-document">
 			</p:menuitem>
-			<p:menuitem value="Cambiar Iniciativa" outcome="CambiarIniciativa.xhtml" icon="ui-icon-document">
-			</p:menuitem>
-			<p:menuitem value="Busqueda de Iniciativa" outcome="busquedaIniciativa.xhtml" icon="ui-icon-document">
+			<p:menuitem value="Busqueda de iniciativas" outcome="busquedaIniciativa.xhtml" icon="ui-icon-document">
 			</p:menuitem>
 		</p:tabMenu>
-		
-		<h:form>
-		<p:growl id="confirmacion" showDetail="true" />	
-		<p:outputLabel value="ID Seleccionado: " />
-		<!--<p:selectOneMenu id="Lista" value="#{adminBean.indice}" dynamic="true" style="width:125px" requerid="true">
-			<f:selectItem itemLabel="Select Id" itemValue="" />
-			<f:selectItems value="#{adminBean.list}"/>
-		</p:selectOneMenu><br/>
-		<p:message for="Lista" display="text" />-->
-		<p:inputText value="#{adminBean.indice}" readonly="true" /><br/>
-		<p:outputLabel for="@next" value="Seleccione rol: " />
+		<h1></h1>
+		<center><h:form>
+		<p:growl id="confirmacion" showDetail="true" />
+		<p:panelGrid columns="2">
+		<p:outputLabel value="ID del usuario seleccionado: " />
+		<p:inputText value="#{adminBean.indice}" readonly="true" />
+		<p:outputLabel value="Nombre del usuario seleccionado: " />
+		<p:inputText value="#{adminBean.nombreSelectedUser}" readonly="true" />
+		<p:outputLabel value="Rol del usuario seleccionado: " />
+		<p:inputText value="#{adminBean.rolSelectedUser}" readonly="true" />
+		<p:outputLabel for="@next" value="Seleccione nuevo rol: " />
 		<p:selectOneMenu id="Roles" value="#{adminBean.rol}" dynamic="true" style="width:300px">
 			<f:selectItem itemLabel="Select rol" itemValue="" />
 			<f:selectItems value="#{adminBean.roles}"/>
-		</p:selectOneMenu><br/>
+		</p:selectOneMenu>
+		</p:panelGrid>
+		<p:panelGrid columns="1">
 		<p:commandButton value="Aplicar Cambios" action="#{adminBean.actualizarPerfil()}" update="confirmacion">
 			<p:confirm header="Cambiar rol de un usuario" message="¿Está seguro?" icon="pi pi-exclamation-triangle" />
 		</p:commandButton>
+		</p:panelGrid>
 		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
 			<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
 			<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="fa fa-close" />
 		</p:confirmDialog>
-		</h:form>
+		</h:form></center>
 	</h:body>
 
 </html>	

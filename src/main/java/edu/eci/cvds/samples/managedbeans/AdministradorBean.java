@@ -32,6 +32,13 @@ public class AdministradorBean implements Serializable{
 	String clave;
 	Usuario selectedUser;
 	Iniciativa selectedIniciativa;
+	String nombreSelectedIniciativa;
+	String nombreUsuarioSelectedIniciativa;
+	EstadoIniciativa estadoSelectedIniciativa;
+	String nombreSelectedUser;
+
+	int usuarioProponente;
+	TipoRol rolSelectedUser;
 	int idIniciativa;
 	int votosIniciativa;
 	
@@ -42,6 +49,10 @@ public class AdministradorBean implements Serializable{
 	public void setSelectedIniciativa(Iniciativa selectedIniciativa) {
 		this.idIniciativa = selectedIniciativa.getId();
 		this.votosIniciativa = selectedIniciativa.getNumeroVotos();
+		this.nombreSelectedIniciativa = selectedIniciativa.getNombre();
+		this.estadoSelectedIniciativa = selectedIniciativa.getEstado();
+		this.usuarioProponente = selectedIniciativa.getProponente();
+		this.nombreUsuarioSelectedIniciativa = IniciativasFactory.instancia().serviciosIniciativas().consultarUsuarioPorId(this.usuarioProponente).getNombre();
 	}
 	
 	public void cambiarIniciativa(){
@@ -145,9 +156,20 @@ public class AdministradorBean implements Serializable{
 	
 	public void setSelectedUser(Usuario user) {
 		this.indice = user.getId();
-		System.out.print(indice);
+		this.nombreSelectedUser = user.getNombre();
+		this.rolSelectedUser= user.getRol();
 	}
 	
+	
+	public String getNombreSelectedUser() {
+		return nombreSelectedUser;
+	}
+
+
+	public TipoRol getRolSelectedUser() {
+		return rolSelectedUser;
+	}
+
 	private void addMessage(String summary, String detail) {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
         FacesContext.getCurrentInstance().addMessage(null, message);
@@ -159,6 +181,22 @@ public class AdministradorBean implements Serializable{
 
 	public void setVotosIniciativa(int votosIniciativa) {
 		this.votosIniciativa = votosIniciativa;
+	}
+	
+	public String getNombreSelectedIniciativa() {
+		return nombreSelectedIniciativa;
+	}
+
+	public String getNombreUsuarioSelectedIniciativa() {
+		return nombreUsuarioSelectedIniciativa;
+	}
+
+	public EstadoIniciativa getEstadoSelectedIniciativa() {
+		return estadoSelectedIniciativa;
+	}
+
+	public int getUsuarioProponente() {
+		return usuarioProponente;
 	}
 
 
