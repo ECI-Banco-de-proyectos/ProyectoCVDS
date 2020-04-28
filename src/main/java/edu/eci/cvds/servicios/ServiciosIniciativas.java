@@ -3,10 +3,7 @@ package edu.eci.cvds.servicios;
 import java.sql.Date;
 import java.util.List;
 
-import edu.eci.cvds.samples.entities.EstadoIniciativa;
-import edu.eci.cvds.samples.entities.Iniciativa;
-import edu.eci.cvds.samples.entities.TipoRol;
-import edu.eci.cvds.samples.entities.Usuario;
+import edu.eci.cvds.samples.entities.*;
 import edu.eci.cvds.samples.persistencia.DAOIniciativa;
 
 public interface ServiciosIniciativas {
@@ -36,5 +33,7 @@ public interface ServiciosIniciativas {
 	public void insertarReacciones (int idIni,String nombre, String comentario, Date fecha);
 	
 	public void actualizarIniciativasVotos (int id, int voto);
+
+	public List<AreaIniciativa> selectAreaIniciativa();
 	
 }

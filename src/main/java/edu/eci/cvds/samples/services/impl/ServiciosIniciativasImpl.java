@@ -6,10 +6,7 @@ import java.util.List;
 
 import javax.faces.bean.ApplicationScoped;
 
-import edu.eci.cvds.samples.entities.EstadoIniciativa;
-import edu.eci.cvds.samples.entities.Iniciativa;
-import edu.eci.cvds.samples.entities.TipoRol;
-import edu.eci.cvds.samples.entities.Usuario;
+import edu.eci.cvds.samples.entities.*;
 import edu.eci.cvds.samples.persistencia.DAOIniciativa;
 import edu.eci.cvds.servicios.IniciativasFactory;
 import edu.eci.cvds.servicios.ServiciosIniciativas;
@@ -90,6 +87,11 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 	public void actualizarIniciativasVotos(int id, int voto) {
 		IniciativasFactory.instancia().reaccionImplementado().updateIniciativa(id, voto);
 		
+	}
+
+	@Override
+	public List<AreaIniciativa> selectAreaIniciativa() {
+		return IniciativasFactory.instancia().areaIniciativaImplementado().selectAreaIniciativa();
 	}
 
 	@Override

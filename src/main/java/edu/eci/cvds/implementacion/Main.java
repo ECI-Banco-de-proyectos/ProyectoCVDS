@@ -7,16 +7,13 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
-import edu.eci.cvds.samples.entities.Iniciativa;
+import edu.eci.cvds.samples.entities.*;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import edu.eci.cvds.persistencia.mybatisimpl.mappers.UsuarioMapper;
-import edu.eci.cvds.samples.entities.EstadoIniciativa;
-import edu.eci.cvds.samples.entities.TipoRol;
-import edu.eci.cvds.samples.entities.Usuario;
 import edu.eci.cvds.samples.persistencia.DAOUsuario;
 import edu.eci.cvds.servicios.IniciativasFactory;
 import edu.eci.cvds.servicios.ServiciosIniciativas;
@@ -24,10 +21,23 @@ import edu.eci.cvds.servicios.ServiciosIniciativas;
 public class Main {
 
 	public static void main(String[] args) {
-		
+		/*
+		List<AreaIniciativa> ser = IniciativasFactory.instancia().areaIniciativaPersistencia().selectAreaIniciativa();
+		for(AreaIniciativa i:ser ){
+			System.out.println(i.getAreaConocimiento());
+			if(i.getAreaConocimiento().equals(TipoArea.Matematicas)){
+				System.out.println(":C");
+			}
+		}
+
+		List<AreaIniciativa> ser = IniciativasFactory.instancia().areaIniciativaPersistencia().selectAreaIniciativa();
+		for(AreaIniciativa i:ser ){
+			System.out.println(i.getAreaConocimiento());
+		}
+
 		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
 		ser.insertarReacciones(1, "german", "Me gusta",Date.valueOf(LocalDate.now()));
-		/*
+
 		List<Iniciativa> l= ser.ordenandoIniciativas("estado");
 		for(Iniciativa i:l ){
 			System.out.println(i.getEstado());

@@ -70,6 +70,7 @@ public class Iniciativa implements Serializable{
 	public void setPalabrasClave(String palabrasClave) {
 		this.palabrasClave = palabrasClave;
 	}
+
 	public Iniciativa(int id, String nombre, String descripcion, Date fecha, int proponente, String palabrasClave,
 			EstadoIniciativa estado, int numeroVotos) {
 		this.id = id;

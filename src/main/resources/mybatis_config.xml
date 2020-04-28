@@ -8,6 +8,7 @@
 		<typeAlias type="edu.eci.cvds.samples.entities.Usuario" alias="Usuario" />
 		<typeAlias type="edu.eci.cvds.samples.entities.Iniciativa" alias="Iniciativa" />
 		<typeAlias type="edu.eci.cvds.samples.entities.Reaccion" alias="Reaccion" />
+		<typeAlias type="edu.eci.cvds.samples.entities.AreaIniciativa" alias="AreaIniciativa" />
 	</typeAliases>
 
 	<environments default="development">
@@ -27,6 +28,7 @@
 		<mapper resource="mappers/UsuarioMapper.xml"></mapper>
 		<mapper resource="mappers/IniciativaMapper.xml"></mapper>
 		<mapper resource="mappers/ReaccionMapper.xml"></mapper>
+		<mapper resource="mappers/AreaIniciativaMapper.xml"></mapper>
 	</mappers>
 
 

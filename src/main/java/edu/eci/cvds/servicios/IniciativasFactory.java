@@ -3,6 +3,9 @@ package edu.eci.cvds.servicios;
 import java.io.IOException;
 import java.io.InputStream;
 
+import edu.eci.cvds.persistencia.mybatisimpl.mappers.AreaIniciativaMapper;
+import edu.eci.cvds.samples.persistencia.DAOAreaIniciativa;
+import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOAreaIniciativa;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -48,6 +51,7 @@ public class IniciativasFactory extends AbstractModule{
 		bind(ServiciosIniciativas.class).to(ServiciosIniciativasImpl.class);
 		bind(DAOIniciativa.class).to(MyBatisDAOIniciativa.class);
 		bind(DAOReaccion.class).to(MyBatisDAOReaccion.class);
+		bind(DAOAreaIniciativa.class).to(MyBatisDAOAreaIniciativa.class);
 	}
 
 
@@ -64,6 +68,11 @@ public class IniciativasFactory extends AbstractModule{
 	public DAOReaccion reaccionImplementado() {
 		Injector injector = Guice.createInjector(new IniciativasFactory());
 		return injector.getInstance(DAOReaccion.class);
+	}
+
+	public DAOAreaIniciativa areaIniciativaImplementado() {
+		Injector injector = Guice.createInjector(new IniciativasFactory());
+		return injector.getInstance(DAOAreaIniciativa.class);
 	}
 	
 	public ServiciosIniciativas serviciosIniciativas() {
@@ -85,6 +94,13 @@ public class IniciativasFactory extends AbstractModule{
 		cargarSesion();
 		return session.getMapper(ReaccionMapper.class);
 	}
+
+	public AreaIniciativaMapper areaIniciativaPersistencia() {
+		cargarSesion();
+		return session.getMapper(AreaIniciativaMapper.class);
+	}
+
+
 	
 	public static IniciativasFactory instancia() {
 		return iniciativaFactory;

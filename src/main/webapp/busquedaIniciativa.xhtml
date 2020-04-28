@@ -22,12 +22,20 @@
         <p:menuitem value="Datos del usuario" outcome="Administrador.xhtml" icon="ui-icon-script">
         </p:menuitem>
 	</p:tabMenu>
-		
+
+	<p:chart type="bar" model="#{chartView.barModel}" style="height:300px"/>
+
 	<h:form id = "RecolectInfo">
 	<p:outputLabel value="Clave" for="clave" /><br/>
 	<p:inputText id="clave" value="#{comunBean.clave}"/>
 	<p:commandButton value="Buscar" update="formaLista:tablaIniciativas"/>
 	</h:form>
+
+	<h3>Export Page Data Only</h3>
+	<h:commandLink>
+		<p:graphicImage name="Fondo.jpg" />
+		<p:dataExporter type="pdf" target="tablaIniciativas" fileName="iniciativas" pageOnly="true" />
+	</h:commandLink>
 
 	<h:form id="formaLista">
 	<p:growl id="msgs" showDetail="true"/>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.eci.cvds.persistencia.mybatisimpl.mappers.AreaIniciativaMapper">
+
+
+    <insert id="insertAreaIniciativa" >
+        insert into areaIniciativa values(#{id},#{areaIni})
+    </insert>
+
+    <select id="selectAreaIniciativa" resultMap='AreaIniciativaResult'>
+        select * from areaIniciativa
+    </select>
+
+    <resultMap type="AreaIniciativa" id="AreaIniciativaResult">
+        <id column="idIniciativa" property="idIniciativa"/>
+        <result column="areaConocimiento" property="areaConocimiento"/>
+    </resultMap>
+
+</mapper>

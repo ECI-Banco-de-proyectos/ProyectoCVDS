@@ -20,7 +20,6 @@ public class MyBatisDAOReaccion implements DAOReaccion{
 	public void updateIniciativa(int idIni, int votoIni) {
 		reaccionMapper.updateIniciativa(idIni,votoIni);
 		IniciativasFactory.instancia().session.commit();
-		
 	}
 	
 }

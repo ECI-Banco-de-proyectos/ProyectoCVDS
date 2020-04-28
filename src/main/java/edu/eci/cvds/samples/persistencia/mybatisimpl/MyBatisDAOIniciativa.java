@@ -14,8 +14,7 @@ public class MyBatisDAOIniciativa implements DAOIniciativa{
 	IniciativaMapper iniciativaMapper = IniciativasFactory.instancia().iniciativaPersistencia();
 
 	@Override
-	public void insertIniciativa(int id, int usuario, String nombre, EstadoIniciativa estado, int votos, Date fecha,
-			String descripcion) {
+	public void insertIniciativa(int id, int usuario, String nombre, EstadoIniciativa estado, int votos, Date fecha, String descripcion) {
 		iniciativaMapper.insertIniciativa(id, usuario, nombre, estado, votos, fecha, descripcion);
 		IniciativasFactory.instancia().session.commit();
 	}
