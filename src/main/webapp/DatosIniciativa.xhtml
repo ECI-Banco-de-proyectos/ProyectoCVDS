@@ -10,6 +10,12 @@
 </h:head>
 <h:body>
 
+	<h:form>
+			<p:tabMenu activeIndex="0">
+				<p:menuitem value="Salir" action="#{usuarioBean.desconectarUsuario()}" icon="ui-icon-close" style="position: absolute; left: 825px;"></p:menuitem>
+			</p:tabMenu>
+	</h:form>
+
 	<h:form id = "RecolectInfo">
 		<p:outputLabel value="Columna" for="columna" /><br/>
 		<p:inputText id="columna" value="#{comunBean.columna}"/>

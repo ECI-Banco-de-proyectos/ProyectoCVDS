@@ -9,6 +9,7 @@
 		<typeAlias type="edu.eci.cvds.samples.entities.Iniciativa" alias="Iniciativa" />
 		<typeAlias type="edu.eci.cvds.samples.entities.Reaccion" alias="Reaccion" />
 		<typeAlias type="edu.eci.cvds.samples.entities.AreaIniciativa" alias="AreaIniciativa" />
+
 	</typeAliases>
 
 	<environments default="development">
