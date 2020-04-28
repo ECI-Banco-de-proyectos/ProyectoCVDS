@@ -29,17 +29,19 @@
 	<p:outputLabel value="Clave" for="clave" /><br/>
 	<p:inputText id="clave" value="#{comunBean.clave}"/>
 	<p:commandButton value="Buscar" update="formaLista:tablaIniciativas"/>
+	<br></br>
+	<p:commandButton value="Exportar como PDF" ajax="false" >
+		<p:dataExporter type="pdf" target="formaLista:tablaIniciativas" fileName="DatosIniciativas"/>
+	</p:commandButton>
 	</h:form>
 
-	<h3>Export Page Data Only</h3>
-	<h:commandLink>
-		<p:graphicImage name="Fondo.jpg" />
-		<p:dataExporter type="pdf" target="tablaIniciativas" fileName="iniciativas" pageOnly="true" />
-	</h:commandLink>
 
 	<h:form id="formaLista">
 	<p:growl id="msgs" showDetail="true"/>
-	<p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.consultarIniciativasPalabraClave()}">
+	<p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.consultarIniciativasPalabraClave()}"
+				 paginator="true" rows="8"
+				 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+	>
 					<p:column headerText="Id">
 						<h:outputText value="#{iniciativa.id}"/>
 					</p:column>
@@ -58,16 +60,19 @@
 					<p:column headerText="Votos">
 						<h:outputText value="#{iniciativa.numeroVotos}"/>
 					</p:column>
+
 					<p:column style="width:32px;text-align: center">
 						<p:commandButton icon="fa fa-pencil" title="View" action="CambiarIniciativa.xhtml?faces-redirect=true">
 							<f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
 						</p:commandButton>
 					</p:column>
+
 					<p:column style="width:32px;text-align: center">
 						<p:commandButton icon="fa fa-comment" title="View" action="DatosReaccion.xhtml?faces-redirect=true">
 							<f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
 						</p:commandButton>
 					</p:column>
+
 				</p:dataTable>
 	</h:form>
     </h:body>
