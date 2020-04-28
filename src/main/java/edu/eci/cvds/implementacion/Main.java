@@ -7,6 +7,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
+import edu.eci.cvds.samples.entities.Iniciativa;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -23,9 +24,15 @@ import edu.eci.cvds.servicios.ServiciosIniciativas;
 public class Main {
 
 	public static void main(String[] args) {
-		//ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
-		//ser.actualizarIniciativa(EstadoIniciativa.Proyecto, 2);
 		
+		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
+		ser.insertarReacciones(1, "german", "Me gusta",Date.valueOf(LocalDate.now()));
+		/*
+		List<Iniciativa> l= ser.ordenandoIniciativas("estado");
+		for(Iniciativa i:l ){
+			System.out.println(i.getEstado());
+		}
+		*/
 		/*
 		InputStream inputStream;
 		try {

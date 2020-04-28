@@ -15,6 +15,8 @@ public interface ServiciosIniciativas {
 
 	public List<Usuario> consultarUsuariosPorContraseña(String contraseña);
 	
+	public Usuario consultarUsuarioPorId(int id); 
+	
 	public List<Usuario> consultarUsuarios();
 	
 	public void insertarUsuario(String contraseña, String nombre, TipoRol rol);
@@ -28,4 +30,11 @@ public interface ServiciosIniciativas {
 	public List<Iniciativa> consultarIniciativas();
 	
 	public List<Iniciativa> consultarIniciativasPalabraClave(String word);
+
+	public List<Iniciativa> ordenandoIniciativas(String columnaSeleccionada);
+	
+	public void insertarReacciones (int idIni,String nombre, String comentario, Date fecha);
+	
+	public void actualizarIniciativasVotos (int id, int voto);
+	
 }

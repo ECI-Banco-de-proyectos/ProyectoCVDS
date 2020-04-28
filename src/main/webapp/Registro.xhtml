@@ -9,7 +9,7 @@
         <title>Registro de usuarios</title>
 		<style>
 			h1{
-				color:Black;
+				color:White;
 				font-family:Arial;
 			}
 			.botones{
@@ -22,7 +22,7 @@
 				color:red
 			}
 			.table{
-				border-color:red;
+				border-color:black;
 				border-style: solid;
 			}
 			html{
@@ -31,11 +31,44 @@
 				background-repeat: no-repeat;
 			}
 			
+			header {
+				width: 1350px;
+				margin-top:0px;
+				position:sticky;
+				background-color:rgba(255,0,0,0.5);
+				bottom:1;
+				<!--z-index: 100;-->
+			}
+			.wrapper {
+				width: 95%;
+				margin: auto;
+				overflow:hidden;
+				float:right;
+			}
+			li{
+				float:left;
+				margin-top:60px;
+			}
+			img{
+				height:60px;
+				width:60px;
+			}
+			.foot{
+				background-color:rgba(0,0,0,0.5);
+				position:absolute;
+				bottom : 0;
+			}
 		</style>
     </h:head>
 	<h:body id="principal">
-        <center><h1>Registro de usuarios</h1></center>
+		<header>
+			<img src="logoEscuela.jpg" />
+			<section class="wrapper">
+				<h1>Registro de Usuarios</h1>
+			</section>
+		</header>
         <center><h:form>
+		<h1></h1>
 			<p:growl id="confirmacion" showDetail="true" />
 			<p:panelGrid columns="2" styleClass="table">
 			<f:facet name = "header">
@@ -54,8 +87,10 @@
 			</p:confirmDialog>
 			</p:panelGrid>
         </h:form></center>
-		<center><h1>Si ya está registrado ingrese aquí</h1></center>
-		<center><p:commandButton value="Login" action="logearV2.xhtml?faces-redirect=true" styleClass="botones"></p:commandButton></center>
+		<footer class="foot">
+				<h1 style="float:left">Si ya está registrado ingrese aquí</h1>
+				<p:commandButton value="Login" action="logearV2.xhtml?faces-redirect=true" styleClass="botones" style="margin-top:20px; margin-left:20px"></p:commandButton>
+		</footer>
     </h:body>
 </html>
 

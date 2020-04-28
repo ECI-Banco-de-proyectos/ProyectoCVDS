@@ -26,17 +26,31 @@ import edu.eci.cvds.servicios.ServiciosIniciativas;
 import org.apache.shiro.config.Ini;
 
 @ManagedBean
-@SessionScoped
+@ApplicationScoped
 public class UsuarioBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	int id;
 	String contraseña;
 	String nombre;
+	boolean isUsuario = false;
 	TipoRol rol = TipoRol.usuarioConsulta;
 	String mensajeErrorLogin = "";
 	List<Usuario> lista;
 	List<Iniciativa> lista2;
+	
+	public boolean getIsUsuario() {
+		return isUsuario;
+	}
+	
+	public void conectarUsuario() {
+		this.isUsuario=true;
+	}
+	
+	public String desconectarUsuario() {
+		this.isUsuario=false;
+		return "logearV2.xhtml?faces-redirect=true";
+	}
 	
 	public String getMensajeErrorLogin() {
 		return mensajeErrorLogin;
@@ -89,7 +103,7 @@ public class UsuarioBean implements Serializable {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
-	
+
 	public String validar() {
 		
 		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
@@ -109,6 +123,7 @@ public class UsuarioBean implements Serializable {
 			dir = "inexistente";
 			
 		}else {
+			conectarUsuario();
 			if(rolV.equals(TipoRol.Administrador)) {
 				setMensajeErrorLogin(" ");
 				dir = "Administrador.xhtml?faces-redirect=true";
@@ -124,6 +139,30 @@ public class UsuarioBean implements Serializable {
 
 	}
 	
-	
+	private TipoRol rolUsuario(String nombre, String contraseña) {
+		List<Usuario> usuarios = IniciativasFactory.instancia().serviciosIniciativas().consultarUsuarios();
+		TipoRol res = null;
+		for(Usuario u: usuarios) {
+			if(u.getNombre().equals(nombre) && u.getContraseña().equals(contraseña)) {
+				res = u.getRol();
+			}
+		}
+		return res;
+	}
+	public String usuarioLogin() {
+		String res = "url=logearV2.xhtml";
+		if(getIsUsuario()) {
+			TipoRol rol = rolUsuario(this.nombre, this.contraseña);
+			if(rol.equals(TipoRol.Administrador)) {
+				res = "0;url=Administrador.xhtml";
+			}else if(rol.equals(TipoRol.proponenteIniciativa)) {
+				res = "0;url=Proponente.xhtml";
+			}else if(rol.equals(TipoRol.usuarioConsulta)){
+				res = "0;url=DatosIniciativa.xhtml";
+			}
+		}
+		return res;
+	}
+
 
 }

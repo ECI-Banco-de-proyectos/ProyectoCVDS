@@ -7,35 +7,44 @@
       xmlns:p="http://primefaces.org/ui">
 	  <h:head>
         <title>Iniciativas</title>
+		<style>
+		html{
+				background: url("Fondo.jpg");
+				background-size: 120% auto;
+				background-repeat: no-repeat;
+			}
+		</style>
     </h:head>
       <h:body>
           <p:tabMenu activeIndex="0">
 			  <p:menuitem value="Cambiar Iniciativa" outcome="CambiarIniciativa.xhtml" icon="ui-icon-script">
               </p:menuitem>
-              <p:menuitem value="Datos" outcome="Administrador.xhtml" icon="ui-icon-script">
+              <p:menuitem value="Datos del usuario" outcome="Administrador.xhtml" icon="ui-icon-script">
               </p:menuitem>
-			  <p:menuitem value="Perfiles" outcome="Perfiles.xhtml" icon="ui-icon-script">
-              </p:menuitem>
-			  <p:menuitem value="Busqueda de Iniciativa" outcome="busquedaIniciativa.xhtml" icon="ui-icon-script">
+			  <p:menuitem value="Busqueda de iniciativas" outcome="busquedaIniciativa.xhtml" icon="ui-icon-script">
               </p:menuitem>
           </p:tabMenu>
-
-          <h:form>
+		  <h1></h1>
+          <center><h:form>
 			  <p:growl id="confirmacion" showDetail="true" />
-              <p:outputLabel for="@next" value="Seleccione ID: " /><br/>
-              <!--<p:selectOneMenu id="Lista" value="#{proBean.id}" dynamic="true" style="width:125px" requerid="true">
-                  <f:selectItem itemLabel="Select Id" itemValue="" />
-                  <f:selectItems value="#{proBean.idIniciativa}"/>
-              </p:selectOneMenu><br/>-->
-			  <p:inputText value="#{adminBean.idIniciativa}" readonly="true"/> 
-              <!--<p:message for="Lista" display="text" />-->
-              <p:outputLabel value="Seleccione estado" for="estado" /><br/>
+			  <p:panelGrid columns="2">
+              <p:outputLabel for="@next" value="Seleccione ID: " />
+			  <p:inputText value="#{adminBean.idIniciativa}" readonly="true"/>
+			  <p:outputLabel for="@next" value="Nombre de la iniciativa seleccionada " />
+			  <p:inputText value="#{adminBean.nombreSelectedIniciativa}" readonly="true"/> 
+			  <p:outputLabel for="@next" value="Nombre del proponente " />
+			  <p:inputText value="#{adminBean.nombreUsuarioSelectedIniciativa}" readonly="true"/>
+			  <p:outputLabel for="@next" value="Estado de la iniciativa seleccionada " />
+			  <p:inputText value="#{adminBean.estadoSelectedIniciativa}" readonly="true"/>				  
+              <p:outputLabel value="Seleccione estado" for="estado" />
               <p:selectOneMenu value="#{adminBean.estado}" id="estado">
                   <f:selectItem itemValue = "En_Espera_De_Revision" itemLabel = "En espera de revision" />
                   <f:selectItem itemValue = "En_Revision" itemLabel = "En revision" />
                   <f:selectItem itemValue = "Proyecto" itemLabel = "Proyecto" />
                   <f:selectItem itemValue = "Solucionado" itemLabel = "Solucionado" />
-              </p:selectOneMenu><br/>
+              </p:selectOneMenu>
+			  </p:panelGrid>
+			  <h1></h1>
               <p:commandButton value="Aplicar Cambios" action="#{adminBean.cambiarIniciativa()}" update="confirmacion">
 				<p:confirm header="Cambiar estado de iniciativa" message="¿Está seguro?" icon="pi pi-exclamation-triangle" />
 			  </p:commandButton>
@@ -43,6 +52,6 @@
 				<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
 				<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="fa fa-close" />
 			  </p:confirmDialog>
-          </h:form>
+          </h:form></center>
       </h:body>
 </html>

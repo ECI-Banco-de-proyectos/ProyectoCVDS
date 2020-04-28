@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="edu.eci.cvds.persistencia.mybatisimpl.mappers.ReaccionMapper">
+
+
+	<insert id="insertReaccion" >
+		insert into reaccion values((select id from iniciativa where id = #{id_iniciativa}),#{nombre},#{comentario},#{fecha})
+	</insert>
+	
+	<update id = "updateIniciativa">
+		update iniciativa set numerovotos = #{voto}
+		where id =  #{id_iniciativa}
+	</update>
+	
+
+	<resultMap type="Reaccion" id="ReaccionResult">
+		<result column="id_iniciativa" property="id_iniciativa"/>	
+		<result column="nombre" property="nombre_usuario"/>
+		<result column="comentario" property="comentario"/>
+		<result column="fecha" property="fecha"/>		
+	</resultMap>
+
+</mapper>

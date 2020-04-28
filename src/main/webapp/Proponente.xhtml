@@ -9,6 +9,11 @@
         <title>Iniciativas</title>
     </h:head>
 	<h:body>
+		<h:form>
+			<p:tabMenu activeIndex="0">
+				<p:menuitem value="Salir" action="#{usuarioBean.desconectarUsuario()}" icon="ui-icon-close" style="position: absolute; left: 825px;"></p:menuitem>
+			</p:tabMenu>
+		</h:form>
         <center><h1>Insertar Iniciativa</h1></center>
         <center><h:form>
 			<p:growl id="confirmacion" showDetail="true" />	
