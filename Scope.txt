@@ -8,3 +8,4 @@ Custom (@CustomScoped): Un ámbito al fin y al cabo no es más que un mapa que e
 Conversación (@ConversationScoped) - provee de persistencia de datos hasta que se llega a un objetivo específico, sin necesidad de mantenerlo durante toda la sesión. Está ligado a una ventana o pestaña concreta del navegador. Así, una sesión puede mantener varias conversaciones en distintas páginas. Es una característica propia de CDI, no de JSF.
 Commit H2 completado
 Commit H4 completado
+Commit H2 Prononete Adicion
