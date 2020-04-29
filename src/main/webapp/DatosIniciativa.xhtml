@@ -7,18 +7,24 @@
 	  xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>Datos de Iniciativa</title>
+	<style>
+		html{
+				background: url("Fondo.jpg");
+				background-size: 120% auto;
+				background-repeat: no-repeat;
+			}
+	</style>
 </h:head>
 <h:body>
 
 	<h:form id = "RecolectInfo">
-		<p:outputLabel value="Columna" for="columna" /><br/>
 		<p:inputText id="columna" value="#{comunBean.columna}"/>
 		<p:commandButton value="Ordenar" update="formaLista:tablaIniciativas"/>
 	</h:form>
 
 	<h:form id="formaLista">
 		<p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.ordenarBusqueda()}"
-					 paginator="true" rows="4"
+					 paginator="true" rows="8"
 					 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
 		>
 			<p:column headerText="Id">

@@ -15,6 +15,7 @@
 			}
 		</style>
     </h:head>
+
 	<h:body>
 		<p:tabMenu activeIndex="0">
 			<p:menuitem value="Datos del usuario" outcome="Administrador.xhtml" icon="ui-icon-document">
@@ -22,7 +23,7 @@
 			<p:menuitem value="Busqueda de iniciativas" outcome="busquedaIniciativa.xhtml" icon="ui-icon-script">
 			</p:menuitem>
 		</p:tabMenu>
-		
+
 		<h:form id="form">
 		<p:growl id="msgs" showDetail="true"/>
 		<p:dataTable id="usuarios" var="user" value="#{usuarioBean.getLista()}"

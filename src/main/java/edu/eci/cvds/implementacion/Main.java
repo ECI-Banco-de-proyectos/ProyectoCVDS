@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.Reader;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.eci.cvds.samples.entities.*;
@@ -20,13 +21,39 @@ import edu.eci.cvds.servicios.ServiciosIniciativas;
 
 public class Main {
 
+
 	public static void main(String[] args) {
 		/*
+
+		public TipoArea areaConocimiento;
+
+	public static boolean buscar(int ini){
+		List<AreaIniciativa> ser = IniciativasFactory.instancia().areaIniciativaPersistencia().selectAreaIniciativa();
+		for(AreaIniciativa i: ser){
+			if(i.getIdIniciativa()==ini && i.getAreaConocimiento().equals(TipoArea.Sistemas)){
+				return true;
+			}
+		}
+		return false;
+	}
+		ArrayList<TipoArea> areas;
+		List<Iniciativa> lista;
+
+		lista = IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativas();
+
+		for(Iniciativa ini:lista){
+			int temp=ini.getId();
+			if(buscar(temp)){
+				System.out.println(ini.getNombre());
+			}
+		}
+
+
 		List<AreaIniciativa> ser = IniciativasFactory.instancia().areaIniciativaPersistencia().selectAreaIniciativa();
 		for(AreaIniciativa i:ser ){
 			System.out.println(i.getAreaConocimiento());
 			if(i.getAreaConocimiento().equals(TipoArea.Matematicas)){
-				System.out.println(":C");
+				System.out.println(":)");
 			}
 		}
 
@@ -42,8 +69,7 @@ public class Main {
 		for(Iniciativa i:l ){
 			System.out.println(i.getEstado());
 		}
-		*/
-		/*
+
 		InputStream inputStream;
 		try {
 			//Se modifico el build del pom para agregar el resource
@@ -56,12 +82,10 @@ public class Main {
 			session.commit();
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 		*/
-		
-
 	}
 
 }

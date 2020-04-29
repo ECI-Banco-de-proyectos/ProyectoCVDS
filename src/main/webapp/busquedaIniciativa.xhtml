@@ -26,13 +26,20 @@
 	<p:chart type="bar" model="#{chartView.barModel}" style="height:300px"/>
 
 	<h:form id = "RecolectInfo">
-	<p:outputLabel value="Clave" for="clave" /><br/>
-	<p:inputText id="clave" value="#{comunBean.clave}"/>
-	<p:commandButton value="Buscar" update="formaLista:tablaIniciativas"/>
-	<br></br>
-	<p:commandButton value="Exportar como PDF" ajax="false" >
-		<p:dataExporter type="pdf" target="formaLista:tablaIniciativas" fileName="DatosIniciativas"/>
-	</p:commandButton>
+		<p:outputLabel value="Clave" for="clave" /><br/>
+		<p:inputText id="clave" value="#{comunBean.clave}"  />
+		<p:commandButton value="Buscar" action="#{comunBean.banderaFa()}" update="formaLista:tablaIniciativas"/><br></br>
+
+		<p:commandButton value="Exportar como PDF" ajax="false" >
+			<p:dataExporter type="pdf" target="formaLista:tablaIniciativas" fileName="DatosIniciativas"/>
+		</p:commandButton><br></br>
+
+		<p:selectOneMenu id="Roles" value="#{comunBean.areaConocimiento}" dynamic="true" style="width:300px">
+			<f:selectItem itemLabel="Seleccione Area" itemValue="" />
+			<f:selectItems value="#{areaIniBean.areas}"/>
+		</p:selectOneMenu><br></br>
+
+		<p:commandButton value="Agrupar areas" action="#{comunBean.banderaTr()}"  update="formaLista:tablaIniciativas" />
 	</h:form>
 
 

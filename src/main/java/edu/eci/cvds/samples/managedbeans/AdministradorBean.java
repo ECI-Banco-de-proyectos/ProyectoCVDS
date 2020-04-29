@@ -46,6 +46,10 @@ public class AdministradorBean implements Serializable{
 		return idIniciativa;
 	}
 
+	ArrayList<Integer> list;
+	ArrayList<Integer> lon;
+	ArrayList<TipoRol> roles;
+
 	public void setSelectedIniciativa(Iniciativa selectedIniciativa) {
 		this.idIniciativa = selectedIniciativa.getId();
 		this.votosIniciativa = selectedIniciativa.getNumeroVotos();
@@ -60,9 +64,6 @@ public class AdministradorBean implements Serializable{
 		IniciativasFactory.instancia().serviciosIniciativas().actualizarIniciativa(estado,idIniciativa);
 	}
 
-	ArrayList<Integer> list;
-	ArrayList<Integer> lon;
-	ArrayList<TipoRol> roles;
 
 	int lis;
 	public void setEstado(EstadoIniciativa estado) {
