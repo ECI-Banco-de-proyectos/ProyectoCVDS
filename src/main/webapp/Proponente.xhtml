@@ -25,17 +25,23 @@
         <center><h:form>
 			<p:growl id="confirmacion" showDetail="true" />	
             <!--Por favor no cambiar el 'id':-->
-			<p:outputLabel value="Nombre" for="nombre" /><br/>
-            <p:inputText id="nombre" value="#{proBean.nombreIniciativa}"></p:inputText><br/>
-			<p:outputLabel value="Seleccione estado" for="estado" /><br/>
+			<p:panelGrid columns="2">
+			<p:outputLabel for="@next" value="Nombre de usuario"/>
+			<p:inputText value="#{usuarioBean.nombre}" readonly="true"/>
+			<p:outputLabel for="@next" value="Rol de usuario"/>
+			<p:inputText value="Proponente Iniciativa" readonly="true"/>
+			<p:outputLabel value="Inserte nombre de la iniciativa" for="nombre" />
+            <p:inputText id="nombre" value="#{proBean.nombreIniciativa}"></p:inputText>
+			<p:outputLabel value="Seleccione estado" for="estado" />
             <p:selectOneMenu value="#{proBean.estado}" id="estado">
 				<f:selectItem itemValue = "En_Espera_De_Revision" itemLabel = "En espera de revision" />
 				<f:selectItem itemValue = "En_Revision" itemLabel = "En revision" />
 				<f:selectItem itemValue = "Proyecto" itemLabel = "Proyecto" />
 				<f:selectItem itemValue = "Solucionado" itemLabel = "Solucionado" />
-			</p:selectOneMenu><br/>
-			<p:outputLabel value="Descripcion" for="des" /><br/>
-            <p:inputText id="des" value="#{proBean.descripcion}" /><br/>
+			</p:selectOneMenu>
+			<p:outputLabel value="Descripcion" for="des" />
+            <p:inputText id="des" value="#{proBean.descripcion}" />
+			</p:panelGrid>
             <p:commandButton value="Insertar iniciativa" action="#{proBean.insertarIniciativa(usuarioBean.getNombre(),usuarioBean.getContraseña())}" update="confirmacion">
 				<p:confirm header="Insertar iniciativa" message="¿Está seguro?" icon="pi pi-exclamation-triangle" />
 			</p:commandButton>
