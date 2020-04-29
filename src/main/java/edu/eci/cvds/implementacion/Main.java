@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.eci.cvds.samples.entities.*;
+
+import edu.eci.cvds.samples.entities.Iniciativa;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -65,6 +67,12 @@ public class Main {
 		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
 		ser.insertarReacciones(1, "german", "Me gusta",Date.valueOf(LocalDate.now()));
 
+=======
+		
+		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
+		ser.insertarReacciones(1, "german", "Me gusta",Date.valueOf(LocalDate.now()));
+		/*
+>>>>>>> German
 		List<Iniciativa> l= ser.ordenandoIniciativas("estado");
 		for(Iniciativa i:l ){
 			System.out.println(i.getEstado());

@@ -14,7 +14,8 @@
 	
 	<select id='getUsuarios' resultMap='UsuarioResult'>
 		select id, contraseña, nombre, rol
-		from usuario u;
+		from usuario u
+		order by id;
 	</select>
 	
 	<insert id="insertarUsuario">

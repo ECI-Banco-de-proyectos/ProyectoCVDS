@@ -100,7 +100,6 @@ public class IniciativasFactory extends AbstractModule{
 		return session.getMapper(AreaIniciativaMapper.class);
 	}
 
-
 	
 	public static IniciativasFactory instancia() {
 		return iniciativaFactory;
