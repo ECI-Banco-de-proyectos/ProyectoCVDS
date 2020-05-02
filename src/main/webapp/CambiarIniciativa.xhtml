@@ -29,13 +29,13 @@
 			  <p:growl id="confirmacion" showDetail="true" />
 			  <p:panelGrid columns="2">
               <p:outputLabel for="@next" value="Seleccione ID: " />
-			  <p:inputText value="#{adminBean.idIniciativa}" readonly="true"/>
+			  <p:inputText value="#{adminBean.idIniciativa}" readonly="true" style="color: black; background-color:silver"/>
 			  <p:outputLabel for="@next" value="Nombre de la iniciativa seleccionada " />
-			  <p:inputText value="#{adminBean.nombreSelectedIniciativa}" readonly="true"/> 
+			  <p:inputText value="#{adminBean.nombreSelectedIniciativa}" readonly="true" style="color: black; background-color:silver"/> 
 			  <p:outputLabel for="@next" value="Nombre del proponente " />
-			  <p:inputText value="#{adminBean.nombreUsuarioSelectedIniciativa}" readonly="true"/>
+			  <p:inputText value="#{adminBean.nombreUsuarioSelectedIniciativa}" readonly="true" style="color: black; background-color:silver"/>
 			  <p:outputLabel for="@next" value="Estado de la iniciativa seleccionada " />
-			  <p:inputText value="#{adminBean.estadoSelectedIniciativa}" readonly="true"/>				  
+			  <p:inputText value="#{adminBean.estadoSelectedIniciativa}" readonly="true" style="color: black; background-color:silver"/>				  
               <p:outputLabel value="Seleccione estado" for="estado" />
               <p:selectOneMenu value="#{adminBean.estado}" id="estado">
                   <f:selectItem itemValue = "En_Espera_De_Revision" itemLabel = "En espera de revision" />

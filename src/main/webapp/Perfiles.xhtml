@@ -29,11 +29,11 @@
 		<p:growl id="confirmacion" showDetail="true" />
 		<p:panelGrid columns="2">
 		<p:outputLabel value="ID del usuario seleccionado: " />
-		<p:inputText value="#{adminBean.indice}" readonly="true" />
+		<p:inputText value="#{adminBean.indice}" readonly="true" style="color: black; background-color:silver"/>
 		<p:outputLabel value="Nombre del usuario seleccionado: " />
-		<p:inputText value="#{adminBean.nombreSelectedUser}" readonly="true" />
+		<p:inputText value="#{adminBean.nombreSelectedUser}" readonly="true" style="color: black; background-color:silver"/>
 		<p:outputLabel value="Rol del usuario seleccionado: " />
-		<p:inputText value="#{adminBean.rolSelectedUser}" readonly="true" />
+		<p:inputText value="#{adminBean.rolSelectedUser}" readonly="true" style="color: black; background-color:silver"/>
 		<p:outputLabel for="@next" value="Seleccione nuevo rol: " />
 		<p:selectOneMenu id="Roles" value="#{adminBean.rol}" dynamic="true" style="width:300px">
 			<f:selectItem itemLabel="Select rol" itemValue="" />
