@@ -20,6 +20,7 @@ public class ReaccionBean {
 	public String nombre;
 	public String comentario;
 	public Date fecha;
+	public int voto;
 	public Reaccion reaccion;
 	
 	@PostConstruct
@@ -30,7 +31,7 @@ public class ReaccionBean {
 	
 	public void insertReaccion (String nombre,int id_ini,int id,int voto) {
 		IniciativasFactory.instancia().serviciosIniciativas().insertarReacciones(id_ini, nombre , comentario, fecha);
-		actualizarIniciativa(id,voto+1);
+		actualizarIniciativa(id,voto+this.voto);
 		addMessage("Insertar reaccion", "Reaccion insertada");
 		
 	}
@@ -75,5 +76,12 @@ public class ReaccionBean {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
+	public int getVoto() {
+		return voto;
+	}
+	public void setVoto(int voto) {
+		this.voto = voto;
+	}
+	
 
 }

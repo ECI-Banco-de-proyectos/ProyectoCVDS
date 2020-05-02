@@ -13,23 +13,40 @@
 				background-size: 120% auto;
 				background-repeat: no-repeat;
 			}
+			<!--font-size: 12px;-->
+		textarea {
+			    width: 100%;
+			    height: 150px;
+			    padding: 12px 20px;
+			    box-sizing: border-box;
+			    border: 2px solid #ccc;
+			    border-radius: 4px;
+			    background-color: #f8f8f8;
+			    font-size: 16px;
+			    resize: none;
+			}	
 		</style>
     </h:head>
 	<h:body>
 		<h:form>
 			<p:tabMenu activeIndex="0">
-				<p:menuitem value="Salir" action="#{usuarioBean.desconectarUsuario()}" icon="ui-icon-close" style="position: absolute; left: 825px;"></p:menuitem>
+				<p:menuitem value="Insertar Iniciativa"></p:menuitem>
+				<p:menuitem value="Salir" action="#{usuarioBean.desconectarUsuario()}" icon="ui-icon-close" style="position: absolute; left: 1080px;"></p:menuitem>
 			</p:tabMenu>
 		</h:form>
-        <center><h1>Insertar Iniciativa</h1></center>
+        <center><h2>Insertar Iniciativa</h2></center>
         <center><h:form>
 			<p:growl id="confirmacion" showDetail="true" />	
             <!--Por favor no cambiar el 'id':-->
 			<p:panelGrid columns="2">
 			<p:outputLabel for="@next" value="Nombre de usuario"/>
-			<p:inputText value="#{usuarioBean.nombre}" readonly="true"/>
+			<p:inputText value="#{usuarioBean.nombre}" readonly="true" style="color: black; background-color:silver"/>
 			<p:outputLabel for="@next" value="Rol de usuario"/>
-			<p:inputText value="Proponente Iniciativa" readonly="true"/>
+			<p:inputText value="Proponente Iniciativa" readonly="true" style="color: black; background-color:silver" />
+			<p:outputLabel for="@next" value="Area de iniciativa" />
+			<p:inputText value="" /> 
+			<p:outputLabel for="@next" value="Palabras Clave" />
+			<p:inputText value="" /> 
 			<p:outputLabel value="Inserte nombre de la iniciativa" for="nombre" />
             <p:inputText id="nombre" value="#{proBean.nombreIniciativa}"></p:inputText>
 			<p:outputLabel value="Seleccione estado" for="estado" />
@@ -40,7 +57,7 @@
 				<f:selectItem itemValue = "Solucionado" itemLabel = "Solucionado" />
 			</p:selectOneMenu>
 			<p:outputLabel value="Descripcion" for="des" />
-            <p:inputText id="des" value="#{proBean.descripcion}" />
+            <p:inputTextarea id="des" value="#{proBean.descripcion}" cols="30" rows="10"/>
 			</p:panelGrid>
             <p:commandButton value="Insertar iniciativa" action="#{proBean.insertarIniciativa(usuarioBean.getNombre(),usuarioBean.getContraseña())}" update="confirmacion">
 				<p:confirm header="Insertar iniciativa" message="¿Está seguro?" icon="pi pi-exclamation-triangle" />

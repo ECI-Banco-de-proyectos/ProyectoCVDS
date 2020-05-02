@@ -11,7 +11,6 @@
 		html{
 				background: url("Fondo.jpg");
 				background-size: 120% auto;
-				background-repeat: no-repeat;
 			}
 		</style>
     </h:head>
@@ -23,32 +22,26 @@
         </p:menuitem>
 	</p:tabMenu>
 
-	<p:chart type="bar" model="#{chartView.barModel}" style="height:300px"/>
-
-	<h:form id = "RecolectInfo">
-		<p:outputLabel value="Clave" for="clave" /><br/>
+	<h:form>
+	<p:panelGrid columns = "3">
+		<p:outputLabel value="Clave" for="clave" />
 		<p:inputText id="clave" value="#{comunBean.clave}"  />
-		<p:commandButton value="Buscar" action="#{comunBean.banderaFa()}" update="formaLista:tablaIniciativas"/><br></br>
-
-		<p:commandButton value="Exportar como PDF" ajax="false" >
-			<p:dataExporter type="pdf" target="formaLista:tablaIniciativas" fileName="DatosIniciativas"/>
-		</p:commandButton><br></br>
-
+		<p:commandButton value="Buscar" action="#{comunBean.banderaFa()}" update="formaLista:tablaIniciativas"/>
+		<p:outputLabel value="Area" for="@next" />
 		<p:selectOneMenu id="Roles" value="#{comunBean.areaConocimiento}" dynamic="true" style="width:300px">
 			<f:selectItem itemLabel="Seleccione Area" itemValue="" />
 			<f:selectItems value="#{areaIniBean.areas}"/>
-		</p:selectOneMenu><br></br>
+		</p:selectOneMenu>
 
 		<p:commandButton value="Agrupar areas" action="#{comunBean.banderaTr()}"  update="formaLista:tablaIniciativas" />
+	</p:panelGrid>
 	</h:form>
-
-
+	
 	<h:form id="formaLista">
 	<p:growl id="msgs" showDetail="true"/>
 	<p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.consultarIniciativasPalabraClave()}"
 				 paginator="true" rows="8"
-				 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-	>
+				 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}">
 					<p:column headerText="Id">
 						<h:outputText value="#{iniciativa.id}"/>
 					</p:column>
@@ -81,6 +74,13 @@
 					</p:column>
 
 				</p:dataTable>
+	</h:form>
+	<p:chart type="bar" model="#{chartView.barModel}" style="height:300px"/>
+	
+	<h:form id = "RecolectInfo">
+		<p:commandButton value="Exportar como PDF" ajax="false" >
+			<p:dataExporter type="pdf" target="formaLista:tablaIniciativas" fileName="DatosIniciativas"/>
+		</p:commandButton>
 	</h:form>
     </h:body>
 </html>
