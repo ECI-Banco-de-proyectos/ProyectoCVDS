@@ -1,5 +1,7 @@
 package edu.eci.cvds.servicios;
 
+import static com.google.inject.Guice.createInjector;
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -10,6 +12,8 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.mybatis.guice.XMLMyBatisModule;
+import org.mybatis.guice.datasource.helper.JdbcHelper;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
@@ -26,12 +30,33 @@ import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOReaccion;
 import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOUsuario;
 import edu.eci.cvds.samples.services.impl.ServiciosIniciativasImpl;
 
-public class IniciativasFactory extends AbstractModule{
+public class IniciativasFactory{
 
 	public SqlSession session;
 	
 	public static IniciativasFactory iniciativaFactory = new IniciativasFactory();
+	private static Injector injector;
 	
+	public IniciativasFactory(){
+		injector = createInjector(new XMLMyBatisModule() {
+
+            @Override
+            protected void initialize() {
+                install(JdbcHelper.MySQL);
+                setClassPathResource("mybatis_config.xml");
+                bind(DAOUsuario.class).to(MyBatisDAOUsuario.class);
+        		bind(ServiciosIniciativas.class).to(ServiciosIniciativasImpl.class);
+        		bind(DAOIniciativa.class).to(MyBatisDAOIniciativa.class);
+        		bind(DAOReaccion.class).to(MyBatisDAOReaccion.class);
+        		bind(DAOAreaIniciativa.class).to(MyBatisDAOAreaIniciativa.class);
+
+            }
+
+        }
+        );
+	}
+	
+	/**
 	public void cargarSesion() {
 		String resource = "mybatis_config.xml";
 		InputStream reader;
@@ -44,6 +69,7 @@ public class IniciativasFactory extends AbstractModule{
 		}
 		
 	}
+	
 
 	@Override
 	protected void configure() {
@@ -53,35 +79,37 @@ public class IniciativasFactory extends AbstractModule{
 		bind(DAOReaccion.class).to(MyBatisDAOReaccion.class);
 		bind(DAOAreaIniciativa.class).to(MyBatisDAOAreaIniciativa.class);
 	}
+	*/
 
 
 	public DAOUsuario usuarioImplementado() {
-		Injector injector = Guice.createInjector(new IniciativasFactory());
+		//Injector injector = Guice.createInjector(new IniciativasFactory());
 		return injector.getInstance(DAOUsuario.class);
 	}
 	
 	public DAOIniciativa iniciativaImplementado() {
-		Injector injector = Guice.createInjector(new IniciativasFactory());
+		//Injector injector = Guice.createInjector(new IniciativasFactory());
 		return injector.getInstance(DAOIniciativa.class);
 	}
 	
 	public DAOReaccion reaccionImplementado() {
-		Injector injector = Guice.createInjector(new IniciativasFactory());
+		//Injector injector = Guice.createInjector(new IniciativasFactory());
 		return injector.getInstance(DAOReaccion.class);
 	}
 
 	public DAOAreaIniciativa areaIniciativaImplementado() {
-		Injector injector = Guice.createInjector(new IniciativasFactory());
+		//Injector injector = Guice.createInjector(new IniciativasFactory());
 		return injector.getInstance(DAOAreaIniciativa.class);
 	}
 	
 	public ServiciosIniciativas serviciosIniciativas() {
-		Injector injector = Guice.createInjector(new IniciativasFactory());
+		//Injector injector = Guice.createInjector(new IniciativasFactory());
 		return injector.getInstance(ServiciosIniciativas.class);
 	}
 	
+	/**
 	public UsuarioMapper usuarioPersistencia() {
-		cargarSesion();
+		//cargarSesion();
 		return session.getMapper(UsuarioMapper.class);
 	}
 	
@@ -99,6 +127,7 @@ public class IniciativasFactory extends AbstractModule{
 		cargarSesion();
 		return session.getMapper(AreaIniciativaMapper.class);
 	}
+	*/
 
 	
 	public static IniciativasFactory instancia() {

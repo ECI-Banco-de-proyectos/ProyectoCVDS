@@ -91,6 +91,7 @@ public class ChartView implements Serializable {
     }
 
     private void createBarModels() {
+    	/**
         List<AreaIniciativa> ser = IniciativasFactory.instancia().areaIniciativaPersistencia().selectAreaIniciativa();
         maxi=0;
         for(AreaIniciativa i:ser ){
@@ -118,6 +119,7 @@ public class ChartView implements Serializable {
             }
         }
         createBarModel();
+        */
     }
 
     private void createBarModel() {

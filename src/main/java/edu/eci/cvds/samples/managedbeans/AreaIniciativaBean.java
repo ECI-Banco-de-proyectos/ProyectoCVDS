@@ -64,7 +64,10 @@ public class AreaIniciativaBean {
         return res;
     }
 
+    
     public boolean buscar(int ini){
+		return false;
+    	/**
         List<AreaIniciativa> ser = IniciativasFactory.instancia().areaIniciativaPersistencia().selectAreaIniciativa();
         for(AreaIniciativa i: ser){
             if(i.getIdIniciativa()==ini && i.getAreaConocimiento().equals(areaConocimiento)){
@@ -72,6 +75,7 @@ public class AreaIniciativaBean {
             }
         }
         return false;
+        */
     }
 
 

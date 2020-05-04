@@ -1,16 +1,17 @@
 package edu.eci.cvds.samples.persistencia.mybatisimpl;
 
 import java.util.List;
-
+import com.google.inject.Inject;
 import edu.eci.cvds.persistencia.mybatisimpl.mappers.UsuarioMapper;
 import edu.eci.cvds.samples.entities.TipoRol;
 import edu.eci.cvds.samples.entities.Usuario;
 import edu.eci.cvds.samples.persistencia.DAOUsuario;
-import edu.eci.cvds.servicios.IniciativasFactory;
 
 public class MyBatisDAOUsuario implements DAOUsuario{
 
-	UsuarioMapper usuarioMapper = IniciativasFactory.instancia().usuarioPersistencia();
+	//UsuarioMapper usuarioMapper = IniciativasFactory.instancia().usuarioPersistencia();
+	@Inject
+	UsuarioMapper usuarioMapper;
 	
 	@Override
 	public List<Usuario> consultarUsuarios(String contraseña) {
@@ -20,7 +21,7 @@ public class MyBatisDAOUsuario implements DAOUsuario{
 	@Override
 	public void insertarUsuario(int id, String contraseña, String nombre, TipoRol rol) {
 		usuarioMapper.insertarUsuario(id, contraseña, nombre, rol);
-		IniciativasFactory.instancia().session.commit();
+		//IniciativasFactory.instancia().session.commit();
 	}
 
 	@Override
@@ -31,7 +32,7 @@ public class MyBatisDAOUsuario implements DAOUsuario{
 	@Override
 	public void updatePerfil(int id, TipoRol tipoRol) {
 		usuarioMapper.updatePerfil(id,tipoRol);
-		IniciativasFactory.instancia().session.commit();
+		//IniciativasFactory.instancia().session.commit();
 	}
 	
 	
