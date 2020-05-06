@@ -17,6 +17,7 @@ import edu.eci.cvds.servicios.ServiciosIniciativas;
 @ApplicationScoped
 
 public class ComunBean {
+	public Usuario usuario;
 	String clave;
 	String columna;
 	public int idIniciativa;
@@ -24,6 +25,8 @@ public class ComunBean {
 	public boolean bandera;
 	ArrayList<TipoArea> areas;
 	List<Iniciativa> lista;
+	List<Usuario> listaUsuarios;
+	public int usu;
 
 	@PostConstruct
 	public void init() {
@@ -38,7 +41,10 @@ public class ComunBean {
 		areas.add(TipoArea.Robotica);
 		areas.add(TipoArea.Sistemas);
 	}
-
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario ;
+	}
+	public Usuario getUsuario() { return this.usuario;}
 	public void setBandera(boolean bandera) {
 		this.bandera = bandera;
 	}
@@ -89,7 +95,29 @@ public class ComunBean {
 	public List<Iniciativa> ordenarBusqueda(){
 		return IniciativasFactory.instancia().serviciosIniciativas().ordenandoIniciativas(columna);
 	}
+	public List<Usuario> getLista() {
+		//cargar();
+		listaUsuarios = IniciativasFactory.instancia().serviciosIniciativas().consultarUsuarios();
+		return listaUsuarios;
+	}
+	public List<Iniciativa> ordenarBusquedaProponente(String nombre){
+		List<Usuario> u = getLista();
+		for (Usuario i: u) {
+			if (i.getNombre().equals(nombre)) {
+				usu = i.getId();
+			}
+		}
+		//....
+		List<Iniciativa> lista  = ordenarBusqueda();
+		List<Iniciativa> listaM = new ArrayList<Iniciativa>();
+		for (Iniciativa i: lista){
+			if (i.getProponente()==usu) {
+				listaM.add(i);
+			}
+		}
 
+		return listaM;
+	}
 	public List<Iniciativa> agrupar() {
 
 		List<Iniciativa> res= new ArrayList<Iniciativa>();
