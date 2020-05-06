@@ -13,7 +13,7 @@ public interface UsuarioMapper {
 	
 	public List<Usuario> getUsuarios();
 	
-	public void insertarUsuario(@Param("id") int id,@Param("cont") String contraseña,@Param("name") String nombre,@Param("rol") TipoRol tipoRol);
+	public void insertarUsuario(@Param("id") int id,@Param("cont") String contraseña,@Param("name") String nombre,@Param("rol") TipoRol tipoRol, @Param("area") String area);
 	
 	public void updatePerfil(@Param("id") int id, @Param("rol") TipoRol rol);
 

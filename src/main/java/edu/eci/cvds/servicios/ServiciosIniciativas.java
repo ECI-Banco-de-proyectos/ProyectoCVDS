@@ -16,7 +16,7 @@ public interface ServiciosIniciativas {
 	
 	public List<Usuario> consultarUsuarios();
 	
-	public void insertarUsuario(String contraseña, String nombre, TipoRol rol);
+	public void insertarUsuario(String contraseña, String nombre, TipoRol rol, String area);
 	
 	public void actualizarPerfil(int id, TipoRol tipoRol);
 
@@ -35,5 +35,17 @@ public interface ServiciosIniciativas {
 	public void actualizarIniciativasVotos (int id, int voto);
 
 	public List<AreaIniciativa> selectAreaIniciativa();
+	
+	public List<PalabrasClave> consultaPalabrasClave();
+	
+	public PalabrasClave consultaPalabraClavePorId(String palabra);
+	
+	public void insertarPalabraClave(String palabra, int iniciativa);
+	
+	public void elimiarPalabraClavePorId(String palabra);
+	
+	public List<Area> consultarAreas();
+	
+	public Area consultaAreaPorId(String id);
 	
 }

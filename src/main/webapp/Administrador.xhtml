@@ -55,6 +55,9 @@
 					<p:column headerText="Rol">
 						<h:outputText value="#{user.rol}"/>
 					</p:column>
+					<p:column headerText="Area">
+						<h:outputText value="#{user.area}"/>
+					</p:column>
 					<p:column style="width:32px;text-align: center">
 						<p:commandButton icon="fa fa-pencil" title="View" action="Perfiles.xhtml?faces-redirect=true">
 							<f:setPropertyActionListener value="#{user}" target="#{adminBean.selectedUser}" />

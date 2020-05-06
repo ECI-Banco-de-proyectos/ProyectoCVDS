@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import edu.eci.cvds.persistencia.mybatisimpl.mappers.AreaIniciativaMapper;
+import edu.eci.cvds.samples.persistencia.DAOArea;
 import edu.eci.cvds.samples.persistencia.DAOAreaIniciativa;
+import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOArea;
 import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOAreaIniciativa;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -23,9 +25,11 @@ import edu.eci.cvds.persistencia.mybatisimpl.mappers.IniciativaMapper;
 import edu.eci.cvds.persistencia.mybatisimpl.mappers.ReaccionMapper;
 import edu.eci.cvds.persistencia.mybatisimpl.mappers.UsuarioMapper;
 import edu.eci.cvds.samples.persistencia.DAOIniciativa;
+import edu.eci.cvds.samples.persistencia.DAOPalabrasClave;
 import edu.eci.cvds.samples.persistencia.DAOReaccion;
 import edu.eci.cvds.samples.persistencia.DAOUsuario;
 import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOIniciativa;
+import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOPalabrasClave;
 import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOReaccion;
 import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOUsuario;
 import edu.eci.cvds.samples.services.impl.ServiciosIniciativasImpl;
@@ -49,6 +53,8 @@ public class IniciativasFactory{
         		bind(DAOIniciativa.class).to(MyBatisDAOIniciativa.class);
         		bind(DAOReaccion.class).to(MyBatisDAOReaccion.class);
         		bind(DAOAreaIniciativa.class).to(MyBatisDAOAreaIniciativa.class);
+        		bind(DAOPalabrasClave.class).to(MyBatisDAOPalabrasClave.class);
+        		bind(DAOArea.class).to(MyBatisDAOArea.class);
 
             }
 
@@ -102,10 +108,19 @@ public class IniciativasFactory{
 		return injector.getInstance(DAOAreaIniciativa.class);
 	}
 	
+	public DAOPalabrasClave palabrasClaveImplementado() {
+		return injector.getInstance(DAOPalabrasClave.class);
+	}
+	
+	public DAOArea areasImplementado() {
+		return injector.getInstance(DAOArea.class);
+	}
+	
 	public ServiciosIniciativas serviciosIniciativas() {
 		//Injector injector = Guice.createInjector(new IniciativasFactory());
 		return injector.getInstance(ServiciosIniciativas.class);
 	}
+	
 	
 	/**
 	public UsuarioMapper usuarioPersistencia() {

@@ -43,10 +43,10 @@
 			<p:inputText value="#{usuarioBean.nombre}" readonly="true" style="color: black; background-color:silver"/>
 			<p:outputLabel for="@next" value="Rol de usuario"/>
 			<p:inputText value="Proponente Iniciativa" readonly="true" style="color: black; background-color:silver" />
-			<p:outputLabel for="@next" value="Area de iniciativa" />
-			<p:inputText value="" /> 
-			<p:outputLabel for="@next" value="Palabras Clave" />
-			<p:inputText value="" /> 
+			<p:outputLabel for="@next" value="Area a la cual pertenece" />
+			<p:inputText value="#{usuarioBean.area}" readonly="true" style="color: black; background-color:silver" /> 
+			<p:outputLabel for="@next" value="Inserte las palabras clave" />
+			<p:inputText value="#{proBean.palabrasClave}" /> 
 			<p:outputLabel value="Inserte nombre de la iniciativa" for="nombre" />
             <p:inputText id="nombre" value="#{proBean.nombreIniciativa}"></p:inputText>
 			<p:outputLabel value="Seleccione estado" for="estado" />

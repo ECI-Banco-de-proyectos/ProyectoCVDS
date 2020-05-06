@@ -12,12 +12,14 @@ public class Usuario implements Serializable{
 	public String contraseña;
 	public String nombre;
 	public TipoRol rol;
+	public String area;
 	
-	public Usuario(int id, String contraseña, String nombre, TipoRol rol) {
+	public Usuario(int id, String contraseña, String nombre, TipoRol rol, String area) {
 		this.id = id;
 		this.contraseña = contraseña;
 		this.nombre = nombre;
 		this.rol = rol;
+		this.area = area;
 	}
 	
 	public Usuario() {
@@ -48,4 +50,11 @@ public class Usuario implements Serializable{
 	public void setRol(TipoRol rol) {
 		this.rol = rol;
 	}
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = area;
+	}
+	
 }

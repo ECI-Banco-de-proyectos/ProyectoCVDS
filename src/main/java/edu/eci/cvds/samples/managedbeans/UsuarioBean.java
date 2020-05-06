@@ -35,6 +35,7 @@ public class UsuarioBean implements Serializable {
 	String nombre;
 	boolean isUsuario = false;
 	TipoRol rol = TipoRol.usuarioConsulta;
+	String area = "No presenta área";
 	String mensajeErrorLogin = "";
 	List<Usuario> lista;
 	List<Iniciativa> lista2;
@@ -92,11 +93,17 @@ public class UsuarioBean implements Serializable {
 	public void setRol(TipoRol rol) {
 		this.rol = rol;
 	}
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = areaUsuario(nombre, contraseña);
+	}
 
 	public void insertarUsuario() {
 		addMessage("Insertar usuario", "Usuario Insertado");
 		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
-		ser.insertarUsuario(contraseña, nombre, rol);
+		ser.insertarUsuario(contraseña, nombre, rol, area);
 	}
 	
 	private void addMessage(String summary, String detail) {
@@ -145,6 +152,17 @@ public class UsuarioBean implements Serializable {
 		for(Usuario u: usuarios) {
 			if(u.getNombre().equals(nombre) && u.getContraseña().equals(contraseña)) {
 				res = u.getRol();
+			}
+		}
+		return res;
+	}
+	
+	private String areaUsuario(String nombre, String contraseña) {
+		List<Usuario> usuarios = IniciativasFactory.instancia().serviciosIniciativas().consultarUsuarios();
+		String res = null;
+		for(Usuario u: usuarios) {
+			if(u.getNombre().equals(nombre) && u.getContraseña().equals(contraseña)) {
+				res = u.getArea();
 			}
 		}
 		return res;

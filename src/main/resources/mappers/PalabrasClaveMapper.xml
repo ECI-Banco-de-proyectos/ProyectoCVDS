@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="edu.eci.cvds.persistencia.mybatisimpl.mappers.PalabrasClaveMapper">
+
+
+	<select id="consultaPalabrasClave" resultMap="PalabrasClaveResult">
+		select palabra, iniciativa
+		from palabrasclave;
+	</select>
+	
+	<select id="consultaPalabraClavePorId" resultMap="PalabrasClaveResult">
+		select palabras, iniciativa
+		from palabrasclave pc
+		where pc.palabra = #{palabraClave};
+	</select>
+	
+	<delete id="elimiarPalabraClavePorId">
+		delete from palabrasclave pc where pc.palabra=#{palabraClave};
+	</delete>
+	
+	<insert id="insertarPalabraClave">
+		insert into palabrasClave values(#{palabra},#{iniciativa});
+	</insert>
+
+	<resultMap type='PalabrasClave' id='PalabrasClaveResult'>
+		<id property='palabra' column='palabra'/>
+		<result property='iniciativa' column='iniciativa'/>
+    </resultMap>
+
+</mapper>

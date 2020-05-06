@@ -11,7 +11,7 @@ public interface DAOUsuario {
 	
 	public List<Usuario> getUsuario();
 	
-	public void insertarUsuario(int id, String contraseña, String nombre, TipoRol rol);
+	public void insertarUsuario(int id, String contraseña, String nombre, TipoRol rol, String area);
 	
 	public void updatePerfil(int id, TipoRol tipoRol);
 

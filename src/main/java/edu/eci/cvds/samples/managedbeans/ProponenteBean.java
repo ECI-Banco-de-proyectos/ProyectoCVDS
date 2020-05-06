@@ -31,6 +31,7 @@ public class ProponenteBean implements Serializable{
 	int votos;
 	Date fechaInicio;
 	String descripcion;
+	String palabrasClave;
 	List<Integer> idIniciativa;
 
 	@PostConstruct
@@ -47,6 +48,7 @@ public class ProponenteBean implements Serializable{
 		int ind = obtenerId(nombre, contraseña);
 		id = IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativas().size();
 		IniciativasFactory.instancia().serviciosIniciativas().insertarIniciativa(id+1, ind, nombreIniciativa, estado, 0, Date.valueOf(LocalDate.now()), descripcion);
+		IniciativasFactory.instancia().serviciosIniciativas().insertarPalabraClave(palabrasClave, id+1);
 		addMessage("Insertar iniciativa", "Iniciativa insertada");
 	}
 
@@ -129,6 +131,14 @@ public class ProponenteBean implements Serializable{
 		this.idIniciativa = idIniciativa;
 	}
 	
+	public String getPalabrasClave() {
+		return palabrasClave;
+	}
+
+	public void setPalabrasClave(String palabrasClave) {
+		this.palabrasClave = palabrasClave;
+	}
+
 	private void addMessage(String summary, String detail) {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
         FacesContext.getCurrentInstance().addMessage(null, message);

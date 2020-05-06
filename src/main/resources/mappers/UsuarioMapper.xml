@@ -7,19 +7,19 @@
 
 
 	<select id='consultaUsuarios' resultMap='UsuarioResult'>
-		select id, contraseña, nombre, rol
+		select id, contraseña, nombre, rol, area
 		from usuario u
 		where u.contraseña = #{id};
 	</select>
 	
 	<select id='getUsuarios' resultMap='UsuarioResult'>
-		select id, contraseña, nombre, rol
+		select id, contraseña, nombre, rol, area
 		from usuario u
 		order by id;
 	</select>
 	
 	<insert id="insertarUsuario">
-		insert into usuario values(#{id}, #{cont}, #{name}, #{rol});
+		insert into usuario values(#{id}, #{cont}, #{name}, #{rol}, #{area});
 	</insert>
 	
 	<update id="updatePerfil">
@@ -32,7 +32,8 @@
 		<id property='id' column='id'/>
 		<result property='contraseña' column='contraseña'/>
 		<result property='nombre' column='nombre'/>
-		<result property='rol' column='rol'/> 
+		<result property='rol' column='rol'/>
+		<result property="area" column="area"/>
     </resultMap>
 
 </mapper>

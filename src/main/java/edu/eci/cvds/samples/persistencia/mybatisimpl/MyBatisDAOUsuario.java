@@ -19,8 +19,8 @@ public class MyBatisDAOUsuario implements DAOUsuario{
 	}
 
 	@Override
-	public void insertarUsuario(int id, String contraseña, String nombre, TipoRol rol) {
-		usuarioMapper.insertarUsuario(id, contraseña, nombre, rol);
+	public void insertarUsuario(int id, String contraseña, String nombre, TipoRol rol, String area) {
+		usuarioMapper.insertarUsuario(id, contraseña, nombre, rol, area);
 		//IniciativasFactory.instancia().session.commit();
 	}
 

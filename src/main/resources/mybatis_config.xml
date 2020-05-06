@@ -9,6 +9,8 @@
 		<typeAlias type="edu.eci.cvds.samples.entities.Iniciativa" alias="Iniciativa" />
 		<typeAlias type="edu.eci.cvds.samples.entities.Reaccion" alias="Reaccion" />
 		<typeAlias type="edu.eci.cvds.samples.entities.AreaIniciativa" alias="AreaIniciativa" />
+		<typeAlias type="edu.eci.cvds.samples.entities.PalabrasClave" alias="PalabrasClave" />
+		<typeAlias type="edu.eci.cvds.samples.entities.Area" alias="Area" />
 
 	</typeAliases>
 
@@ -30,6 +32,8 @@
 		<mapper resource="mappers/IniciativaMapper.xml"></mapper>
 		<mapper resource="mappers/ReaccionMapper.xml"></mapper>
 		<mapper resource="mappers/AreaIniciativaMapper.xml"></mapper>
+		<mapper resource="mappers/PalabrasClaveMapper.xml"></mapper>
+		<mapper resource="mappers/AreaMapper.xml"></mapper>
 	</mappers>
 
 

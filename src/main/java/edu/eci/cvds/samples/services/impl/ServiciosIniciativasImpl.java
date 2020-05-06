@@ -11,7 +11,7 @@ import edu.eci.cvds.samples.persistencia.DAOIniciativa;
 import edu.eci.cvds.servicios.IniciativasFactory;
 import edu.eci.cvds.servicios.ServiciosIniciativas;
 
-@ApplicationScoped
+
 public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 
 	@Override
@@ -25,9 +25,9 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 	}
 
 	@Override
-	public void insertarUsuario(String contraseña, String nombre, TipoRol rol) {
+	public void insertarUsuario(String contraseña, String nombre, TipoRol rol, String area) {
 		int ultimoId = consultarUsuarios().size();
-		IniciativasFactory.instancia().usuarioImplementado().insertarUsuario(ultimoId+1, contraseña, nombre, rol);
+		IniciativasFactory.instancia().usuarioImplementado().insertarUsuario(ultimoId+1, contraseña, nombre, rol, area);
 
 	}
 
@@ -102,4 +102,36 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 		}
 		return res;
 	}
+
+	@Override
+	public List<PalabrasClave> consultaPalabrasClave() {
+		return IniciativasFactory.instancia().palabrasClaveImplementado().consultaPalabrasClave();
+	}
+
+	@Override
+	public PalabrasClave consultaPalabraClavePorId(String palabra) {
+		return IniciativasFactory.instancia().palabrasClaveImplementado().consultaPalabraClavePorId(palabra);
+	}
+
+	@Override
+	public void elimiarPalabraClavePorId(String palabra) {
+		IniciativasFactory.instancia().palabrasClaveImplementado().elimiarPalabraClavePorId(palabra);
+	}
+
+	@Override
+	public List<Area> consultarAreas() {
+		return IniciativasFactory.instancia().areasImplementado().consultarAreas();
+	}
+
+	@Override
+	public Area consultaAreaPorId(String id) {
+		return IniciativasFactory.instancia().areasImplementado().consultaAreaPorId(id);
+	}
+
+	@Override
+	public void insertarPalabraClave(String palabra, int iniciativa) {
+		IniciativasFactory.instancia().palabrasClaveImplementado().insertarPalabraClave(palabra, iniciativa);
+		
+	}
+	
 }
