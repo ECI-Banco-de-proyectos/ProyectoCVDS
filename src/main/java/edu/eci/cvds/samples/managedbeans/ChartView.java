@@ -91,7 +91,7 @@ public class ChartView implements Serializable {
     }
 
     private void createBarModels() {
-        List<AreaIniciativa> ser = IniciativasFactory.instancia().areaIniciativaPersistencia().selectAreaIniciativa();
+        List<AreaIniciativa> ser = IniciativasFactory.instancia().serviciosIniciativas().selectAreaIniciativa();
         maxi=0;
         for(AreaIniciativa i:ser ){
             if(i.getAreaConocimiento().equals(TipoArea.Matematicas)){

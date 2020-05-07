@@ -35,5 +35,7 @@ public interface ServiciosIniciativas {
 	public void actualizarIniciativasVotos (int id, int voto);
 
 	public List<AreaIniciativa> selectAreaIniciativa();
+
+
 	
 }
