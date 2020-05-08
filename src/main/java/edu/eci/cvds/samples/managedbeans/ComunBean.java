@@ -17,6 +17,7 @@ import edu.eci.cvds.servicios.ServiciosIniciativas;
 @ApplicationScoped
 
 public class ComunBean {
+	public Usuario usuario;
 	String clave;
 	String columna;
 	public int idIniciativa;
@@ -24,6 +25,8 @@ public class ComunBean {
 	public boolean bandera;
 	ArrayList<TipoArea> areas;
 	List<Iniciativa> lista;
+	List<Usuario> listaUsuarios;
+	public int usu;
 
 	@PostConstruct
 	public void init() {
@@ -38,7 +41,10 @@ public class ComunBean {
 		areas.add(TipoArea.Robotica);
 		areas.add(TipoArea.Sistemas);
 	}
-
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario ;
+	}
+	public Usuario getUsuario() { return this.usuario;}
 	public void setBandera(boolean bandera) {
 		this.bandera = bandera;
 	}
@@ -75,11 +81,7 @@ public class ComunBean {
 		this.bandera=true;
 	}
 	public List<Iniciativa> consultarIniciativasPalabraClave(){
-		System.out.println(bandera);
-		System.out.println(areaConocimiento);
 		if(bandera){
-			//System.out.println(ini.getNombre());
-			System.out.println("I am here");
 			return agrupar();
 		}else{
 			return IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativasPalabraClave(clave);
@@ -89,7 +91,29 @@ public class ComunBean {
 	public List<Iniciativa> ordenarBusqueda(){
 		return IniciativasFactory.instancia().serviciosIniciativas().ordenandoIniciativas(columna);
 	}
+	public List<Usuario> getLista() {
+		//cargar();
+		listaUsuarios = IniciativasFactory.instancia().serviciosIniciativas().consultarUsuarios();
+		return listaUsuarios;
+	}
+	public List<Iniciativa> ordenarBusquedaProponente(String nombre){
+		List<Usuario> u = getLista();
+		for (Usuario i: u) {
+			if (i.getNombre().equals(nombre)) {
+				usu = i.getId();
+			}
+		}
+		//....
+		List<Iniciativa> lista  = ordenarBusqueda();
+		List<Iniciativa> listaM = new ArrayList<Iniciativa>();
+		for (Iniciativa i: lista){
+			if (i.getProponente()==usu) {
+				listaM.add(i);
+			}
+		}
 
+		return listaM;
+	}
 	public List<Iniciativa> agrupar() {
 
 		List<Iniciativa> res= new ArrayList<Iniciativa>();
@@ -107,16 +131,13 @@ public class ComunBean {
 	}
 
 	public boolean buscar(int ini){
-		return false;
-		/**
-		List<AreaIniciativa> ser = IniciativasFactory.instancia().areaIniciativaPersistencia().selectAreaIniciativa();
+		List<AreaIniciativa> ser = IniciativasFactory.instancia().serviciosIniciativas().selectAreaIniciativa();
 		for(AreaIniciativa i: ser){
 			if(i.getIdIniciativa()==ini && i.getAreaConocimiento().equals(areaConocimiento)){
 				return true;
 			}
 		}
 		return false;
-		*/
 	}
 
 	
