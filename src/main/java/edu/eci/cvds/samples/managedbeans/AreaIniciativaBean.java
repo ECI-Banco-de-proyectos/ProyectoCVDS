@@ -24,6 +24,7 @@ public class AreaIniciativaBean {
     public void init() {
 
         areas = new ArrayList<TipoArea>();
+        areas.add(TipoArea.Todas);
         areas.add(TipoArea.Artes);
         areas.add(TipoArea.Fisica);
         areas.add(TipoArea.Matematicas);

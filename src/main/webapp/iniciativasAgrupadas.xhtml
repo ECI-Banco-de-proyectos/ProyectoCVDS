@@ -16,51 +16,23 @@
     </h:head>
 	<h:body>
 	<p:tabMenu activeIndex="0">
+		<p:menuitem value="Iniciativas Agrupadas" outcome="iniciativasAgrupadas.xhtml" icon="ui-icon-script"></p:menuitem>
 		<p:menuitem value="Busqueda de iniciativas" outcome="busquedaIniciativa.xhtml" icon="ui-icon-script"></p:menuitem>
         <p:menuitem value="Datos del usuario" outcome="Administrador.xhtml" icon="ui-icon-script"></p:menuitem>
-		<p:menuitem value="Iniciativas Agrupadas" outcome="iniciativasAgrupadas.xhtml" icon="ui-icon-script"></p:menuitem>
 	</p:tabMenu>
 
-		<h:form>
-			<p:growl>
-				<p:autoUpdate />
-			</p:growl>
-
-			<h:panelGrid columns="2" cellpadding="5">
-				<h:outputLabel for="grouped" value="Iniciativas:" />
-				<p:selectCheckboxMenu id="grouped" value="#{cbox.selectedCities}" label="Cities" multiple="true"
-									  filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
-					<f:selectItems value="#{cbox.cities}" />
-				</p:selectCheckboxMenu>
-			</h:panelGrid>
-
-			<p:commandButton value="Agrupar" update="displayItems" oncomplete="PF('itemDialog').show()" style="margin-top:10px;" />
-
-			<p:dialog header="Items seleccionados" modal="true" showEffect="fade" hideEffect="fade" widgetVar="itemDialog" width="250">
-				<p:outputPanel id="displayItems">
-					<p:dataList value="#{cbox.selectedCities}" var="city" emptyMessage="No se ha seleccionado iniciativas">
-						<f:facet name="header">
-							Agrupados
-						</f:facet>
-						#{city}
-					</p:dataList>
-				</p:outputPanel>
-			</p:dialog>
-		</h:form>
-
 	<h:form>
-	<p:panelGrid columns = "3">
-		<p:outputLabel value="Area" for="@next" />
-		<p:selectOneMenu id="Roles" value="#{comunBean.areaConocimiento}" dynamic="true" style="width:300px">
-			<f:selectItem itemLabel="Seleccione Area" itemValue="" />
-			<f:selectItems value="#{areaIniBean.areas}"/>
-		</p:selectOneMenu>
-
-		<p:commandButton value="Agrupar areas" action="#{comunBean.banderaTr()}"  update="formaLista:tablaIniciativas" />
-
-	</p:panelGrid>
+		<br></br>
+		<br></br>
+			<p:outputLabel value="Iniciativas: " for="@next" />
+			<p:selectOneMenu id="Roles" value="#{comunBean.nombreIniciativa}" dynamic="true" style="width:300px">
+				<f:selectItem itemLabel="Seleccione Iniciativas" itemValue="" />
+				<f:selectItems value="#{comunBean.nombreIniciativas()}"/>
+			</p:selectOneMenu>
+			<br></br>
+			<p:commandButton value="Agrupar Iniciativas" update="formaLista:tablaIniciativas" />
 	</h:form>
-	
+
 	<h:form id="formaLista">
 	<p:growl id="msgs" showDetail="true"/>
 	<p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.consultarIniciativasPalabraClave()}"
@@ -101,7 +73,7 @@
 
 				</p:dataTable>
 	</h:form>
-	<p:chart type="bar" model="#{chartView.barModel}" style="height:300px"/>
+
 	<h:form id = "RecolectInfo">
 		<p:commandButton value="Exportar como PDF" ajax="false" >
 			<p:dataExporter type="pdf" target="formaLista:tablaIniciativas" fileName="DatosIniciativas"/>

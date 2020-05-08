@@ -27,12 +27,15 @@ public class ComunBean {
 	List<Iniciativa> lista;
 	List<Usuario> listaUsuarios;
 	public int usu;
+	public String nombreIniciativa;
 
 	@PostConstruct
 	public void init() {
 		clave = "";
 		columna = "id";
 		areas = new ArrayList<TipoArea>();
+
+		areas.add(TipoArea.Todas);
 		areas.add(TipoArea.Artes);
 		areas.add(TipoArea.Fisica);
 		areas.add(TipoArea.Matematicas);
@@ -41,6 +44,15 @@ public class ComunBean {
 		areas.add(TipoArea.Robotica);
 		areas.add(TipoArea.Sistemas);
 	}
+
+	public String getNombreIniciativa() {
+		return nombreIniciativa;
+	}
+
+	public void setNombreIniciativa(String nombreIniciativa) {
+		this.nombreIniciativa = nombreIniciativa;
+	}
+
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario ;
 	}
@@ -80,10 +92,17 @@ public class ComunBean {
 	public void banderaTr(){
 		this.bandera=true;
 	}
+
 	public List<Iniciativa> consultarIniciativasPalabraClave(){
+		System.out.println(columna);
+		System.out.println(bandera);
 		if(bandera){
-			return agrupar();
-		}else{
+			if(TipoArea.Todas.equals(areaConocimiento)){
+				return IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativasPalabraClave("");
+			}else{
+				return agrupar();
+			}
+		} else{
 			return IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativasPalabraClave(clave);
 		}
 	}
@@ -91,6 +110,7 @@ public class ComunBean {
 	public List<Iniciativa> ordenarBusqueda(){
 		return IniciativasFactory.instancia().serviciosIniciativas().ordenandoIniciativas(columna);
 	}
+
 	public List<Usuario> getLista() {
 		//cargar();
 		listaUsuarios = IniciativasFactory.instancia().serviciosIniciativas().consultarUsuarios();
@@ -103,7 +123,6 @@ public class ComunBean {
 				usu = i.getId();
 			}
 		}
-		//....
 		List<Iniciativa> lista  = ordenarBusqueda();
 		List<Iniciativa> listaM = new ArrayList<Iniciativa>();
 		for (Iniciativa i: lista){
@@ -111,17 +130,14 @@ public class ComunBean {
 				listaM.add(i);
 			}
 		}
-
 		return listaM;
 	}
+
 	public List<Iniciativa> agrupar() {
 
 		List<Iniciativa> res= new ArrayList<Iniciativa>();
-
 		lista = IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativas();
-
 		for(Iniciativa ini:lista){
-
 			int temp=ini.getId();
 			if(buscar(temp)){
 				res.add(ini);
@@ -147,5 +163,14 @@ public class ComunBean {
 			res = res + pac.getPalabra() +"\n";
 		}
 		return res;
+	}
+
+	public List<String> nombreIniciativas(){
+		lista = IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativas();
+		List<String> nombres =  new ArrayList<String>();
+		for(Iniciativa i: lista){
+			nombres.add(i.getNombre());
+		}
+		return nombres;
 	}
 }

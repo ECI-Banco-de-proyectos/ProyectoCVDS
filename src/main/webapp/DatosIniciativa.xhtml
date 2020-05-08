@@ -22,6 +22,11 @@
 		</p:tabMenu>
 	</h:form>
 
+	<h:form id = "RecolectInfo">
+		<p:inputText id="columna" value="#{comunBean.columna}"/>
+		<p:commandButton value="Ordenar" action="#{comunBean.banderaFa()}" update="formaLista:tablaIniciativas"/>
+	</h:form>
+
 	<h:form>
 	<p:panelGrid columns = "3">
 		<p:outputLabel value="Area" for="@next" />
