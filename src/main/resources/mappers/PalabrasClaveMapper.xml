@@ -12,9 +12,15 @@
 	</select>
 	
 	<select id="consultaPalabraClavePorId" resultMap="PalabrasClaveResult">
-		select palabras, iniciativa
+		select palabra, iniciativa
 		from palabrasclave pc
 		where pc.palabra = #{palabraClave};
+	</select>
+	
+	<select id="consultarPalabraClavePorIniciativa" resultMap="PalabrasClaveResult">
+		select palabra, iniciativa
+		from palabrasclave pc
+		where pc.iniciativa = #{idIniciativa};
 	</select>
 	
 	<delete id="elimiarPalabraClavePorId">

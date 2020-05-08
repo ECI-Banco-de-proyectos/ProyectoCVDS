@@ -112,6 +112,11 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 	public PalabrasClave consultaPalabraClavePorId(String palabra) {
 		return IniciativasFactory.instancia().palabrasClaveImplementado().consultaPalabraClavePorId(palabra);
 	}
+	
+	@Override
+	public List<PalabrasClave> consultarPalabraClavePorIniciativa(int idIniciativa) {
+		return IniciativasFactory.instancia().palabrasClaveImplementado().consultarPalabraClavePorIniciativa(idIniciativa);
+	}
 
 	@Override
 	public void elimiarPalabraClavePorId(String palabra) {

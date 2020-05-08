@@ -15,12 +15,14 @@
 		</style>
     </h:head>
 	<h:body>
-	<p:tabMenu activeIndex="0">
-		<p:menuitem value="Busqueda de iniciativas" outcome="busquedaIniciativa.xhtml" icon="ui-icon-script">
-        </p:menuitem>
-        <p:menuitem value="Datos del usuario" outcome="Administrador.xhtml" icon="ui-icon-script">
-        </p:menuitem>
-	</p:tabMenu>
+	<h:form>
+		<p:tabMenu activeIndex="2">
+			<p:menuitem value="Insertar Iniciativa" outcome="Proponente.xhtml"></p:menuitem>
+			<p:menuitem value="Salir" action="#{usuarioBean.desconectarUsuario()}" icon="ui-icon-close" style="position: absolute; left: 1080px;"></p:menuitem>
+			<p:menuitem value="Iniciativas Registradas" outcome="busquedaIniciativaProponente.xhtml" icon="ui-icon-document"></p:menuitem>
+			<p:menuitem value="iniciativas del proponente" outcome="IniciativaProponente.xhtml" icon="ui-icon-document"></p:menuitem>
+		</p:tabMenu>
+	</h:form>
 
 	<h:form>
 	<p:panelGrid columns = "3">
@@ -73,12 +75,6 @@
 					</p:column>
 
 				</p:dataTable>
-	</h:form>
-	<p:chart type="bar" model="#{chartView.barModel}" style="height:300px"/>
-	<h:form id = "RecolectInfo">
-		<p:commandButton value="Exportar como PDF" ajax="false" >
-			<p:dataExporter type="pdf" target="formaLista:tablaIniciativas" fileName="DatosIniciativas"/>
-		</p:commandButton>
 	</h:form>
     </h:body>
 </html>

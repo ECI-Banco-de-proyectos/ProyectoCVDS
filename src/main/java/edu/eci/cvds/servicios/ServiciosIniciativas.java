@@ -36,11 +36,11 @@ public interface ServiciosIniciativas {
 
 	public List<AreaIniciativa> selectAreaIniciativa();
 
-
-	
 	public List<PalabrasClave> consultaPalabrasClave();
 	
 	public PalabrasClave consultaPalabraClavePorId(String palabra);
+	
+	public List<PalabrasClave> consultarPalabraClavePorIniciativa(int idIniciativa);
 	
 	public void insertarPalabraClave(String palabra, int iniciativa);
 	

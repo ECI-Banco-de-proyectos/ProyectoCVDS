@@ -139,6 +139,13 @@ public class ComunBean {
 		}
 		return false;
 	}
-
 	
+	public String consultaPalabrasClave(int idIniciativa) {
+		List<PalabrasClave> pc = IniciativasFactory.instancia().serviciosIniciativas().consultarPalabraClavePorIniciativa(idIniciativa);
+		String res = "";
+		for(PalabrasClave pac: pc) {
+			res = res + pac.getPalabra() +"\n";
+		}
+		return res;
+	}
 }

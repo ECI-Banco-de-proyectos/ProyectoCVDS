@@ -95,7 +95,7 @@ public class Main {
 		} 
 		*/
 		
-		IniciativasFactory.instancia().serviciosIniciativas().consultaPalabrasClave();
+		System.out.println(IniciativasFactory.instancia().serviciosIniciativas().consultaPalabrasClave());
 	}
 
 }

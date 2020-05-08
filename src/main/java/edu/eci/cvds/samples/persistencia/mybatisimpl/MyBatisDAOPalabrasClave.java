@@ -22,6 +22,11 @@ public class MyBatisDAOPalabrasClave implements DAOPalabrasClave{
 	public PalabrasClave consultaPalabraClavePorId(String palabra) {
 		return palabrasClaveMapper.consultaPalabraClavePorId(palabra);
 	}
+	
+	@Override
+	public List<PalabrasClave> consultarPalabraClavePorIniciativa(int idIniciativa) {
+		return palabrasClaveMapper.consultarPalabraClavePorIniciativa(idIniciativa);
+	}
 
 	@Override
 	public void elimiarPalabraClavePorId(String palabra) {
