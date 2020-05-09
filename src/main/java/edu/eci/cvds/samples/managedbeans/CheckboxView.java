@@ -1,6 +1,7 @@
 package edu.eci.cvds.samples.managedbeans;
 
 import edu.eci.cvds.samples.entities.Iniciativa;
+import edu.eci.cvds.samples.entities.IniciativasAgrupadas;
 import edu.eci.cvds.servicios.IniciativasFactory;
 import org.apache.shiro.config.Ini;
 import org.primefaces.event.UnselectEvent;
@@ -96,4 +97,15 @@ public class CheckboxView {
 
         context.addMessage(null, msg);
     }
+    public void insertarIniciativasAgrupadas(){
+        List<IniciativasAgrupadas> agu = IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativasAgrupadas();
+        int indexMax = IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativasAgrupadas().size();
+        int max = agu.get(indexMax-1).getIniciativaAgrupada();
+        for (String i: selectedCities) {
+            IniciativasFactory.instancia().serviciosIniciativas().insertarPorIniciativasAgrupadas(max+1, i);
+
+        }
+
+    }
+
 }

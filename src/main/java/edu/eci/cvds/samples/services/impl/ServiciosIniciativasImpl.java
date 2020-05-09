@@ -134,6 +134,16 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 	}
 
 	@Override
+	public void insertarPorIniciativasAgrupadas(int id, String name) {
+		IniciativasFactory.instancia().IniciativasAgrupadasImplementando().insertarInicitivasAgrupadas(id, name);
+	}
+
+	@Override
+	public List<IniciativasAgrupadas> consultarIniciativasAgrupadas() {
+		return IniciativasFactory.instancia().IniciativasAgrupadasImplementando().selectIniciativaAgrupada();
+	}
+
+	@Override
 	public void insertarPalabraClave(String palabra, int iniciativa) {
 		IniciativasFactory.instancia().palabrasClaveImplementado().insertarPalabraClave(palabra, iniciativa);
 		

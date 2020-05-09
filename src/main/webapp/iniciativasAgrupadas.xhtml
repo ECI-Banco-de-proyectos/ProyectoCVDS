@@ -35,7 +35,7 @@
 
 	<h:form id="formaLista">
 	<p:growl id="msgs" showDetail="true"/>
-	<p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.consultarIniciativasPalabraClave()}"
+	<p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.selectIniciativasAgrupadas()}"
 				 paginator="true" rows="8"
 				 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}">
 					<p:column headerText="Id">

@@ -49,5 +49,9 @@ public interface ServiciosIniciativas {
 	public List<Area> consultarAreas();
 	
 	public Area consultaAreaPorId(String id);
+
+	public void insertarPorIniciativasAgrupadas(int id, String name);
+
+	public List<IniciativasAgrupadas> consultarIniciativasAgrupadas();
 	
 }

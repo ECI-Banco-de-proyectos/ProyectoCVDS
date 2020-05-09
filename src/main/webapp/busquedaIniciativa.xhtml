@@ -34,11 +34,12 @@
 				</p:selectCheckboxMenu>
 			</h:panelGrid>
 
-			<p:commandButton value="Agrupar" update="displayItems" oncomplete="PF('itemDialog').show()" style="margin-top:10px;" />
+			<p:commandButton value="Agrupar" update="displayItems" oncomplete="PF('itemDialog').show()" style="margin-top:10px;" action="#{cbox.insertarIniciativasAgrupadas()}" />
 
 			<p:dialog header="Items seleccionados" modal="true" showEffect="fade" hideEffect="fade" widgetVar="itemDialog" width="250">
 				<p:outputPanel id="displayItems">
-					<p:dataList value="#{cbox.selectedCities}" var="city" emptyMessage="No se ha seleccionado iniciativas">
+					<p:dataList value="#{cbox.selectedCities}" var="city" emptyMessage="No se ha seleccionado iniciativas" action="#{comunBean.insertarIniciativasAgrupadas(cbox.selectedCities)}" >
+
 						<f:facet name="header">
 							Agrupados
 						</f:facet>
