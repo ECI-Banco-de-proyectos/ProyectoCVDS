@@ -12,6 +12,8 @@ public interface PalabrasClaveMapper {
 	
 	public PalabrasClave consultaPalabraClavePorId(@Param("palabraClave") String palabra);
 	
+	public List<PalabrasClave> consultarPalabraClavePorIniciativa(@Param("idIniciativa") int idIniciativa);
+	
 	public void elimiarPalabraClavePorId(@Param("palabraClave") String palabra);
 	
 	public void insertarPalabraClave(@Param("palabra") String palabra, @Param("iniciativa") int iniciativa);

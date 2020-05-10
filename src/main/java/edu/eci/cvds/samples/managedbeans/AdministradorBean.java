@@ -115,7 +115,6 @@ public class AdministradorBean implements Serializable{
 	public void actualizarPerfil() {
 		IniciativasFactory.instancia().serviciosIniciativas().actualizarPerfil(indice,rol);
 		addMessage("Actualizar Perfil", "Cambios realizados");
-		System.out.println(indice);
 	}
 
 

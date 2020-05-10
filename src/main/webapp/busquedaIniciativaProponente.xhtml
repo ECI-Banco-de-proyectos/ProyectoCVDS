@@ -15,39 +15,14 @@
 		</style>
     </h:head>
 	<h:body>
-	<p:tabMenu activeIndex="0">
-		<p:menuitem value="Busqueda de iniciativas" outcome="busquedaIniciativa.xhtml" icon="ui-icon-script"></p:menuitem>
-        <p:menuitem value="Datos del usuario" outcome="Administrador.xhtml" icon="ui-icon-script"></p:menuitem>
-		<p:menuitem value="Iniciativas Agrupadas" outcome="iniciativasAgrupadas.xhtml" icon="ui-icon-script"></p:menuitem>
-	</p:tabMenu>
-
-		<h:form>
-			<p:growl>
-				<p:autoUpdate />
-			</p:growl>
-
-			<h:panelGrid columns="2" cellpadding="5">
-				<h:outputLabel for="grouped" value="Iniciativas:" />
-				<p:selectCheckboxMenu id="grouped" value="#{cbox.selectedCities}" label="Cities" multiple="true"
-									  filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
-					<f:selectItems value="#{cbox.cities}" />
-				</p:selectCheckboxMenu>
-			</h:panelGrid>
-
-			<p:commandButton value="Agrupar" update="displayItems" oncomplete="PF('itemDialog').show()" style="margin-top:10px;" action="#{cbox.insertarIniciativasAgrupadas()}" />
-
-			<p:dialog header="Items seleccionados" modal="true" showEffect="fade" hideEffect="fade" widgetVar="itemDialog" width="250">
-				<p:outputPanel id="displayItems">
-					<p:dataList value="#{cbox.selectedCities}" var="city" emptyMessage="No se ha seleccionado iniciativas" action="#{comunBean.insertarIniciativasAgrupadas(cbox.selectedCities)}" >
-
-						<f:facet name="header">
-							Agrupados
-						</f:facet>
-						#{city}
-					</p:dataList>
-				</p:outputPanel>
-			</p:dialog>
-		</h:form>
+	<h:form>
+		<p:tabMenu activeIndex="2">
+			<p:menuitem value="Insertar Iniciativa" outcome="Proponente.xhtml"></p:menuitem>
+			<p:menuitem value="Salir" action="#{usuarioBean.desconectarUsuario()}" icon="ui-icon-close" style="position: absolute; left: 1080px;"></p:menuitem>
+			<p:menuitem value="Iniciativas Registradas" outcome="busquedaIniciativaProponente.xhtml" icon="ui-icon-document"></p:menuitem>
+			<p:menuitem value="iniciativas del proponente" outcome="IniciativaProponente.xhtml" icon="ui-icon-document"></p:menuitem>
+		</p:tabMenu>
+	</h:form>
 
 	<h:form>
 	<p:panelGrid columns = "3">
@@ -58,7 +33,6 @@
 		</p:selectOneMenu>
 
 		<p:commandButton value="Agrupar areas" action="#{comunBean.banderaTr()}"  update="formaLista:tablaIniciativas" />
-
 	</p:panelGrid>
 	</h:form>
 	
@@ -83,8 +57,8 @@
 						<h:outputText value="#{iniciativa.estado}"/>
 					</p:column>
 					<p:column headerText="Votos">
-						<h:outputText value="#{comunBean.palabrasClavePorIniciativa(iniciativa.id)}"/>
-					</p:column>	
+						<h:outputText value="#{iniciativa.numeroVotos}"/>
+					</p:column>
 					<p:column filterBy="#{comunBean.consultaPalabrasClave(iniciativa.id)}" headerText="Palabras Clave" filterMatchMode="contains">
 						<h:outputText value="#{comunBean.consultaPalabrasClave(iniciativa.id)}"/>
 					</p:column>
@@ -97,18 +71,10 @@
 					<p:column style="width:32px;text-align: center">
 						<p:commandButton icon="fa fa-comment" title="View" action="DatosReaccion.xhtml?faces-redirect=true">
 							<f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
-							<f:setPropertyActionListener value="#{iniciativa}" target="#{reaccionBean.iniciativaSeleccionada}" />
-							<f:setPropertyActionListener value="#{usuarioBean.getId()}" target="#{reaccionBean.id_usuario}" />
 						</p:commandButton>
 					</p:column>
 
 				</p:dataTable>
-	</h:form>
-	<p:chart type="bar" model="#{chartView.barModel}" style="height:300px"/>
-	<h:form id = "RecolectInfo">
-		<p:commandButton value="Exportar como PDF" ajax="false" >
-			<p:dataExporter type="pdf" target="formaLista:tablaIniciativas" fileName="DatosIniciativas"/>
-		</p:commandButton>
 	</h:form>
     </h:body>
 </html>

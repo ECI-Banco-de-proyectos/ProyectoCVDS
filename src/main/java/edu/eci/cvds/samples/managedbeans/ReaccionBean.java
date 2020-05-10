@@ -6,33 +6,58 @@ import java.util.ArrayList;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import org.apache.shiro.config.Ini;
+
+import edu.eci.cvds.samples.entities.Iniciativa;
 import edu.eci.cvds.samples.entities.Reaccion;
+import edu.eci.cvds.samples.entities.UsuarioIniciativas;
 import edu.eci.cvds.servicios.IniciativasFactory;
 
 
 @ManagedBean(name="reaccionBean")
+@ApplicationScoped
 public class ReaccionBean {
 	public int id_iniciativa;
 	public int id_usuario;
 	public String nombre;
 	public String comentario;
 	public Date fecha;
-	public int voto;
+	public boolean voto;
 	public Reaccion reaccion;
-	
+	public Iniciativa iniciativaSeleccionada;
+
 	@PostConstruct
 	public void init() {
 		fecha=Date.valueOf(LocalDate.now());
 	}
 
 	
-	public void insertReaccion (String nombre,int id_ini,int id,int voto) {
+	public void insertReaccion (String nombre,String contraseña,int id_ini,int id) {
 		IniciativasFactory.instancia().serviciosIniciativas().insertarReacciones(id_ini, nombre , comentario, fecha);
-		actualizarIniciativa(id,voto+this.voto);
+		//actualizarIniciativa(id,voto+this.voto);
+		int userId = IniciativasFactory.instancia().serviciosIniciativas().consultarIdPorNombreyContraseña(nombre, contraseña);
+		boolean votado = votoPresente(userId,id);
+		if(voto && !votado) {
+			IniciativasFactory.instancia().serviciosIniciativas().insertarUsuarioIniciativa(userId, id, 1);
+		}else if(!voto && votado) {
+			IniciativasFactory.instancia().serviciosIniciativas().deleteUsuarioIniciativa(userId, id_ini);
+		}
 		addMessage("Insertar reaccion", "Reaccion insertada");
+		
+	}
+	
+	private boolean votoPresente(int user, int iniciativa) {
+		boolean res = false;
+		for(UsuarioIniciativas ui: IniciativasFactory.instancia().serviciosIniciativas().selectUsuarioIniciativas()) {
+			if(ui.getUsuario() == user && ui.getIniciativa() == iniciativa) {
+				res = true;
+			}
+		}
+		return res;
 		
 	}
 	
@@ -76,12 +101,16 @@ public class ReaccionBean {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	public int getVoto() {
-		return voto;
+	public boolean isVoto() {
+		return votoPresente(this.id_usuario,this.id_iniciativa);
 	}
-	public void setVoto(int voto) {
+	public void setVoto(boolean voto) {
 		this.voto = voto;
 	}
+	public void setIniciativaSeleccionada(Iniciativa iniciativaSeleccionada) {
+		this.id_iniciativa=iniciativaSeleccionada.getId();
+	}
+
 	
 
 }

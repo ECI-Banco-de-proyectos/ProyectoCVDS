@@ -60,7 +60,7 @@ public class UsuarioBean implements Serializable {
 		this.mensajeErrorLogin = mensajeErrorLogin;
 	}
 	public int getId() {
-		return id;
+		return IniciativasFactory.instancia().serviciosIniciativas().consultarIdPorNombreyContraseña(this.nombre, this.contraseña);
 	}
 	public List<Usuario> getLista() {
 		//cargar();

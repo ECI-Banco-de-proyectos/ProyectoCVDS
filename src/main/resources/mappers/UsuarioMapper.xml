@@ -18,6 +18,12 @@
 		order by id;
 	</select>
 	
+	<select id="consultarIdPorNombreyContraseña" resultType="int">
+		select id
+		from usuario
+		where nombre=#{nombre} and contraseña=#{contraseña}; 
+	</select>
+	
 	<insert id="insertarUsuario">
 		insert into usuario values(#{id}, #{cont}, #{name}, #{rol}, #{area});
 	</insert>

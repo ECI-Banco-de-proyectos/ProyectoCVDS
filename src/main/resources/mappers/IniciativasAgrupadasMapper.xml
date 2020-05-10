@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.eci.cvds.persistencia.mybatisimpl.mappers.IniciativasAgrupadasMapper">
+
+    <insert id="insertIniciativaAgrupada" >
+    insert into iniciativasAgrupadas values(#{id},#{name})
+    </insert>
+
+    <select id='selectIniciativaAgrupada' resultMap='IniciativasAgrupadasResult'>
+        select *
+        from iniciativasAgrupadas u
+    </select>
+
+
+    <resultMap type="IniciativasAgrupadas" id="IniciativasAgrupadasResult">
+        <result column="id" property="iniciativaAgrupada"/>
+        <result column="nombreIniciativa" property="nombreIniciativa"/>
+
+    </resultMap>
+</mapper>

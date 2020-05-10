@@ -34,6 +34,11 @@ public class MyBatisDAOUsuario implements DAOUsuario{
 		usuarioMapper.updatePerfil(id,tipoRol);
 		//IniciativasFactory.instancia().session.commit();
 	}
+
+	@Override
+	public int consultarIdPorNombreyContraseña(String nombre, String contraseña) {
+		return usuarioMapper.consultarIdPorNombreyContraseña(nombre, contraseña);
+	}
 	
 	
 

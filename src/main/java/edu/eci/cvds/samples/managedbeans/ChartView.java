@@ -4,7 +4,6 @@ package edu.eci.cvds.samples.managedbeans;
 import edu.eci.cvds.samples.entities.AreaIniciativa;
 import edu.eci.cvds.samples.entities.TipoArea;
 import edu.eci.cvds.servicios.IniciativasFactory;
-import edu.eci.cvds.servicios.ServiciosIniciativas;
 import org.primefaces.event.ItemSelectEvent;
 import org.primefaces.model.chart.*;
 import javax.annotation.PostConstruct;
@@ -13,8 +12,6 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 
 

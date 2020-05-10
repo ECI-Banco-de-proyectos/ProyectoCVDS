@@ -1,7 +1,10 @@
 package edu.eci.cvds.samples.persistencia.mybatisimpl;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.inject.Inject;
 
@@ -44,6 +47,11 @@ public class MyBatisDAOIniciativa implements DAOIniciativa{
 	@Override
 	public List<Iniciativa> ordenDeIniciativa( String columnaSeleccionada)  {
 		return iniciativaMapper.ordenDeIniciativa(columnaSeleccionada);
+	}
+
+	@Override
+	public List<HashMap> selectIniciativaPorEstado() {
+		return iniciativaMapper.selectIniciativaPorEstado();
 	}
 
 }

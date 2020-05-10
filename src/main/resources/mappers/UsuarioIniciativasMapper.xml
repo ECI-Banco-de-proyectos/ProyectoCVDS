@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="edu.eci.cvds.persistencia.mybatisimpl.mappers.UsuarioIniciativasMapper">
+
+	<select id="selectUsuarioIniciativas" resultMap="UsuarioIniciativasResult">
+		select * from usuarioiniciativa;
+	</select>
+	
+	<insert id="insertarUsuarioIniciativa">
+		insert into usuarioiniciativa values(#{usuario},#{iniciativa},#{numerovotos});
+	</insert>
+	
+	<update id="updateNumeroVotos">
+		update usuarioiniciativa set numerovotos = #{numerovotos}
+		where usuario=#{usuario} and iniciativa=#{iniciativa};
+	</update>
+	
+	<delete id="deleteUsuarioIniciativa">
+		delete from usuarioiniciativa where usuario=#{usuario} and iniciativa=#{iniciativa};
+	</delete>
+
+	<resultMap type='UsuarioIniciativas' id='UsuarioIniciativasResult'>
+		<result property='usuario' column='usuario'/>
+		<result property='iniciativa' column='iniciativa'/>
+		<result property='numerovotos' column='numerovotos'/>
+    </resultMap>
+
+</mapper>
