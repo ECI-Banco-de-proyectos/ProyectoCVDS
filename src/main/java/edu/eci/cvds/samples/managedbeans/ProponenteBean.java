@@ -15,6 +15,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import edu.eci.cvds.samples.entities.EstadoIniciativa;
+import edu.eci.cvds.samples.entities.Iniciativa;
 import edu.eci.cvds.samples.entities.TipoRol;
 import edu.eci.cvds.samples.entities.Usuario;
 import edu.eci.cvds.servicios.IniciativasFactory;
@@ -33,6 +34,8 @@ public class ProponenteBean implements Serializable{
 	String descripcion;
 	String palabrasClave;
 	List<Integer> idIniciativa;
+	String guardarEstados;
+	List<EstadoIniciativa> estados;
 
 	@PostConstruct
 	public void init() {
@@ -41,6 +44,12 @@ public class ProponenteBean implements Serializable{
 		for(int i=1; i<longitud+1; i++) {
 			idIniciativa.add(i);
 		}
+
+		estados=new ArrayList<EstadoIniciativa>();
+		estados.add(EstadoIniciativa.En_Espera_De_Revision);
+		estados.add(EstadoIniciativa.En_Revision);
+		estados.add(EstadoIniciativa.Proyecto);
+		estados.add(EstadoIniciativa.Solucionado);
 	}
 
 
@@ -64,6 +73,22 @@ public class ProponenteBean implements Serializable{
 		
 		
 		return res;
+	}
+
+	public void setGuardarEstados(String guardarEstados) {
+		this.guardarEstados = guardarEstados;
+	}
+
+	public String getGuardarEstados() {
+		return guardarEstados;
+	}
+
+	public List<EstadoIniciativa> getEstados() {
+		return estados;
+	}
+
+	public void setEstados(List<EstadoIniciativa> estados) {
+		this.estados = estados;
 	}
 
 	public int getId() {
@@ -143,6 +168,16 @@ public class ProponenteBean implements Serializable{
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
-	
+
+    public List<Iniciativa> filtrarEstados(){
+		List<Iniciativa> lis = IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativas();
+		List<Iniciativa> res = new ArrayList<Iniciativa>();
+		for(Iniciativa i: lis){
+			if(i.getEstado().equals(estado)){
+				res.add(i);
+			}
+		}
+		return res;
+	}
 	
 }

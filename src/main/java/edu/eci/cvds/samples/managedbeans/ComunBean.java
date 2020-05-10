@@ -116,8 +116,7 @@ public class ComunBean {
 	}
 
 	public List<Iniciativa> consultarIniciativasPalabraClave() {
-		System.out.println(columna);
-		System.out.println(bandera);
+		System.out.println(areaConocimiento);
 		if (bandera) {
 			if (TipoArea.Todas.equals(areaConocimiento)) {
 				return IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativasPalabraClave("");
