@@ -12,6 +12,7 @@
 		<typeAlias type="edu.eci.cvds.samples.entities.PalabrasClave" alias="PalabrasClave" />
 		<typeAlias type="edu.eci.cvds.samples.entities.Area" alias="Area" />
 		<typeAlias type="edu.eci.cvds.samples.entities.IniciativasAgrupadas" alias="IniciativasAgrupadas" />
+		<typeAlias type="edu.eci.cvds.samples.entities.UsuarioIniciativas" alias="UsuarioIniciativas" />
 
 	</typeAliases>
 
@@ -36,6 +37,7 @@
 		<mapper resource="mappers/PalabrasClaveMapper.xml"></mapper>
 		<mapper resource="mappers/AreaMapper.xml"></mapper>
 		<mapper resource="mappers/IniciativasAgrupadasMapper.xml"></mapper>
+		<mapper resource="mappers/UsuarioIniciativasMapper.xml"></mapper>
 	</mappers>
 
 

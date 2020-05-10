@@ -42,10 +42,10 @@
 		<p:inputTextarea value="#{reaccionBean.comentario}"  columns="50" rows="5"/>
 		
 		<p:outputLabel value="Deje su voto: " />
-		<p:rating value="#{reaccionBean.voto}" stars="1"/>
+		<p:selectBooleanButton id="voto" value="#{reaccionBean.voto}" onLabel="No me gusta" offLabel="Me gusta" style="width:60px; color:red" update="voto"/>
 		</p:panelGrid>
 		<h1></h1>
-		<p:commandButton value="Aplicar Cambios" action="#{reaccionBean.insertReaccion(usuarioBean.nombre,adminBean.idIniciativa,adminBean.idIniciativa,adminBean.votosIniciativa)}" update="confirmacion" >
+		<p:commandButton value="Aplicar Cambios" action="#{reaccionBean.insertReaccion(usuarioBean.nombre,usuarioBean.contraseña,adminBean.idIniciativa,adminBean.idIniciativa)}" update="confirmacion" >
 		</p:commandButton>
 		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
 			<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />

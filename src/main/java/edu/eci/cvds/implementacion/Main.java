@@ -1,6 +1,8 @@
 package edu.eci.cvds.implementacion;
 
 import java.io.IOException;
+import com.google.inject.Inject;
+
 import java.io.InputStream;
 import java.io.Reader;
 import java.sql.Date;
@@ -16,6 +18,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import edu.eci.cvds.persistencia.mybatisimpl.mappers.IniciativaMapper;
 import edu.eci.cvds.persistencia.mybatisimpl.mappers.UsuarioMapper;
 import edu.eci.cvds.samples.persistencia.DAOUsuario;
 import edu.eci.cvds.servicios.IniciativasFactory;
@@ -94,8 +97,7 @@ public class Main {
 			e.printStackTrace();
 		} 
 		*/
-		
-		System.out.println(IniciativasFactory.instancia().serviciosIniciativas().consultaPalabrasClave());
 	}
-
 }
+
+

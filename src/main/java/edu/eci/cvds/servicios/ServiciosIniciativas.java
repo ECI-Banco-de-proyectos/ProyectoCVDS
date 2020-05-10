@@ -9,6 +9,8 @@ import edu.eci.cvds.samples.persistencia.DAOIniciativa;
 public interface ServiciosIniciativas {
 
 	public DAOIniciativa buscarIniciativas(String clave);
+	
+	public int consultarIdPorNombreyContraseña(String nombre, String contraseña);
 
 	public List<Usuario> consultarUsuariosPorContraseña(String contraseña);
 	
@@ -53,5 +55,15 @@ public interface ServiciosIniciativas {
 	public void insertarPorIniciativasAgrupadas(int id, String name);
 
 	public List<IniciativasAgrupadas> consultarIniciativasAgrupadas();
+	
+	public List<UsuarioIniciativas> selectUsuarioIniciativas();
+	
+	public void insertarUsuarioIniciativa(int usuario, int iniciativa, int numeroVotos);
+	
+	public void updateNumeroVotos(int usuario, int iniciativa, int numeroVotos);
+	
+	public void deleteUsuarioIniciativa(int usuario, int iniciativa);
+	
+	public int numeroVotosPorIniciativa(int idIniciativa);
 	
 }

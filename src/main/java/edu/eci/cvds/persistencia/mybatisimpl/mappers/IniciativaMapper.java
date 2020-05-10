@@ -1,9 +1,13 @@
 package edu.eci.cvds.persistencia.mybatisimpl.mappers;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.shiro.crypto.hash.Hash;
 
 import edu.eci.cvds.samples.entities.EstadoIniciativa;
 import edu.eci.cvds.samples.entities.Iniciativa;
@@ -19,4 +23,6 @@ public interface IniciativaMapper {
 	public List<Iniciativa> selectIniciativas();
 
 	public List<Iniciativa> ordenDeIniciativa (@Param("columnaSeleccionada") String columna);
+	
+	public List<HashMap> selectIniciativaPorEstado();
 }

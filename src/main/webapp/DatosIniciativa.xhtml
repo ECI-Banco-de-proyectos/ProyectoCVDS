@@ -62,6 +62,8 @@
 					<p:column headerText="Votos">
 						<h:outputText value="#{iniciativa.numeroVotos}"/>
 					</p:column>
+						<h:outputText value="#{comunBean.palabrasClavePorIniciativa(iniciativa.id)}"/>
+					</p:column>	
 					<p:column filterBy="#{comunBean.consultaPalabrasClave(iniciativa.id)}" headerText="Palabras Clave" filterMatchMode="contains">
 						<h:outputText value="#{comunBean.consultaPalabrasClave(iniciativa.id)}"/>
 					</p:column>
@@ -74,6 +76,8 @@
 					<p:column style="width:32px;text-align: center">
 						<p:commandButton icon="fa fa-comment" title="View" action="DatosReaccion.xhtml?faces-redirect=true">
 							<f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
+							<f:setPropertyActionListener value="#{iniciativa}" target="#{reaccionBean.iniciativaSeleccionada}" />
+							<f:setPropertyActionListener value="#{usuarioBean.getId()}" target="#{reaccionBean.id_usuario}" />
 						</p:commandButton>
 					</p:column>
 

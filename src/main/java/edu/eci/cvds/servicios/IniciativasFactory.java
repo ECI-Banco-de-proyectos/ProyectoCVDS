@@ -46,6 +46,7 @@ public class IniciativasFactory{
         		bind(DAOPalabrasClave.class).to(MyBatisDAOPalabrasClave.class);
         		bind(DAOArea.class).to(MyBatisDAOArea.class);
 				bind(DAOIniciativasAgrupadas.class).to(MyBatisDAOIniciativasAgrupadas.class);
+				bind(DAOUsuarioIniciativas.class).to(MyBatisDAOUsuarioIniciativas.class);
 
             }
 
@@ -105,6 +106,10 @@ public class IniciativasFactory{
 	
 	public DAOArea areasImplementado() {
 		return injector.getInstance(DAOArea.class);
+	}
+	
+	public DAOUsuarioIniciativas usuarioIniciativasImplementado() {
+		return injector.getInstance(DAOUsuarioIniciativas.class);
 	}
 	
 	public ServiciosIniciativas serviciosIniciativas() {

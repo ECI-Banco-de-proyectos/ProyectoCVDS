@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.faces.bean.ApplicationScoped;
 
+import org.apache.shiro.config.Ini;
+
 import edu.eci.cvds.samples.entities.*;
 import edu.eci.cvds.samples.persistencia.DAOIniciativa;
 import edu.eci.cvds.servicios.IniciativasFactory;
@@ -146,7 +148,42 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 	@Override
 	public void insertarPalabraClave(String palabra, int iniciativa) {
 		IniciativasFactory.instancia().palabrasClaveImplementado().insertarPalabraClave(palabra, iniciativa);
-		
+	}
+
+	@Override
+	public List<UsuarioIniciativas> selectUsuarioIniciativas() {
+		return IniciativasFactory.instancia().usuarioIniciativasImplementado().selectUsuarioIniciativas();
+	}
+
+	@Override
+	public void insertarUsuarioIniciativa(int usuario, int iniciativa, int numeroVotos) {
+		IniciativasFactory.instancia().usuarioIniciativasImplementado().insertarUsuarioIniciativa(usuario, iniciativa, numeroVotos);
+	}
+
+	@Override
+	public void updateNumeroVotos(int usuario, int iniciativa, int numeroVotos) {
+		IniciativasFactory.instancia().usuarioIniciativasImplementado().updateNumeroVotos(usuario, iniciativa, numeroVotos);
+	}
+
+	@Override
+	public void deleteUsuarioIniciativa(int usuario, int iniciativa) {
+		IniciativasFactory.instancia().usuarioIniciativasImplementado().deleteUsuarioIniciativa(usuario, iniciativa);
+	}
+
+	@Override
+	public int consultarIdPorNombreyContraseña(String nombre, String contraseña) {
+		return IniciativasFactory.instancia().usuarioImplementado().consultarIdPorNombreyContraseña(nombre, contraseña);
+	}
+
+	@Override
+	public int numeroVotosPorIniciativa(int idIniciativa) {
+		int cont = 0;
+		for(UsuarioIniciativas ui: selectUsuarioIniciativas()) {
+			if(ui.getIniciativa() == idIniciativa) {
+				cont++;
+			}
+		}
+		return cont;
 	}
 	
 }

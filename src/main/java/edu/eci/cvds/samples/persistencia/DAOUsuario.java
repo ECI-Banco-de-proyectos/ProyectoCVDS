@@ -2,6 +2,8 @@ package edu.eci.cvds.samples.persistencia;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import edu.eci.cvds.samples.entities.TipoRol;
 import edu.eci.cvds.samples.entities.Usuario;
 
@@ -14,5 +16,7 @@ public interface DAOUsuario {
 	public void insertarUsuario(int id, String contraseña, String nombre, TipoRol rol, String area);
 	
 	public void updatePerfil(int id, TipoRol tipoRol);
+	
+	public int consultarIdPorNombreyContraseña(String nombre, String contraseña);
 
 }

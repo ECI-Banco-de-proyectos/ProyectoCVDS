@@ -116,7 +116,6 @@ public class ComunBean {
 	}
 
 	public List<Iniciativa> consultarIniciativasPalabraClave() {
-		System.out.println(areaConocimiento);
 		if (bandera) {
 			if (TipoArea.Todas.equals(areaConocimiento)) {
 				return IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativasPalabraClave("");
@@ -194,6 +193,10 @@ public class ComunBean {
 			nombres.add(i.getNombre());
 		}
 		return nombres;
+	}
+	
+	public int palabrasClavePorIniciativa(int idInic) {
+		return IniciativasFactory.instancia().serviciosIniciativas().numeroVotosPorIniciativa(idInic);
 	}
 
 	public  List<Iniciativa> selectIniciativasAgrupadas() {
