@@ -15,6 +15,8 @@ public interface DAOIniciativa {
 
 	public void cambiarIniciativa(EstadoIniciativa estado, int id);
 
+	public void cambiarIniciativas(String name, String descrip, int id);
+
 	public DAOIniciativa claveIniciativa(String clave);
 
 	public List<Iniciativa> selectIniciativa();

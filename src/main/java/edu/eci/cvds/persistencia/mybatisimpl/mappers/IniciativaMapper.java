@@ -18,6 +18,8 @@ public interface IniciativaMapper {
 
 	public void cambiarIniciativa(@Param("estado") EstadoIniciativa estado, @Param("id") int id);
 
+	public void cambiarIniciativas(@Param("name") String name, @Param("descrip") String descrip, @Param("id") int id);
+
 	public void claveIniciativas(@Param("clave")String clave);
 
 	public List<Iniciativa> selectIniciativas();

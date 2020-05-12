@@ -1,5 +1,10 @@
 package edu.eci.cvds.samples.entities;
 
+import org.primefaces.event.RowEditEvent;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.smartcardio.Card;
 import java.io.Serializable;
 import java.sql.Date;
 
@@ -83,8 +88,5 @@ public class Iniciativa implements Serializable{
 		this.numeroVotos = numeroVotos;
 	}
 
-	
-	
-	
 
 }

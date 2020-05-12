@@ -61,7 +61,7 @@ public interface ServiciosIniciativas {
 	public void insertarUsuarioIniciativa(int usuario, int iniciativa, int numeroVotos);
 	
 	public void updateNumeroVotos(int usuario, int iniciativa, int numeroVotos);
-	
+
 	public void deleteUsuarioIniciativa(int usuario, int iniciativa);
 	
 	public int numeroVotosPorIniciativa(int idIniciativa);

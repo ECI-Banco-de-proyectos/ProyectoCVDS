@@ -179,5 +179,29 @@ public class ProponenteBean implements Serializable{
 		}
 		return res;
 	}
+
+	public void onRowEdit(EstadoIniciativa es, int id, int idU, String name) {
+		int usu=-1;
+		if(es!=EstadoIniciativa.En_Espera_De_Revision){
+			addMessage("Actualizar iniciativa", "Solo se pueden actualizar iniciativas en espera de reivisión");
+		}else{
+			List<Usuario> u =IniciativasFactory.instancia().serviciosIniciativas().consultarUsuarios();
+			for (Usuario i : u) {
+				if (i.getNombre().equals(name)) {
+					usu = i.getId();
+				}
+			}
+			if(usu==idU) {
+				IniciativasFactory.instancia().iniciativaImplementado().cambiarIniciativas(nombreIniciativa, descripcion, id);
+				addMessage("Actualizar iniciativa", "Iniciativa actualizada, por favor recargue la página");
+			}else{
+				addMessage("Actualizar iniciativa", "El usuario registrado no es quien ha creado esta iniciativa");
+			}
+		}
+	}
+
+	public void onRowCancel() {
+		addMessage("Cancelar actualización", "Actualización cancelada");
+	}
 	
 }

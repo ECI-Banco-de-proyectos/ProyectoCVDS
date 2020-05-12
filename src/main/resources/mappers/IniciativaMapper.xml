@@ -23,6 +23,11 @@
 		where id=#{id};
 	</update>
 
+	<update id="cambiarIniciativas" >
+		update iniciativa set nombreiniciativa=#{name}, descripcion=#{descrip}
+		where id=#{id};
+	</update>
+
 	<select id="ordenDeIniciativa" resultMap='IniciativaResult'>
 		select * from iniciativa i
 		order by
