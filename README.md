@@ -34,6 +34,8 @@ En botón con la imagen del lapiz de la penúltima columna se pueden modificar a
 ![enter image description here](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/BD.PNG?raw=true)
 ## Entrada a Heroku
 [Banco de Proyectos](https://proyectocvds2.herokuapp.com/faces/Registro.xhtml)
+## Entrada a Circle ci
+[Integración continua](https://app.circleci.com/pipelines/github/ECI-Banco-de-proyectos/ProyectoCVDS)
 
 
 ## Informacion de sobre la entrada a la base de datos
