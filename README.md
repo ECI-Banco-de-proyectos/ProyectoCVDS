@@ -2,22 +2,21 @@
 # Proyecto Ciclos de vida del desarrollo de software 2020-1
 # Grupo 2
 ## Integrantes: 
->- German Andres Ospina Quintero
->- Nicolas Ortega Limas
->- Juan Sebastian Nieto Molina 
+>- Germán Andres Ospina Quintero
+>- Nicolás Ortega Limas
+>- Juan Sebastián Nieto Molina 
 >- Brayan Steven Burgos Delgado
 
 ## Roles:
 |     Nombre    |     Rol         |
 |:--------------:|:-------------: |
-|Germán Ándres Ospin Quintero |Team Developer    |
+|Germán Andres Ospina Quintero |Team Developer    |
 |Nicolas Ortega Limas |Team Developer   |
 |Juan Sebastián Nieto Molina |Team Developer   |
 |Brayan Steven Burgos Delgado |Team Developer   |
 |Ing. Julián Mauricio Velasco Briceño |Product Owner   |
 
-## Definicion del proyecto y documentacion del proyecto:
-[Definicion del proyecto](https://drive.google.com/file/d/1CUC9XXWHU8wnbFzoWo5ZUM3y5VEtSGhp/view?usp=sharing)
+## Definición del proyecto y documentación del proyecto:
 
 ### Descripción General
 Esta aplicación tiene como objetivo principal brindar a la comunidad una herramienta fácil y eficiente para la socialización de iniciativas.
@@ -61,19 +60,19 @@ En botón con la imagen del lapiz de la penúltima columna se pueden modificar a
 
 ### Capa aplicación:
 >- [Apache Maven](https://maven.apache.org/) (Project Management tool)
->- [Eclipse IDE] (https://www.eclipse.org/)
->- [Guice] (https://github.com/google/guice) (Inyección de Dependencias)
->- [Shiro] (https://shiro.apache.org/) (Autenticación)
+>- [Eclipse IDE](https://www.eclipse.org/)
+>- [Guice](https://github.com/google/guice) (Inyección de Dependencias)
+>- [Shiro](https://shiro.apache.org/) (Autenticación)
 
 ### Enlace a BD:
->- [PostgreSQL] (https://www.postgresql.org/) (DataBase Management)
+>- [PostgreSQL](https://www.postgresql.org/) (DataBase Management)
 
 ### Cloud Application Platforms:
->- [Heroku – Bootstrap] (https://getbootstrap.com/) (Despliegue WEB)
+>- [Heroku – Bootstrap](https://getbootstrap.com/) (Despliegue WEB)
 
 ### Capa de presentación:
->- [PrimeFaces] (https://www.primefaces.org/) (Framework)
->- [JSF] (http://www.javaserverfaces.org/) (UI Framework)
+>- [PrimeFaces](https://www.primefaces.org/) (Framework)
+>- [JSF](http://www.javaserverfaces.org/) (UI Framework)
 
 ## Entrada a Heroku
 En nuestro proyecto usamos la plataforma cloud de Heroku que se encuentra aquí
@@ -86,7 +85,7 @@ En nuestro proyecto usamos la plataforma cloud de Heroku que se encuentra aquí
 ## Análisis Estático de Código con Codacy
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/39c3005f4d474aee881294dc88c1997b)](https://www.codacy.com/gh/ECI-Banco-de-proyectos/ProyectoCVDS?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ECI-Banco-de-proyectos/ProyectoCVDS&amp;utm_campaign=Badge_Grade)
 
-## Informacion de datos de acceso a la base de datos POSTGRESQL
+## Información de datos de acceso a la base de datos POSTGRESQL
 >- host : ec2-3-91-112-166.compute-1.amazonaws.com
 >- db: d52r0cth9ad4d6
 >- user: nxztwufxsnpfki
@@ -102,21 +101,20 @@ Enlace a la aplicacion de gestion del proyecto Taiga:
 
 ```mvn package```
 
-
 ## Descripción de nuestro proceso:
 
 ### Metodología.
 
-En este proyecto decidimos utilizar la metodología Scrum en la cual el equipo se reúne y planea lo que se realizará en los diferentes Sprint, la herramienta que se utilizo fue Taigo.io la cual nos permite realizar las historias de usuario y repartir las tareas entre los integrantes.
+En este proyecto pusimos en práctica la utilización de **la metodología Scrum** en la cual el equipo se reúne y planea lo que se realizará en los diferentes Sprint, la herramienta que se utilizo fue Taigo.io la cual nos permite realizar las historias de usuario y repartir las tareas entre los integrantes.
 
 Al finalizar cada Sprint, el equipo se reúne para planear el siguiente y se comentan lo que sucedió con el anterior.
 Para el primer Sprint decidimos usar tres acercamientos, el primero que usamos en la historia de usuario uno fue realizar el desarrollo con todo el equipo, para así poder entender y aportar colectivamente a las bases de la aplicación, luego procedimos a dividirnos por parejas para continuar desarrollando las historias de usuario dos, tres y cuatro y finalmente decidimos que cada integrante escogiera las tareas de la historia de usuario faltante.
 
 Para el caso del segundo Sprint decidimos variar la manera en la que estabamos trabajando, decidimos dividir las historias de usuario por parejas inicialmente para que luego cada pareja lo dividiera como viera necesario.
 
-En este caso Sebastián y Brayan decidieron seguir desarrollando las historias juntos (Historias 6 y 7) y en el caso de Germán y Nicolás las dividieron (Historia 8 y 9) y dejaron una sola para desarrollar como pareja (Historia 10).
+En este caso **Sebastián y Brayan** decidieron seguir desarrollando las historias juntos **(Historias 6 y 7)** y en el caso de **Germán y Nicolás** las dividieron **(Historia 8 y 9)** y dejaron una sola para desarrollar como pareja **(Historia 10)**.
 
-Para el caso del tercer Sprint los que se decidió fue dividir nuevamente las historias de usuario por parejas, para luego ser divididas individualmente. Sebastián y Brayan decidieron tomar las historias numero 11 y 12, Germán y Nicolás decidimos tomar las historias 13 y 14.
+Para el caso del tercer Sprint los que se decidió fue dividir nuevamente las historias de usuario por parejas, para luego ser divididas individualmente. Sebastián y Brayan decidieron tomar las **historias numero 11 y 12**, Germán y Nicolás decidimos tomar las **historias 13 y 14**.
 
 ## Análisis de Sprints:
 
