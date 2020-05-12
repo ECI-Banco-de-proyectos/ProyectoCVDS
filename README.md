@@ -36,7 +36,7 @@ En botón con la imagen del lapiz de la penúltima columna se pueden modificar a
 [Banco de Proyectos](https://proyectocvds2.herokuapp.com/faces/Registro.xhtml)
 ## Entrada a Circle ci
 [Integración continua](https://app.circleci.com/pipelines/github/ECI-Banco-de-proyectos/ProyectoCVDS)
-[![CircleCI](https://circleci.com/gh/ECI-Banco-de-proyectos/ProyectoCVDS.svg?style=svg)](https://circleci.com/gh/ECI-Banco-de-proyectos/ProyectoCVDS)
+[![CircleCI](https://circleci.com/gh/ECI-Banco-de-proyectos/ProyectoCVDS/tree/master.svg?style=svg)](https://circleci.com/gh/ECI-Banco-de-proyectos/ProyectoCVDS/tree/master)
 
 ## Informacion de sobre la entrada a la base de datos
 >- host : ec2-3-91-112-166.compute-1.amazonaws.com
