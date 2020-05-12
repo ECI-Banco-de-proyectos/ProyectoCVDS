@@ -16,9 +16,9 @@ la opción de poder visualizar los datos en gráficas, de tal manera que sean mu
 ### Funcionalidades más Importantes y Manual de Usuario
 Cualquier persona que quiera visualizar la información presente en el sistema puede registrase como un usuario básico:
 ![enter image description here](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/Registro.PNG?raw=true)
-Una vez registrado puede logearse ingresando en el botón de abajo presente en la página anterior:
+Una vez registrado puede logearse ingresando en el botón de abajo, presente en la página anterior:
 ![enter image description here](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/Ingreso.PNG?raw=true)
-En nuestro caso ingresaremos como usuario administrador, para poder ver todas las funcionalidades de ofrece la plataforma (german, german):
+En nuestro caso ingresaremos como usuario administrador, para poder ver todas las funcionalidades que ofrece la plataforma (german, german):
 En está pagina el usuario puede visualizar los datos de todos los usuarios:
 ![enter image description here](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/Datos%20del%20usuario.PNG?raw=true)
 Dando click en el bóton de la última columna es posible modificar el rol de usuario seleccionado:
