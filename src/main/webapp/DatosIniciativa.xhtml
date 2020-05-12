@@ -82,6 +82,14 @@
 					</p:column>
 
 				</p:dataTable>
+				
+	</h:form>
+	
+	<p:chart type="bar" model="#{chartView.barModelEstados}" style="height:300px"/>
+	<h:form id = "RecolectInformacion">
+		<p:commandButton value="Exportar como PDF" ajax="false" >
+			<p:dataExporter type="pdf" target="formaLista:tablaIniciativas" fileName="DatosEstado"/>
+		</p:commandButton>
 	</h:form>
     </h:body>
 </html>

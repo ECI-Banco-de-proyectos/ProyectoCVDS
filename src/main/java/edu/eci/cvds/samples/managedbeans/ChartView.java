@@ -2,6 +2,8 @@ package edu.eci.cvds.samples.managedbeans;
 
 
 import edu.eci.cvds.samples.entities.AreaIniciativa;
+import edu.eci.cvds.samples.entities.EstadoIniciativa;
+import edu.eci.cvds.samples.entities.Iniciativa;
 import edu.eci.cvds.samples.entities.TipoArea;
 import edu.eci.cvds.servicios.IniciativasFactory;
 import org.primefaces.event.ItemSelectEvent;
@@ -20,6 +22,7 @@ import java.util.List;
 public class ChartView implements Serializable {
 
     private BarChartModel barModel;
+    private BarChartModel barModelEstados;
     private int matematicas=0;
     private int fisica=0;
     private int robotica=0;
@@ -28,10 +31,18 @@ public class ChartView implements Serializable {
     private int sistemas=0;
     private int mecanica=0;
     private int maxi;
+    
+    private int enEsperaDeRevision=0;
+    private int enRevision=0;
+    private int proyecto=0;
+    private int solucionado=0;
+    private int maxi2;
 
     @PostConstruct
     public void init() {
         createBarModels();
+        createBarModelEstados();
+        
     }
 
     public void itemSelect(ItemSelectEvent event) {
@@ -43,6 +54,10 @@ public class ChartView implements Serializable {
 
     public BarChartModel getBarModel() {
         return barModel;
+    }
+    
+    public BarChartModel getBarModelEstados() {
+        return barModelEstados;
     }
 
     private BarChartModel initBarModel() {
@@ -86,9 +101,73 @@ public class ChartView implements Serializable {
 
         return model;
     }
+    
+    
+    private BarChartModel initBarModelEstados() {
+        BarChartModel model = new BarChartModel();
+
+        ChartSeries solucionando = new ChartSeries();
+        solucionando.setLabel("Solucionado");
+        solucionando.set("2020", solucionado);
+
+        ChartSeries enRevisiones = new ChartSeries();
+        enRevisiones.setLabel("En revisión");
+        enRevisiones.set("2020", enRevision);
+
+        ChartSeries esperaRevision = new ChartSeries();
+        esperaRevision.setLabel("En espera de revisión");
+        esperaRevision.set("2020", enEsperaDeRevision);
+
+        ChartSeries eProyecto = new ChartSeries();
+        eProyecto.setLabel("Proyecto");
+        eProyecto.set("2020", proyecto);
+
+
+        model.addSeries(solucionando);
+        model.addSeries(enRevisiones);
+        model.addSeries(esperaRevision);
+        model.addSeries(eProyecto);
+
+        return model;
+    }
+    
+    
+    
+    private void createBarModelEstados() {
+        List<Iniciativa> ser = IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativas();
+        
+        maxi2=0;
+        for(Iniciativa i:ser ){
+            if (i.getEstado().equals(EstadoIniciativa.Solucionado)) {
+            	this.solucionado+=1;
+            	maxi2=Math.max(maxi2,solucionado);
+            }
+            else if (i.getEstado().equals(EstadoIniciativa.Proyecto)) {
+            	this.proyecto+=1;
+            	maxi2=Math.max(maxi2,proyecto);
+            }
+            else if (i.getEstado().equals(EstadoIniciativa.En_Espera_De_Revision)) {
+            	this.enEsperaDeRevision+=1;
+            	maxi2=Math.max(maxi2,enEsperaDeRevision);
+            }
+            else if (i.getEstado().equals(EstadoIniciativa.En_Revision)) {
+            	this.enRevision+=1;
+            	maxi2=Math.max(maxi2,enRevision);
+            }
+        }
+        
+        
+        createBarModelEstado();
+    }
+    
+    
+    
+    
+    
 
     private void createBarModels() {
         List<AreaIniciativa> ser = IniciativasFactory.instancia().serviciosIniciativas().selectAreaIniciativa();
+        
         maxi=0;
         for(AreaIniciativa i:ser ){
             if(i.getAreaConocimiento().equals(TipoArea.Matematicas)){
@@ -114,6 +193,8 @@ public class ChartView implements Serializable {
                 maxi=Math.max(maxi,mecanica);
             }
         }
+        
+        
         createBarModel();
     }
 
@@ -121,16 +202,34 @@ public class ChartView implements Serializable {
         barModel = initBarModel();
 
 
-        barModel.setTitle("Cantidad de Iniciativas por Area");
+        barModel.setTitle("Cantidad de Iniciativas por Área");
         barModel.setLegendPosition("ne");
 
         Axis xAxis = barModel.getAxis(AxisType.X);
-        xAxis.setLabel("Area");
+        xAxis.setLabel("Área");
 
         Axis yAxis = barModel.getAxis(AxisType.Y);
         yAxis.setLabel("Cantidad");
         yAxis.setMin(0);
         yAxis.setMax(maxi+1);
     }
+    
+    private void createBarModelEstado() {
+        barModelEstados = initBarModelEstados();
+
+
+        barModelEstados.setTitle("Cantidad de Iniciativas por Estado");
+        barModelEstados.setLegendPosition("ne");
+
+        Axis xAxis = barModelEstados.getAxis(AxisType.X);
+        xAxis.setLabel("Estado");
+
+        Axis yAxis = barModelEstados.getAxis(AxisType.Y);
+        yAxis.setLabel("Cantidad");
+        yAxis.setMin(0);
+        yAxis.setMax(maxi2+1);
+    }
+    
+    
 
 }
