@@ -2,31 +2,31 @@ package edu.eci.cvds.servicios;
 
 import static com.google.inject.Guice.createInjector;
 
-import java.io.IOException;
-import java.io.InputStream;
-
-import edu.eci.cvds.persistencia.mybatisimpl.mappers.AreaIniciativaMapper;
-import edu.eci.cvds.samples.persistencia.*;
-import edu.eci.cvds.samples.persistencia.mybatisimpl.*;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-import edu.eci.cvds.persistencia.mybatisimpl.mappers.IniciativaMapper;
-import edu.eci.cvds.persistencia.mybatisimpl.mappers.ReaccionMapper;
-import edu.eci.cvds.persistencia.mybatisimpl.mappers.UsuarioMapper;
+import edu.eci.cvds.samples.persistencia.DAOArea;
+import edu.eci.cvds.samples.persistencia.DAOAreaIniciativa;
+import edu.eci.cvds.samples.persistencia.DAOIniciativa;
+import edu.eci.cvds.samples.persistencia.DAOIniciativasAgrupadas;
+import edu.eci.cvds.samples.persistencia.DAOPalabrasClave;
+import edu.eci.cvds.samples.persistencia.DAOReaccion;
+import edu.eci.cvds.samples.persistencia.DAOUsuario;
+import edu.eci.cvds.samples.persistencia.DAOUsuarioIniciativas;
+import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOArea;
+import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOAreaIniciativa;
+import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOIniciativa;
+import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOIniciativasAgrupadas;
+import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOPalabrasClave;
+import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOReaccion;
+import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOUsuario;
+import edu.eci.cvds.samples.persistencia.mybatisimpl.MyBatisDAOUsuarioIniciativas;
 import edu.eci.cvds.samples.services.impl.ServiciosIniciativasImpl;
 
 public class IniciativasFactory{
 
-	public SqlSession session;
 	
 	public static IniciativasFactory iniciativaFactory = new IniciativasFactory();
 	private static Injector injector;
