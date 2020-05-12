@@ -1,4 +1,4 @@
-# Escuela Colombiana de Ingenieria Julio Garavito
+# Escuela Colombiana de Ingeniería Julio Garavito
 # Proyecto Ciclos de vida del desarrollo de software 2020-1
 # Grupo 2
 ## Integrantes: 
@@ -105,10 +105,10 @@ Enlace a la aplicacion de gestion del proyecto Taiga:
 
 ### Metodología.
 
-En este proyecto pusimos en práctica la utilización de **la metodología Scrum** en la cual el equipo se reúne y planea lo que se realizará en los diferentes Sprint, la herramienta que se utilizo fue Taigo.io la cual nos permite realizar las historias de usuario y repartir las tareas entre los integrantes.
+En este proyecto pusimos en práctica la utilización de **la metodología Scrum** en la cual el equipo se reúne y planea lo que se realizará en los diferentes Sprint, la herramienta que se utilizo fue **Taiga.io** la cual nos permite realizar las historias de usuario y repartir las tareas entre los integrantes.
 
 Al finalizar cada Sprint, el equipo se reúne para planear el siguiente y se comentan lo que sucedió con el anterior.
-Para el primer Sprint decidimos usar tres acercamientos, el primero que usamos en la historia de usuario uno fue realizar el desarrollo con todo el equipo, para así poder entender y aportar colectivamente a las bases de la aplicación, luego procedimos a dividirnos por parejas para continuar desarrollando las historias de usuario dos, tres y cuatro y finalmente decidimos que cada integrante escogiera las tareas de la historia de usuario faltante.
+Para el primer Sprint decidimos usar tres acercamientos, el primero que usamos en **la historia de usuario uno** fue realizar el desarrollo con todo el equipo, para así poder entender y aportar colectivamente a las bases de la aplicación, luego procedimos a dividirnos por parejas para continuar desarrollando **las historias de usuario dos, tres y cuatro** y finalmente decidimos que cada integrante escogiera las tareas de la historia de usuario faltante (**Historia cinco**).
 
 Para el caso del segundo Sprint decidimos variar la manera en la que estabamos trabajando, decidimos dividir las historias de usuario por parejas inicialmente para que luego cada pareja lo dividiera como viera necesario.
 
