@@ -12,6 +12,10 @@
 				background: url("Fondo.jpg");
 				background-size: 120% auto;
 			}
+		accordionPanel{
+			background-color: red;
+		}
+}
 		</style>
     </h:head>
 	<h:body>
@@ -21,22 +25,24 @@
 		<p:menuitem value="Iniciativas Agrupadas" outcome="iniciativasAgrupadas.xhtml" icon="ui-icon-script"></p:menuitem>
 	</p:tabMenu>
 
-		<h:form>
+		<h:form id="forma">
 			<p:growl>
 				<p:autoUpdate />
 			</p:growl>
-
-			<h:panelGrid columns="2" cellpadding="5">
+			<p:accordionPanel activeIndex="-1" style="opacity:0.9;">
+			<p:tab title="Agrupar Iniciativas">
+			<center><h:panelGrid columns="2" cellpadding="0">
 				<h:outputLabel for="grouped" value="Iniciativas:" />
 				<p:selectCheckboxMenu id="grouped" value="#{cbox.selectedCities}" label="Cities" multiple="true"
-									  filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+									  filter="true" filterMatchMode="startsWith">
 					<f:selectItems value="#{cbox.cities}" />
 				</p:selectCheckboxMenu>
-			</h:panelGrid>
+			</h:panelGrid></center>
+			<center><p:commandButton value="Agrupar" update="forma:displayItems" oncomplete="PF('itemDialog').show()" action="#{cbox.insertarIniciativasAgrupadas()}" /></center>
+			</p:tab>
+			</p:accordionPanel>
 
-			<p:commandButton value="Agrupar" update="displayItems" oncomplete="PF('itemDialog').show()" style="margin-top:10px;" action="#{cbox.insertarIniciativasAgrupadas()}" />
-
-			<p:dialog header="Items seleccionados" modal="true" showEffect="fade" hideEffect="fade" widgetVar="itemDialog" width="250">
+			<p:dialog id = "dial" header="Items seleccionados" modal="true" showEffect="fade" hideEffect="fade" widgetVar="itemDialog" width="250">
 				<p:outputPanel id="displayItems">
 					<p:dataList value="#{cbox.selectedCities}" var="city" emptyMessage="No se ha seleccionado iniciativas" action="#{comunBean.insertarIniciativasAgrupadas(cbox.selectedCities)}" >
 
@@ -48,9 +54,10 @@
 				</p:outputPanel>
 			</p:dialog>
 		</h:form>
-
 	<h:form>
-	<p:panelGrid columns = "3">
+	<p:accordionPanel activeIndex="-1" style="opacity:0.9;">
+	<p:tab title="Agrupar Áreas">
+	<center><h:panelGrid columns = "3" cellpadding="0">
 		<p:outputLabel value="Area" for="@next" />
 		<p:selectOneMenu id="Roles" value="#{comunBean.areaConocimiento}" dynamic="true" style="width:300px">
 			<f:selectItem itemLabel="Seleccione Area" itemValue="" />
@@ -59,7 +66,9 @@
 
 		<p:commandButton value="Agrupar areas" action="#{comunBean.banderaTr()}"  update="formaLista:tablaIniciativas" />
 
-	</p:panelGrid>
+	</h:panelGrid></center>
+	</p:tab>
+	</p:accordionPanel>
 	</h:form>
 	
 	<h:form id="formaLista">
