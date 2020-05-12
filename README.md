@@ -55,25 +55,25 @@ En botón con la imagen del lapiz de la penúltima columna se pueden modificar a
 ![Modelo de Entidad y relaciones](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/BD.PNG?raw=true)
 
 ### Diagrama de clases
-![Modelo de Entidad y relaciones](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/BD.PNG?raw=true)
+![Modelo de Entidad y relaciones](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/Diagrama%20de%20clases.JPG)
 
 ## Descripción de la arquitectura:
 
 ### Capa aplicación:
->- Apache Maven (Project Management tool)
->- Eclipse IDE
->- Guice (Inyección de Dependencias)
->- Shiro (Autenticación)
+>- [Apache Maven](https://maven.apache.org/) (Project Management tool)
+>- [Eclipse IDE] (https://www.eclipse.org/)
+>- [Guice] (https://github.com/google/guice) (Inyección de Dependencias)
+>- [Shiro] (https://shiro.apache.org/) (Autenticación)
 
 ### Enlace a BD:
->- PostgreSQL (DataBase Management)
+>- [PostgreSQL] (https://www.postgresql.org/) (DataBase Management)
 
 ### Cloud Application Platforms:
->- Heroku – Bootstrap (Despliegue WEB)
+>- [Heroku – Bootstrap] (https://getbootstrap.com/) (Despliegue WEB)
 
 ### Capa de presentación:
->- PrimeFaces (Framework)
->- JSF (UI Framework)
+>- [PrimeFaces] (https://www.primefaces.org/) (Framework)
+>- [JSF] (http://www.javaserverfaces.org/) (UI Framework)
 
 ## Entrada a Heroku
 En nuestro proyecto usamos la plataforma cloud de Heroku que se encuentra aquí
@@ -121,7 +121,9 @@ Para el caso del tercer Sprint los que se decidió fue dividir nuevamente las hi
 ## Análisis de Sprints:
 
 ### Sprint Uno
-Imagen del 'sprint-burndown chart' (sacado del sprint-backlog anterior), y una descripción breve de los problemas encontrados y mejoras realizadas al proceso.
+Imagen del 'sprint-burndown chart', y una descripción breve de los problemas encontrados y mejoras realizadas al proceso.
+
+![Sprint 1 Burndown chart](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/sprint%201%20grafica.JPG)
 
 En el Sprint uno el mayor problema que tuvimos fue el entendimiento de la importancia que tiene manejar correctamente la herramienta de gestión de proyecto de Taiga, más allá de que nuestro desarrollo terminó correctamente, no actualizamos las tareas de estado en Taiga, lo que llevó a que al cerrar las tareas después de la fecha final del Sprint nos generará una gráfica que no correspondía a nuestro trabajo real.
 
@@ -129,16 +131,26 @@ En el Sprint uno el mayor problema que tuvimos fue el entendimiento de la import
 
 Imagen del 'sprint-backlog'
 
+![Sprint 1](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/sprint%201%20Backlog%201.JPG)
+
+![Sprint 1](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/sprint%201%20Backlog%202.JPG)
 
 
 ### Sprint 2:
 
+Imagen del 'sprint-burndown chart'
+
+![Sprint 2](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/sprint%202%20grafica.JPG)
 
 Para el caso del Sprint dos corregimos la mayoría de problemas surgidos en el Sprint uno y mejoramos en general nuestro desempeño.
 
 Imagen del 'sprint-backlog'
 
+![Sprint 2](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/sprint%202%20Backlog%201.JPG)
 
+![Sprint 2](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/sprint%202%20Backlog%202.JPG)
+
+![Sprint 2](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/sprint%202%20Backlog%203.JPG)
 
 
 ### Sprint 3:
