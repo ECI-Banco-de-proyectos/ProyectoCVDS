@@ -37,7 +37,8 @@ En botón con la imagen del lapiz de la penúltima columna se pueden modificar a
 ## Entrada a Circle ci
 [Integración continua](https://app.circleci.com/pipelines/github/ECI-Banco-de-proyectos/ProyectoCVDS)
 [![CircleCI](https://circleci.com/gh/ECI-Banco-de-proyectos/ProyectoCVDS/tree/master.svg?style=svg)](https://circleci.com/gh/ECI-Banco-de-proyectos/ProyectoCVDS/tree/master)
-
+## Análisis Estático de Código
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/39c3005f4d474aee881294dc88c1997b)](https://www.codacy.com/gh/ECI-Banco-de-proyectos/ProyectoCVDS?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ECI-Banco-de-proyectos/ProyectoCVDS&amp;utm_campaign=Badge_Grade)
 ## Informacion de sobre la entrada a la base de datos
 >- host : ec2-3-91-112-166.compute-1.amazonaws.com
 >- db: d52r0cth9ad4d6
