@@ -36,6 +36,7 @@ En botón con la imagen del lapiz de la penúltima columna se pueden modificar a
 [Banco de Proyectos](https://proyectocvds2.herokuapp.com/faces/Registro.xhtml)
 ## Entrada a Circle ci
 [Integración continua](https://app.circleci.com/pipelines/github/ECI-Banco-de-proyectos/ProyectoCVDS)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dcf2a69020cc4bd2a9a47b956a55146f)](https://app.codacy.com/gh/ECI-Banco-de-proyectos/ProyectoCVDS?utm_source=github.com&utm_medium=referral&utm_content=ECI-Banco-de-proyectos/ProyectoCVDS&utm_campaign=Badge_Grade_Dashboard)
 [![CircleCI](https://circleci.com/gh/ECI-Banco-de-proyectos/ProyectoCVDS/tree/master.svg?style=svg)](https://circleci.com/gh/ECI-Banco-de-proyectos/ProyectoCVDS/tree/master)
 
 ## Informacion de sobre la entrada a la base de datos
