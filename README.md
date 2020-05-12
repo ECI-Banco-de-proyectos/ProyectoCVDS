@@ -1,5 +1,5 @@
 # Escuela Colombiana de Ingenieria Julio Garavito
-# Proyecto CVDS 2020-1
+## Proyecto CVDS 2020-1
 ## Integrantes: 
 >- German Andres Ospina Quintero
 >- Nicolas Ortega Limas
