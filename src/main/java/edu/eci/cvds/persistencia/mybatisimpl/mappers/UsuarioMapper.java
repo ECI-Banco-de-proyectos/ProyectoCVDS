@@ -18,6 +18,9 @@ public interface UsuarioMapper {
 	public void updatePerfil(@Param("id") int id, @Param("rol") TipoRol rol);
 	
 	public int consultarIdPorNombreyContraseña(@Param("nombre") String nombre, @Param("contraseña") String contraseña);
+	
+	public List<Usuario> consultarUsuarioPorNombreyContraseña(@Param("nombre") String nombre, @Param("contraseña") String contraseña);
+
 
 
 }

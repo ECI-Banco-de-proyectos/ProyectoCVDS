@@ -185,5 +185,20 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 		}
 		return cont;
 	}
+
+	@Override
+	public List<Usuario> consultarUsuarioPorNombreyContraseña(String nombre, String contraseña) {
+		return IniciativasFactory.instancia().usuarioImplementado().consultarUsuarioPorNombreyContraseña(nombre, contraseña);
+	}
+
+	@Override
+	public Usuario consultarUsuario(String nombre, String contraseña) {
+		Usuario user = null;
+		List<Usuario> lista = consultarUsuarioPorNombreyContraseña(nombre, contraseña);
+		if(!lista.isEmpty()) {
+			user = lista.get(0);
+		}
+		return user;
+	}
 	
 }
