@@ -214,7 +214,7 @@ public class UsuarioBean implements Serializable {
 		try {
 			Usuario administrador = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("Administrador");
 			if(administrador == null) {
-				FacesContext.getCurrentInstance().getExternalContext().redirect("Permisos.xhtml");
+				FacesContext.getCurrentInstance().getExternalContext().redirect("Permisos.html?faces-redirect=true");
 				return;
 			}	
 			
