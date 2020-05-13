@@ -18,5 +18,7 @@ public interface DAOUsuario {
 	public void updatePerfil(int id, TipoRol tipoRol);
 	
 	public int consultarIdPorNombreyContraseña(String nombre, String contraseña);
+	
+	public List<Usuario> consultarUsuarioPorNombreyContraseña(String nombre, String contraseña);
 
 }

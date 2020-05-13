@@ -111,6 +111,7 @@ public class UsuarioBean implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
 
+	/**
 	public String validar() {
 		
 		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
@@ -144,6 +145,33 @@ public class UsuarioBean implements Serializable {
 		}
 		return dir;
 
+	}
+	*/
+	
+	public String validar() {
+		ServiciosIniciativas serviciosIniciativas = IniciativasFactory.instancia().serviciosIniciativas();
+		Usuario us;
+		String redireccion = null;
+		try {
+			us = serviciosIniciativas.consultarUsuario(this.nombre, this.contraseña);
+			if(us!=null) {
+				if(us.getRol().equals(TipoRol.Administrador)) {
+					FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("Administrador", us);
+					redireccion = "Administrador.xhtml?faces-redirect=true";
+				}else if(us.getRol().equals(TipoRol.proponenteIniciativa)) {
+					FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("Proponente", us);
+					redireccion = "Proponente.xhtml?faces-redirect=true";
+				}else if(us.getRol().equals(TipoRol.usuarioConsulta)) {
+					FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("Usuario", us);
+					redireccion = "DatosIniciativa.xhtml?faces-redirect=true";
+				}
+			}else {
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "Credenciales incorrectas"));
+			}
+		}catch(Exception e) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error"));
+		}
+		return redireccion;
 	}
 	
 	private TipoRol rolUsuario(String nombre, String contraseña) {
@@ -180,6 +208,24 @@ public class UsuarioBean implements Serializable {
 			}
 		}
 		return res;
+	}
+	
+	public void verificarSesion() {
+		try {
+			Usuario administrador = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("Administrador");
+			if(administrador == null) {
+				FacesContext.getCurrentInstance().getExternalContext().redirect("Permisos.xhtml");
+				return;
+			}	
+			
+		}catch (Exception e) {
+			
+		}
+	}
+	
+	public String cerrarSesion() {
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "logearV2.xhtml?faces-redirect=true";
 	}
 
 }

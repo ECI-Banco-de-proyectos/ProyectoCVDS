@@ -39,6 +39,11 @@ public class MyBatisDAOUsuario implements DAOUsuario{
 	public int consultarIdPorNombreyContraseña(String nombre, String contraseña) {
 		return usuarioMapper.consultarIdPorNombreyContraseña(nombre, contraseña);
 	}
+
+	@Override
+	public List<Usuario> consultarUsuarioPorNombreyContraseña(String nombre, String contraseña) {
+		return usuarioMapper.consultarUsuarioPorNombreyContraseña(nombre, contraseña);
+	}
 	
 	
 

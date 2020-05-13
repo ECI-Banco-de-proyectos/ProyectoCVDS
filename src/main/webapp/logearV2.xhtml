@@ -6,7 +6,7 @@
       xmlns:o="http://omnifaces.org/ui"
       xmlns:p="http://primefaces.org/ui">
 	  <h:head>
-		<meta http-equiv="refresh" content="#{usuarioBean.usuarioLogin()}" />
+		<!--<meta http-equiv="refresh" content="#{usuarioBean.usuarioLogin()}" />-->
         <title>Ingrese sus datos de usuario</title>
 		
 		<style>
@@ -48,6 +48,9 @@
 		</header>
 	<h1></h1>
 	<h:form>
+		<p:messages id="messages" showDetail="true" closable="true">
+			<p:autoUpdate />
+		</p:messages>
 		<center><p:panelGrid id="grid" columns="3" cellpadding="3" styleClass="table">
 			<p:outputLabel value="Nombre" for="Nombre"/>
 				<p:inputText id="Nombre" value="#{usuarioBean.nombre}" required="true"></p:inputText>
@@ -56,9 +59,9 @@
 				<p:password id="Contraseña" value="#{usuarioBean.contraseña}" required="true"></p:password>
 				<p:message for="Contraseña" display="text" />
 		</p:panelGrid></center><br/>
-				<center><p:commandButton value="Ingresar" action="#{usuarioBean.validar()}" update="mensajeError">
-				<center><h:outputText value="#{usuarioBean.getMensajeErrorLogin()}" id="mensajeError" escape="false" style="color:black;font-size:25px;font-weight: bold;"></h:outputText></center><br/>
-				</p:commandButton></center>
+				<center><p:commandButton value="Ingresar" action="#{usuarioBean.validar()}" /></center>
+				<!--<center><h:outputText value="#{usuarioBean.getMensajeErrorLogin()}" id="mensajeError" escape="false" style="color:black;font-size:25px;font-weight: bold;"></h:outputText></center><br/>
+				</p:commandButton></center>-->
 	</h:form>
 	</h:body>
 </html>	

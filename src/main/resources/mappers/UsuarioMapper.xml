@@ -24,6 +24,12 @@
 		where nombre=#{nombre} and contraseña=#{contraseña}; 
 	</select>
 	
+	<select id="consultarUsuarioPorNombreyContraseña" resultMap="UsuarioResult">
+		select *
+		from usuario
+		where nombre=#{nombre} and contraseña=#{contraseña}
+	</select>
+	
 	<insert id="insertarUsuario">
 		insert into usuario values(#{id}, #{cont}, #{name}, #{rol}, #{area});
 	</insert>
