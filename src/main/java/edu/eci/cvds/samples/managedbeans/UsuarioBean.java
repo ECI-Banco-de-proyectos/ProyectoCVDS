@@ -167,6 +167,9 @@ public class UsuarioBean implements Serializable {
 				}else if(us.getRol().equals(TipoRol.usuarioConsulta)) {
 					FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("Usuario", us);
 					redireccion = "DatosIniciativa.xhtml?faces-redirect=true";
+				}else if(us.getRol().equals(TipoRol.PMO_ODI)) {
+					FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("PMO", us);
+					redireccion = "busquedaIniciativaProp.xhtml?faces-redirect=true";
 				}
 			}else {
 				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "Credenciales incorrectas"));
@@ -208,6 +211,8 @@ public class UsuarioBean implements Serializable {
 				res = "0;url=Proponente.xhtml";
 			}else if(rol.equals(TipoRol.usuarioConsulta)){
 				res = "0;url=DatosIniciativa.xhtml";
+			}else if(rol.equals(TipoRol.PMO_ODI)){
+				res = "0;url=busquedaIniciativaProp.xhtml";
 			}
 		}
 		return res;
