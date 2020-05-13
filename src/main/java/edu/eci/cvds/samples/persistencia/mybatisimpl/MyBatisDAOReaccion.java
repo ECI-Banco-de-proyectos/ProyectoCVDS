@@ -1,12 +1,13 @@
 package edu.eci.cvds.samples.persistencia.mybatisimpl;
 
 import java.sql.Date;
+import java.util.List;
 
 import com.google.inject.Inject;
 
 import edu.eci.cvds.persistencia.mybatisimpl.mappers.ReaccionMapper;
+import edu.eci.cvds.samples.entities.Reaccion;
 import edu.eci.cvds.samples.persistencia.DAOReaccion;
-import edu.eci.cvds.servicios.IniciativasFactory;
 
 public class MyBatisDAOReaccion implements DAOReaccion{
 	
@@ -26,5 +27,10 @@ public class MyBatisDAOReaccion implements DAOReaccion{
 		reaccionMapper.updateIniciativa(idIni,votoIni);
 		//IniciativasFactory.instancia().session.commit();
 	}
-	
+
+	@Override
+	public List<Reaccion> selectReacciones() {
+		return reaccionMapper.selectReacciones();
+	}
+
 }

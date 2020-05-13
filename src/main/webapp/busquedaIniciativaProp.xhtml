@@ -15,15 +15,22 @@
 		accordionPanel{
 			background-color: red;
 		}
-}
+
 		</style>
     </h:head>
 	<h:body>
-	<p:tabMenu activeIndex="0">
-		<p:menuitem value="Busqueda de iniciativas" outcome="busquedaIniciativa.xhtml" icon="ui-icon-script"></p:menuitem>
-        <p:menuitem value="Datos del usuario" outcome="Administrador.xhtml" icon="ui-icon-script"></p:menuitem>
-		<p:menuitem value="Iniciativas Agrupadas" outcome="iniciativasAgrupadas.xhtml" icon="ui-icon-script"></p:menuitem>
-	</p:tabMenu>
+        <h:form>
+            <p:tabMenu activeIndex="0">
+                <p:menuitem value="Busqueda de iniciativas" outcome="busquedaIniciativaProp.xhtml" icon="ui-icon-script"></p:menuitem>
+				<p:menuitem value="Agrupar iniciativas" outcome="iniciativasAgrupadasPMO.xhtml" icon="ui-icon-script"></p:menuitem>
+				<p:menuitem value="Filtar estados" outcome="FiltrarIniciativasPMO.xhtml" icon="ui-icon-script"></p:menuitem>
+                <p:menuitem value="Salir" action="#{usuarioBean.desconectarUsuario()}" icon="ui-icon-close" style="position: absolute; left: 500px;"></p:menuitem>
+                <!--<p:menuitem value="Datos del usuario" outcome="Administrador.xhtml" icon="ui-icon-script"></p:menuitem>
+                <p:menuitem value="Iniciativas Agrupadas" outcome="iniciativasAgrupadas.xhtml" icon="ui-icon-script"></p:menuitem>-->
+            </p:tabMenu>
+        </h:form>
+
+
 
 		<h:form id="forma">
 			<p:growl>
@@ -54,6 +61,7 @@
 				</p:outputPanel>
 			</p:dialog>
 		</h:form>
+
 	<h:form>
 	<p:accordionPanel activeIndex="-1" style="opacity:0.9;">
 	<p:tab title="Agrupar Áreas">
@@ -71,29 +79,30 @@
 	</p:accordionPanel>
 	</h:form>
 
-	<h:form id = "OrdenarInfo">
-		<p:accordionPanel activeIndex="-1" style="opacity:0.9;">
-			<p:tab title="Ordenar Columnas">
-				<center><h:panelGrid columns = "3" cellpadding="0">
-					<p:inputText id="columna" value="#{comunBean.columna}"/>
-					<p:commandButton value="Ordenar" action="#{comunBean.banderaDos()}" update="formaLista:tablaIniciativas"/>
-				</h:panelGrid></center>
-			</p:tab>
-		</p:accordionPanel>
-	</h:form>
+    <h:form id = "OrdenarInfo">
+        <p:accordionPanel activeIndex="-1" style="opacity:0.9;">
+        <p:tab title="Ordenar Columnas">
+        <center><h:panelGrid columns = "3" cellpadding="0">
+        <p:inputText id="columna" value="#{comunBean.columna}"/>
+        <p:commandButton value="Ordenar" action="#{comunBean.banderaDos()}" update="formaLista:tablaIniciativas"/>
+        </h:panelGrid></center>
+        </p:tab>
+        </p:accordionPanel>
+    </h:form>
+
 	
 	<h:form id="formaLista">
 	<p:growl id="msgs" showDetail="true"/>
 	<p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.consultarIniciativasPalabraClave()}"
 				 paginator="true" rows="8"
 				 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}">
-					<p:column headerText="Id">
+					<!--<p:column headerText="Id">
 						<h:outputText value="#{iniciativa.id}"/>
-					</p:column>
-					<p:column headerText="Id del proponente">
+					</p:column>-->
+					<p:column headerText="Id del proponente"  >
 						<h:outputText value="#{iniciativa.proponente}"/>
 					</p:column>
-					<p:column headerText="Nombre">
+					<p:column headerText="Nombre" >
 						<h:outputText value="#{iniciativa.nombre}"/>
 					</p:column>
 					<p:column headerText="Fecha">
@@ -109,8 +118,8 @@
 						<h:outputText value="#{comunBean.consultaPalabrasClave(iniciativa.id)}"/>
 					</p:column>
 					<p:column style="width:32px;text-align: center">
-						<p:commandButton icon="fa fa-pencil" title="View" action="CambiarIniciativa.xhtml?faces-redirect=true">
-							<f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
+						<p:commandButton icon="fa fa-pencil" title="View" action="CambiarIniciativaPMO.xhtml?faces-redirect=true">
+							<f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}"  update="formaLista:tablaIniciativas"/>
 						</p:commandButton>
 					</p:column>
 

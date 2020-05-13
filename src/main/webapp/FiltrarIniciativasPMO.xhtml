@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Filtrar Iniciativas</title>
+    <style>
+		html{
+				background: url("Fondo.jpg");
+				background-size: 120% auto;
+			}
+		</style>
+</h:head>
+<h:body>
+    <h:form>
+        <p:tabMenu activeIndex="2">
+            <p:menuitem value="Busqueda de iniciativas" outcome="busquedaIniciativaProp.xhtml" icon="ui-icon-script"></p:menuitem>
+            <p:menuitem value="Agrupar iniciativas" outcome="iniciativasAgrupadasPMO.xhtml" icon="ui-icon-script"></p:menuitem>
+            <p:menuitem value="Filtar estados" outcome="FiltrarIniciativasPMO.xhtml" icon="ui-icon-script"></p:menuitem>
+            <p:menuitem value="Salir" action="#{usuarioBean.desconectarUsuario()}" icon="ui-icon-close" style="position: absolute; left: 500px;"></p:menuitem>
+            <!--<p:menuitem value="Datos del usuario" outcome="Administrador.xhtml" icon="ui-icon-script"></p:menuitem>
+            <p:menuitem value="Iniciativas Agrupadas" outcome="iniciativasAgrupadas.xhtml" icon="ui-icon-script"></p:menuitem>-->
+        </p:tabMenu>
+    </h:form>
+
+    <h:form>
+        <p:panelGrid columns = "3">
+            <p:outputLabel value="Estado" for="@next" />
+            <p:selectOneMenu id="estado" value="#{proBean.estado}" dynamic="true" style="width:300px">
+                <f:selectItem itemLabel="Seleccione Estado" itemValue="" />
+                <f:selectItems value="#{proBean.estados}"/>
+            </p:selectOneMenu>
+
+            <p:commandButton value="Agrupar estado"   update="formaLista:tablaIniciativas" />
+        </p:panelGrid>
+    </h:form>
+
+    <h:form id="formaLista">
+        <p:growl id="msgs" showDetail="true"/>
+        <p:dataTable id="tablaIniciativas" var="iniciativa" value="#{proBean.filtrarEstados()}"
+                     paginator="true" rows="8"
+                     paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}">
+            <p:column headerText="Id">
+                <h:outputText value="#{iniciativa.id}"/>
+            </p:column>
+            <p:column headerText="Id del proponente">
+                <h:outputText value="#{iniciativa.proponente}"/>
+            </p:column>
+            <p:column headerText="Nombre">
+                <h:outputText value="#{iniciativa.nombre}"/>
+            </p:column>
+            <p:column headerText="Fecha">
+                <h:outputText value="#{iniciativa.fecha}"/>
+            </p:column>
+            <p:column headerText="Estado">
+                <h:outputText value="#{iniciativa.estado}"/>
+            </p:column>
+            <p:column headerText="Votos">
+                <h:outputText value="#{iniciativa.numeroVotos}"/>
+            </p:column>
+            <p:column filterBy="#{comunBean.consultaPalabrasClave(iniciativa.id)}" headerText="Palabras Clave" filterMatchMode="contains">
+                <h:outputText value="#{comunBean.consultaPalabrasClave(iniciativa.id)}"/>
+            </p:column>
+            <p:column style="width:32px;text-align: center">
+                <p:commandButton icon="fa fa-pencil" title="View" action="CambiarIniciativa.xhtml?faces-redirect=true">
+                    <f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
+                </p:commandButton>
+            </p:column>
+
+            <p:column style="width:32px;text-align: center">
+                <p:commandButton icon="fa fa-comment" title="View" action="DatosReaccion.xhtml?faces-redirect=true">
+                    <f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
+                </p:commandButton>
+            </p:column>
+
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>

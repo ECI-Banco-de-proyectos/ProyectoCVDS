@@ -27,7 +27,7 @@
 		</p:tabMenu>
 		<h1></h1>
 		<center><h:form>
-		<p:growl id="confirmacion" showDetail="true" />	
+		<p:growl id="confirmacion" showDetail="true" autoupdate="true"/>
 		<p:panelGrid columns="2">
 		<p:outputLabel value="ID Iniciativa seleccionada: " />
 		<p:inputText value="#{adminBean.idIniciativa}" readonly="true" style="color: black; background-color:silver"/>
@@ -45,13 +45,28 @@
 		<p:selectBooleanButton id="voto" value="#{reaccionBean.voto}" onLabel="No me gusta" offLabel="Me gusta" style="width:60px; color:red" update="voto"/>
 		</p:panelGrid>
 		<h1></h1>
-		<p:commandButton value="Aplicar Cambios" action="#{reaccionBean.insertReaccion(usuarioBean.nombre,usuarioBean.contraseña,adminBean.idIniciativa,adminBean.idIniciativa)}" update="confirmacion" >
+		<p:commandButton value="Aplicar Cambios" action="#{reaccionBean.insertReaccion(usuarioBean.nombre,usuarioBean.contraseña,adminBean.idIniciativa,adminBean.idIniciativa)}" update="formaLista:reac" >
 		</p:commandButton>
 		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
 			<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
 			<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="fa fa-close" />
 		</p:confirmDialog>
 		</h:form></center>
+
+		<h:form id="formaLista">
+			<p:growl id="msgs" showDetail="true"/>
+			<p:dataTable id="reac" var="Reaccion" value="#{comunBean.selectReacion(adminBean.idIniciativa)}"
+						 paginator="true" rows="8"
+						 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}">
+				<p:column headerText="Fecha" style="width:100px">
+					<h:outputText value="#{Reaccion.fecha}"/>
+				</p:column>
+				<p:column headerText="Comentario">
+					<h:outputText value="#{Reaccion.comentario}"/>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+
 	</h:body>
 
 </html>	

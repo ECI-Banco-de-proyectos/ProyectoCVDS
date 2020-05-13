@@ -130,18 +130,21 @@ public class UsuarioBean implements Serializable {
 			dir = "inexistente";
 			
 		}else {
-			conectarUsuario();
-			if(rolV.equals(TipoRol.Administrador)) {
-				setMensajeErrorLogin(" ");
-				dir = "Administrador.xhtml?faces-redirect=true";
-			}else if(rolV.equals(TipoRol.proponenteIniciativa)) {
-				setMensajeErrorLogin(" ");
-				dir = "Proponente.xhtml?faces-redirect=true";
-			}else if(rolV.equals(TipoRol.usuarioConsulta)) {
-				setMensajeErrorLogin(" ");
-				dir = "DatosIniciativa.xhtml?faces-redirect=true";
-			}
-		}
+            conectarUsuario();
+            if (rolV.equals(TipoRol.Administrador)) {
+                setMensajeErrorLogin(" ");
+                dir = "Administrador.xhtml?faces-redirect=true";
+            } else if (rolV.equals(TipoRol.proponenteIniciativa)) {
+                setMensajeErrorLogin(" ");
+                dir = "Proponente.xhtml?faces-redirect=true";
+            } else if (rolV.equals(TipoRol.usuarioConsulta)) {
+                setMensajeErrorLogin(" ");
+                dir = "DatosIniciativa.xhtml?faces-redirect=true";
+            } else if (rolV.equals(TipoRol.PMO_ODI)) {
+                setMensajeErrorLogin(" ");
+                dir = "busquedaIniciativaProp.xhtml?faces-redirect=true";
+            }
+        }
 		return dir;
 
 	}

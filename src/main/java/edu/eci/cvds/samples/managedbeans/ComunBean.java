@@ -20,7 +20,7 @@ public class ComunBean {
 	String columna;
 	public int idIniciativa;
 	public TipoArea areaConocimiento;
-	public boolean bandera;
+	public int bandera=0;
 	ArrayList<TipoArea> areas;
 	List<Iniciativa> lista;
 	List<Usuario> listaUsuarios;
@@ -59,11 +59,11 @@ public class ComunBean {
 		return this.usuario;
 	}
 
-	public void setBandera(boolean bandera) {
+	public void setBandera(int bandera) {
 		this.bandera = bandera;
 	}
 
-	public boolean isBandera() {
+	public int getBandera() {
 		return bandera;
 	}
 
@@ -107,28 +107,36 @@ public class ComunBean {
 		this.areas = areas;
 	}
 
-	public void banderaFa() {
-		this.bandera = false;
+	public void banderaCero() {
+		this.bandera = 0;
 	}
 
-	public void banderaTr() {
-		this.bandera = true;
+	public void banderaUno() {
+		this.bandera = 1;
+	}
+
+	public void banderaDos() {
+		this.bandera = 2;
 	}
 
 	public List<Iniciativa> consultarIniciativasPalabraClave() {
-		if (bandera) {
+		if (bandera==1) {
 			if (TipoArea.Todas.equals(areaConocimiento)) {
 				return IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativasPalabraClave("");
 			} else {
 				return agrupar();
 			}
-		} else {
-			return IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativasPalabraClave(clave);
+		}else{
+			return ordenarBusqueda();
 		}
 	}
 
 	public List<Iniciativa> ordenarBusqueda() {
 		return IniciativasFactory.instancia().serviciosIniciativas().ordenandoIniciativas(columna);
+	}
+
+	public List<Iniciativa> ordenarBusqueda2(String name) {
+		return IniciativasFactory.instancia().serviciosIniciativas().ordenandoIniciativas(name);
 	}
 
 	public List<Usuario> getLista() {
@@ -200,42 +208,41 @@ public class ComunBean {
 	}
 
 	public  List<Iniciativa> selectIniciativasAgrupadas() {
-		System.out.println("hola");
 		List <IniciativasAgrupadas>listaAgrupada = IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativasAgrupadas();
 		List <Iniciativa> salida = new ArrayList<>();
 		List <Iniciativa> lista2 = IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativas();
 		Set<Iniciativa> set = new HashSet<>();
 
-		int k1=0,k2=0;
 		for (IniciativasAgrupadas i: listaAgrupada ){
 			if (i.getNombreIniciativa().equals(nombreIniciativa)){
 				for (IniciativasAgrupadas j: listaAgrupada ){
-					if (k1>k2) {
-						if (i.getIniciativaAgrupada() == j.getIniciativaAgrupada() && i.getNombreIniciativa()!=j.getNombreIniciativa() ) {
-							for (Iniciativa k: lista2 ){
-								if (k.getNombre().equals(j.getNombreIniciativa())){
-									salida.add(k);
-								}
+					if (i.getIniciativaAgrupada() == j.getIniciativaAgrupada() && i.getNombreIniciativa()!=j.getNombreIniciativa() ) {
+						for (Iniciativa k: lista2 ){
+							if (k.getNombre().equals(j.getNombreIniciativa())){
+								salida.add(k);
 							}
 						}
 					}
-				k2+=1;
 				}
 			}
-		k1+=1;
 		}
 		for (Iniciativa q: salida ){
 			set.add(q);
-		}
-		System.out.println(set.size());
-		for (Iniciativa q: set){
-			System.out.println(q.getNombre());
 		}
 		List<Iniciativa> mainList = new ArrayList<>();
 		mainList.addAll(set);
 	return mainList;
 	}
 
-
+	public List<Reaccion> selectReacion(int id_ini){
+		List<Reaccion> res = new ArrayList<Reaccion>();
+		List<Reaccion> lis = IniciativasFactory.instancia().reaccionImplementado().selectReacciones();
+		for(Reaccion i: lis){
+			if(id_ini==i.getId_iniciativa()){
+				res.add(i);
+			}
+		}
+		return res;
+	}
 
 }
