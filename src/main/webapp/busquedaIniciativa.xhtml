@@ -64,7 +64,7 @@
 			<f:selectItems value="#{areaIniBean.areas}"/>
 		</p:selectOneMenu>
 
-		<p:commandButton value="Agrupar areas" action="#{comunBean.banderaUno()}"  update="formaLista:tablaIniciativas" />
+		<p:commandButton value="Agrupar areas" action="#{comunBean.banderaUno()}"  update="formaLista:tablaIniciativas" onsuccess="location.reload()"/>
 
 	</h:panelGrid></center>
 	</p:tab>
@@ -76,7 +76,7 @@
 			<p:tab title="Ordenar Columnas">
 				<center><h:panelGrid columns = "3" cellpadding="0">
 					<p:inputText id="columna" value="#{comunBean.columna}"/>
-					<p:commandButton value="Ordenar" action="#{comunBean.banderaDos()}" update="formaLista:tablaIniciativas"/>
+					<p:commandButton value="Ordenar" action="#{comunBean.banderaDos()}" update="formaLista:tablaIniciativas" onsuccess="location.reload()"/>
 				</h:panelGrid></center>
 			</p:tab>
 		</p:accordionPanel>

@@ -26,15 +26,19 @@
     </h:form>
 
     <h:form>
-        <p:panelGrid columns = "3">
+        <p:accordionPanel activeIndex="-1" style="opacity:0.9;">
+        <p:tab title="Agrupar Áreas">
+        <center><h:panelGrid columns = "3" cellpadding="0">
             <p:outputLabel value="Estado" for="@next" />
             <p:selectOneMenu id="estado" value="#{proBean.estado}" dynamic="true" style="width:300px">
                 <f:selectItem itemLabel="Seleccione Estado" itemValue="" />
                 <f:selectItems value="#{proBean.estados}"/>
             </p:selectOneMenu>
 
-            <p:commandButton value="Agrupar estado"   update="formaLista:tablaIniciativas" />
-        </p:panelGrid>
+            <p:commandButton value="Agrupar estado"   update="formaLista:tablaIniciativas"/>
+        </h:panelGrid></center>
+        </p:tab>
+        </p:accordionPanel>
     </h:form>
 
     <h:form id="formaLista">
@@ -45,7 +49,7 @@
             <p:column headerText="Id">
                 <h:outputText value="#{iniciativa.id}"/>
             </p:column>
-            <p:column headerText="Id del proponente">
+            <p:column headerText="Id del proponente" >
                 <h:outputText value="#{iniciativa.proponente}"/>
             </p:column>
             <p:column headerText="Nombre">
