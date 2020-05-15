@@ -118,6 +118,10 @@ public class ComunBean {
 	public void banderaDos() {
 		this.bandera = 2;
 	}
+	
+	public List<Iniciativa> consultarIniciativas(){
+		return IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativas();
+	}
 
 	public List<Iniciativa> consultarIniciativasPalabraClave() {
 		if (bandera==1) {

@@ -1,6 +1,6 @@
 package edu.eci.cvds.implementacion;
 
-/**
+
 import com.google.inject.Inject;
 
 import java.io.InputStream;
@@ -23,7 +23,7 @@ import edu.eci.cvds.persistencia.mybatisimpl.mappers.UsuarioMapper;
 import edu.eci.cvds.samples.persistencia.DAOUsuario;
 import edu.eci.cvds.servicios.IniciativasFactory;
 import edu.eci.cvds.servicios.ServiciosIniciativas;
-*/
+
 public class Main {
 
 
@@ -97,6 +97,12 @@ public class Main {
 			e.printStackTrace();
 		} 
 		*/
+		
+		System.out.println(IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativas());
+		
+		for(Iniciativa i: IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativas()) {
+			System.out.println(i.getNombre()+" " +i.getVotos());
+		}
 	}
 }
 

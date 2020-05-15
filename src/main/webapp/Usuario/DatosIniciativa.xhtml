@@ -9,7 +9,7 @@
 	<title>Datos de Iniciativa</title>
 	<style>
 		html{
-				background: url("Fondo.jpg");
+				background: url("../Fondo.jpg");
 				background-size: 120% auto;
 			}
 		accordionPanel{
@@ -17,12 +17,13 @@
 		}
 }
 		</style>
+		<f:event type="preRenderView" listener="#{usuarioBean.verificarSesionUsuario()}" />
 </h:head>
 <h:body>
 	<h:form>
 		<p:tabMenu activeIndex="0">
-			<p:menuitem value="Iniciativas Regsitradas" outcome="Proponente.xhtml"></p:menuitem>
-			<p:menuitem value="Salir" action="#{usuarioBean.desconectarUsuario()}" icon="ui-icon-close" style="position: absolute; left: 900px;"></p:menuitem>
+			<p:menuitem value="Iniciativas Registradas" outcome="DatosIniciativa.xhtml"></p:menuitem>
+			<p:menuitem value="Salir" action="#{usuarioBean.cerrarSesion()}" icon="ui-icon-close" style="position: absolute; left: 900px;"></p:menuitem>
 		</p:tabMenu>
 	</h:form>
 
@@ -59,12 +60,6 @@
 		<p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.consultarIniciativasPalabraClave()}"
 					 paginator="true" rows="8"
 					 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}">
-			<p:column headerText="Id">
-				<h:outputText value="#{iniciativa.id}"/>
-			</p:column>
-			<p:column headerText="Id del proponente">
-				<h:outputText value="#{iniciativa.proponente}"/>
-			</p:column>
 			<p:column headerText="Nombre">
 				<h:outputText value="#{iniciativa.nombre}"/>
 			</p:column>
@@ -74,18 +69,19 @@
 			<p:column headerText="Estado">
 				<h:outputText value="#{iniciativa.estado}"/>
 			</p:column>
-			<p:column headerText="Votos">
+			<p:column headerText="Votos" style="width:50px; text-align:center">
 				<h:outputText value="#{comunBean.palabrasClavePorIniciativa(iniciativa.id)}"/>
 			</p:column>
 			<p:column filterBy="#{comunBean.consultaPalabrasClave(iniciativa.id)}" headerText="Palabras Clave" filterMatchMode="contains">
 				<h:outputText value="#{comunBean.consultaPalabrasClave(iniciativa.id)}"/>
 			</p:column>
+			<!--
 			<p:column style="width:32px;text-align: center">
 				<p:commandButton icon="fa fa-pencil" title="View" action="CambiarIniciativa.xhtml?faces-redirect=true">
 					<f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
 				</p:commandButton>
 			</p:column>
-
+			-->
 			<p:column style="width:32px;text-align: center">
 				<p:commandButton icon="fa fa-comment" title="View" action="DatosReaccion.xhtml?faces-redirect=true">
 					<f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
@@ -96,11 +92,13 @@
 
 		</p:dataTable>
 	</h:form>
+	<!--
 	<p:chart type="bar" model="#{chartView.barModel}" style="height:300px"/>
 	<h:form id = "RecolectInfo">
 		<p:commandButton value="Exportar como PDF" ajax="false" >
 			<p:dataExporter type="pdf" target="formaLista:tablaIniciativas" fileName="DatosIniciativas"/>
 		</p:commandButton>
 	</h:form>
+	-->
 </h:body>
 </html>

@@ -9,7 +9,7 @@
         <title>Datos de Iniciativa</title>
 		<style>
 		html{
-				background: url("Fondo.jpg");
+				background: url("../Fondo.jpg");
 				background-size: 120% auto;
 			}
 		accordionPanel{
@@ -17,6 +17,7 @@
 		}
 
 		</style>
+		<f:event type="preRenderView" listener="#{usuarioBean.verificarSesionPMO()}" />
     </h:head>
 	<h:body>
         <h:form>
@@ -24,43 +25,12 @@
                 <p:menuitem value="Busqueda de iniciativas" outcome="busquedaIniciativaProp.xhtml" icon="ui-icon-script"></p:menuitem>
 				<p:menuitem value="Agrupar iniciativas" outcome="iniciativasAgrupadasPMO.xhtml" icon="ui-icon-script"></p:menuitem>
 				<p:menuitem value="Filtar estados" outcome="FiltrarIniciativasPMO.xhtml" icon="ui-icon-script"></p:menuitem>
-                <p:menuitem value="Salir" action="#{usuarioBean.desconectarUsuario()}" icon="ui-icon-close" style="position: absolute; left: 500px;"></p:menuitem>
-                <!--<p:menuitem value="Datos del usuario" outcome="Administrador.xhtml" icon="ui-icon-script"></p:menuitem>
-                <p:menuitem value="Iniciativas Agrupadas" outcome="iniciativasAgrupadas.xhtml" icon="ui-icon-script"></p:menuitem>-->
+                <p:menuitem value="Salir" action="#{usuarioBean.cerrarSesion()}" icon="ui-icon-close" style="position: absolute; left: 500px;"></p:menuitem>
+				
+                <!--<p:menuitem value="Datos del usuario" outcome="Administrador.xhtml" icon="ui-icon-script"></p:menuitem>-->
+                <p:menuitem value="Iniciativas Agrupadas" outcome="iniciativasAgrupadasPMO.xhtml" icon="ui-icon-script"></p:menuitem>
             </p:tabMenu>
         </h:form>
-
-
-
-		<h:form id="forma">
-			<p:growl>
-				<p:autoUpdate />
-			</p:growl>
-			<p:accordionPanel activeIndex="-1" style="opacity:0.9;">
-			<p:tab title="Agrupar Iniciativas">
-			<center><h:panelGrid columns="2" cellpadding="0">
-				<h:outputLabel for="grouped" value="Iniciativas:" />
-				<p:selectCheckboxMenu id="grouped" value="#{cbox.selectedCities}" label="Cities" multiple="true"
-									  filter="true" filterMatchMode="startsWith">
-					<f:selectItems value="#{cbox.cities}" />
-				</p:selectCheckboxMenu>
-			</h:panelGrid></center>
-			<center><p:commandButton value="Agrupar" update="forma:displayItems" oncomplete="PF('itemDialog').show()" action="#{cbox.insertarIniciativasAgrupadas()}" /></center>
-			</p:tab>
-			</p:accordionPanel>
-
-			<p:dialog id = "dial" header="Items seleccionados" modal="true" showEffect="fade" hideEffect="fade" widgetVar="itemDialog" width="250">
-				<p:outputPanel id="displayItems">
-					<p:dataList value="#{cbox.selectedCities}" var="city" emptyMessage="No se ha seleccionado iniciativas" action="#{comunBean.insertarIniciativasAgrupadas(cbox.selectedCities)}" >
-
-						<f:facet name="header">
-							Agrupados
-						</f:facet>
-						#{city}
-					</p:dataList>
-				</p:outputPanel>
-			</p:dialog>
-		</h:form>
 
 	<h:form>
 	<p:accordionPanel activeIndex="-1" style="opacity:0.9;">

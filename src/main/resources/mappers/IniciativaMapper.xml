@@ -11,7 +11,8 @@
 	</insert>
 	
 	<select id="selectIniciativas" resultMap='IniciativaResult'>
-		select * from iniciativa
+		select i.*, (select count(iniciativa) from usuarioiniciativa ui where i.id = ui.iniciativa) as votos
+		from iniciativa i
 	</select>
 
 	<select id="claveIniciativas" resultMap='IniciativaResult'>
@@ -52,7 +53,6 @@
 		<result column="numerovotos" property="numeroVotos"/>
 		<result column="fechainicio" property="fecha"/>
 		<result column="descripcion" property="descripcion"/>
-		
 	</resultMap>
 
 </mapper>

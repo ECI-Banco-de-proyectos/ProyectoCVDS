@@ -9,19 +9,20 @@
         <title>Datos de Iniciativa</title>
 		<style>
 		html{
-				background: url("Fondo.jpg");
+				background: url("../Fondo.jpg");
 				background-size: 120% auto;
 			}
 		</style>
+		<f:event type="preRenderView" listener="#{usuarioBean.verificarSesionProponente()}" />
     </h:head>
 	<h:body>
 	<h:form>
 		<p:tabMenu activeIndex="2">
 			<p:menuitem value="Insertar Iniciativa" outcome="Proponente.xhtml"></p:menuitem>
-			<p:menuitem value="Salir" action="#{usuarioBean.desconectarUsuario()}" icon="ui-icon-close" style="position: absolute; left: 1080px;"></p:menuitem>
+			<p:menuitem value="Salir" action="#{usuarioBean.cerrarSesion()}" icon="ui-icon-close" style="position: absolute; left: 1080px;"></p:menuitem>
 			<p:menuitem value="Iniciativas Registradas" outcome="busquedaIniciativaProponente.xhtml" icon="ui-icon-document"></p:menuitem>
-			<p:menuitem value="iniciativas del proponente" outcome="IniciativaProponente.xhtml" icon="ui-icon-document"></p:menuitem>
-			<p:menuitem value="Filtrar Estados" outcome="FiltrarIniciativas.xhtml"></p:menuitem>
+			<p:menuitem value="iniciativas del proponente" outcome="/IniciativaProponente.xhtml" icon="ui-icon-document"></p:menuitem>
+			<p:menuitem value="Filtrar Estados" outcome="/FiltrarIniciativas.xhtml"></p:menuitem>
 		</p:tabMenu>
 	</h:form>
 		<h:form>
@@ -78,11 +79,13 @@
 				<p:column filterBy="#{comunBean.consultaPalabrasClave(iniciativa.id)}" headerText="Palabras Clave" filterMatchMode="contains">
 					<h:outputText value="#{comunBean.consultaPalabrasClave(iniciativa.id)}"/>
 				</p:column>
+				<!--
 				<p:column style="width:32px;text-align: center">
 					<p:commandButton icon="fa fa-pencil" title="View" action="CambiarIniciativa.xhtml?faces-redirect=true">
 						<f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
 					</p:commandButton>
 				</p:column>
+				-->
 
 				<p:column style="width:32px;text-align: center">
 					<p:commandButton icon="fa fa-comment" title="View" action="DatosReaccion.xhtml?faces-redirect=true">
@@ -94,11 +97,13 @@
 
 			</p:dataTable>
 		</h:form>
+		<!--
 		<p:chart type="bar" model="#{chartView.barModel}" style="height:300px"/>
 		<h:form id = "RecolectInfo">
 			<p:commandButton value="Exportar como PDF" ajax="false" >
 				<p:dataExporter type="pdf" target="formaLista:tablaIniciativas" fileName="DatosIniciativas"/>
 			</p:commandButton>
 		</h:form>
+		-->
 	</h:body>
 </html>

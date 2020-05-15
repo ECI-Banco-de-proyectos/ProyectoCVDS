@@ -9,11 +9,12 @@
         <title>#{usuarioBean.nombre}</title>
 		<style>
 		html{
-				background: url("Fondo.jpg");
+				background: url("../Fondo.jpg");
 				background-size: 120% auto;
 				background-repeat: no-repeat;
 			}
 		</style>
+		<f:event type="preRenderView" listener="#{usuarioBean.verificarSesionAdministrador()}" />
     </h:head>
 	<h:body>
 		<p:tabMenu activeIndex="0">

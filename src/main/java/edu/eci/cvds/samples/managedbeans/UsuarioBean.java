@@ -111,45 +111,6 @@ public class UsuarioBean implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
 
-	/**
-	public String validar() {
-		
-		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
-		boolean in = false;
-		String dir = "";
-		TipoRol rolV = null;
-		for(Usuario s: ser.consultarUsuarios()) {
-			boolean res = s.getNombre().equals(nombre) && s.getContraseña().equals(contraseña);
-			if(res) {
-				in = true;
-				rolV = s.getRol();
-			}
-		}
-		
-		if(!in) {
-			setMensajeErrorLogin("El usuario no existe");
-			dir = "inexistente";
-			
-		}else {
-            conectarUsuario();
-            if (rolV.equals(TipoRol.Administrador)) {
-                setMensajeErrorLogin(" ");
-                dir = "Administrador.xhtml?faces-redirect=true";
-            } else if (rolV.equals(TipoRol.proponenteIniciativa)) {
-                setMensajeErrorLogin(" ");
-                dir = "Proponente.xhtml?faces-redirect=true";
-            } else if (rolV.equals(TipoRol.usuarioConsulta)) {
-                setMensajeErrorLogin(" ");
-                dir = "DatosIniciativa.xhtml?faces-redirect=true";
-            } else if (rolV.equals(TipoRol.PMO_ODI)) {
-                setMensajeErrorLogin(" ");
-                dir = "busquedaIniciativaProp.xhtml?faces-redirect=true";
-            }
-        }
-		return dir;
-
-	}
-	*/
 	
 	public String validar() {
 		ServiciosIniciativas serviciosIniciativas = IniciativasFactory.instancia().serviciosIniciativas();
@@ -160,16 +121,16 @@ public class UsuarioBean implements Serializable {
 			if(us!=null) {
 				if(us.getRol().equals(TipoRol.Administrador)) {
 					FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("Administrador", us);
-					redireccion = "Administrador.xhtml?faces-redirect=true";
+					redireccion = "Administrador/Administrador.xhtml?faces-redirect=true";
 				}else if(us.getRol().equals(TipoRol.proponenteIniciativa)) {
 					FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("Proponente", us);
-					redireccion = "Proponente.xhtml?faces-redirect=true";
+					redireccion = "Proponente/Proponente.xhtml?faces-redirect=true";
 				}else if(us.getRol().equals(TipoRol.usuarioConsulta)) {
 					FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("Usuario", us);
-					redireccion = "DatosIniciativa.xhtml?faces-redirect=true";
+					redireccion = "Usuario/DatosIniciativa.xhtml?faces-redirect=true";
 				}else if(us.getRol().equals(TipoRol.PMO_ODI)) {
 					FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("PMO", us);
-					redireccion = "busquedaIniciativaProp.xhtml?faces-redirect=true";
+					redireccion = "PMO/busquedaIniciativaProp.xhtml?faces-redirect=true";
 				}
 			}else {
 				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "Credenciales incorrectas"));
@@ -218,11 +179,50 @@ public class UsuarioBean implements Serializable {
 		return res;
 	}
 	
-	public void verificarSesion() {
+	public void verificarSesionAdministrador() {
 		try {
 			Usuario administrador = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("Administrador");
 			if(administrador == null) {
-				FacesContext.getCurrentInstance().getExternalContext().redirect("Permisos.html?faces-redirect=true");
+				FacesContext.getCurrentInstance().getExternalContext().redirect("/Permisos.html?faces-redirect=true");
+				return;
+			}	
+			
+		}catch (Exception e) {
+			
+		}
+	}
+	
+	public void verificarSesionProponente() {
+		try {
+			Usuario proponente = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("Proponente");
+			if(proponente == null) {
+				FacesContext.getCurrentInstance().getExternalContext().redirect("/Permisos.html?faces-redirect=true");
+				return;
+			}	
+			
+		}catch (Exception e) {
+			
+		}
+	}
+	
+	public void verificarSesionPMO() {
+		try {
+			Usuario pmo = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("PMO");
+			if(pmo == null) {
+				FacesContext.getCurrentInstance().getExternalContext().redirect("/Permisos.html?faces-redirect=true");
+				return;
+			}	
+			
+		}catch (Exception e) {
+			
+		}
+	}
+	
+	public void verificarSesionUsuario() {
+		try {
+			Usuario usuario = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("Usuario");
+			if(usuario == null) {
+				FacesContext.getCurrentInstance().getExternalContext().redirect("/Permisos.html?faces-redirect=true");
 				return;
 			}	
 			
@@ -233,7 +233,7 @@ public class UsuarioBean implements Serializable {
 	
 	public String cerrarSesion() {
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-		return "logearV2.xhtml?faces-redirect=true";
+		return "/logearV2.xhtml?faces-redirect=true";
 	}
 
 }

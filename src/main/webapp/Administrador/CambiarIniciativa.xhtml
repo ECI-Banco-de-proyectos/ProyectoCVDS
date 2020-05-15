@@ -9,20 +9,21 @@
         <title>Iniciativas</title>
 		<style>
 		html{
-				background: url("Fondo.jpg");
+				background: url("../Fondo.jpg");
 				background-size: 120% auto;
 				background-repeat: no-repeat;
 			}
 		</style>
+		<f:event type="preRenderView" listener="#{usuarioBean.verificarSesionAdministrador()}" />
     </h:head>
       <h:body>
           <p:tabMenu activeIndex="0">
-			  <p:menuitem value="Cambiar Iniciativa" outcome="CambiarIniciativaPMO.xhtml" icon="ui-icon-script"></p:menuitem>
-			  <p:menuitem value="Consultar Iniciativas" outcome="busquedaIniciativaProp.xhtml" icon="ui-icon-script"></p:menuitem>
-             <!-- <p:menuitem value="Datos del usuario" outcome="Administrador.xhtml" icon="ui-icon-script">
+			  <p:menuitem value="Cambiar Iniciativa" outcome="CambiarIniciativa.xhtml" icon="ui-icon-script">
+              </p:menuitem>
+              <p:menuitem value="Datos del usuario" outcome="Administrador.xhtml" icon="ui-icon-script">
               </p:menuitem>
 			  <p:menuitem value="Busqueda de iniciativas" outcome="busquedaIniciativa.xhtml" icon="ui-icon-script">
-              </p:menuitem>-->
+              </p:menuitem>
           </p:tabMenu>
 		  <h1></h1>
           <center><h:form>

@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:p="http://primefaces.org/ui">
+	  <h:head>
+        <title>#{usuarioBean.nombre}</title>
+		<style>
+		html{
+				background: url("../Fondo.jpg");
+				background-size: 120% auto;
+				background-repeat: no-repeat;
+			}
+		</style>
+    </h:head>
+	<h:body>
+		<p:tabMenu activeIndex="0">
+			<p:menuitem value="Comentarios a Iniciativa" outcome="DatosReaccion.xhtml" icon="ui-icon-document">
+			</p:menuitem>		
+			<p:menuitem value="Consultar Iniciativas" outcome="busquedaIniciativaProp.xhtml" icon="ui-icon-document">
+			</p:menuitem>
+
+		</p:tabMenu>
+		<h1></h1>
+		<center><h:form>
+		<p:growl id="confirmacion" showDetail="true" autoupdate="true"/>
+		<p:panelGrid columns="2">
+		<p:outputLabel value="ID Iniciativa seleccionada: " />
+		<p:inputText value="#{adminBean.idIniciativa}" readonly="true" style="color: black; background-color:silver"/>
+
+		<p:outputLabel value="Nombre: " />
+		<p:inputText value="#{usuarioBean.nombre}" readonly="true" style="color: black; background-color:silver"/>
+		
+		<p:outputLabel value="Fecha de reaccion " />
+		<p:inputText value="#{reaccionBean.getFecha()}" readonly="true" style="color: black; background-color:silver"/>
+		
+		<p:outputLabel value="Digite su comentario: " />
+		<p:inputTextarea value="#{reaccionBean.comentario}"  columns="50" rows="5"/>
+		
+		<p:outputLabel value="Deje su voto: " />
+		<p:selectBooleanButton id="voto" value="#{reaccionBean.voto}" onLabel="No me gusta" offLabel="Me gusta" style="width:60px; color:red" update="voto"/>
+		</p:panelGrid>
+		<h1></h1>
+		<p:commandButton value="Aplicar Cambios" action="#{reaccionBean.insertReaccion(usuarioBean.nombre,usuarioBean.contraseña,adminBean.idIniciativa,adminBean.idIniciativa)}" update="formaLista:reac" >
+		</p:commandButton>
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+			<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+			<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="fa fa-close" />
+		</p:confirmDialog>
+		</h:form></center>
+
+		<h:form id="formaLista">
+			<p:growl id="msgs" showDetail="true"/>
+			<p:dataTable id="reac" var="Reaccion" value="#{comunBean.selectReacion(adminBean.idIniciativa)}"
+						 paginator="true" rows="8"
+						 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}">
+				<p:column headerText="Fecha" style="width:100px">
+					<h:outputText value="#{Reaccion.fecha}"/>
+				</p:column>
+				<p:column headerText="Comentario">
+					<h:outputText value="#{Reaccion.comentario}"/>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+
+	</h:body>
+
+</html>	

@@ -9,7 +9,7 @@
         <title>Iniciativas</title>
 	    <style>
 		html{
-				background: url("Fondo.jpg");
+				background: url("../Fondo.jpg");
 				background-size: 120% auto;
 				background-repeat: no-repeat;
 			}
@@ -26,16 +26,17 @@
 			    resize: none;
 			}	
 		</style>
+		<f:event type="preRenderView" listener="#{usuarioBean.verificarSesionProponente()}" />
     </h:head>
 	<h:body>
 		<h:form>
 
 			<p:tabMenu activeIndex="0">
 				<p:menuitem value="Insertar Iniciativa"></p:menuitem>
-				<p:menuitem value="Filtrar Estados" outcome="FiltrarIniciativas.xhtml"></p:menuitem>
-				<p:menuitem value="Salir" action="#{usuarioBean.desconectarUsuario()}" icon="ui-icon-close" style="position: absolute; left: 1080px;"></p:menuitem>
+				<p:menuitem value="Filtrar Estados" outcome="/FiltrarIniciativas.xhtml"></p:menuitem>
+				<p:menuitem value="Salir" action="#{usuarioBean.cerrarSesion()}" icon="ui-icon-close" style="position: absolute; left: 1080px;"></p:menuitem>
 				<p:menuitem value="Iniciativas Registradas" outcome="busquedaIniciativaProponente.xhtml" icon="ui-icon-document"></p:menuitem>
-				<p:menuitem value="iniciativas del proponente" outcome="IniciativaProponente.xhtml" icon="ui-icon-document"></p:menuitem>
+				<p:menuitem value="Iniciativas Propuestas" outcome="IniciativaProponente.xhtml" icon="ui-icon-document"></p:menuitem>
 			</p:tabMenu>
 		</h:form>
         <center><h2>Insertar Iniciativa</h2></center>
