@@ -28,5 +28,11 @@ public class MyBatisDAOIniciativasAgrupadas  implements DAOIniciativasAgrupadas{
         return AgruparIniciativaMapper.selectIniciativaAgrupada();
     }
 
+    @Override
+    public void cambiarAgrupados(String newname, String oldname) {
+        AgruparIniciativaMapper.cambiarAgrupados(newname, oldname);
+    }
+
+
 
 }

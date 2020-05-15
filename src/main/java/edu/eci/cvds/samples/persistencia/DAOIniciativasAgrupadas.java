@@ -8,5 +8,6 @@ import java.util.List;
 public interface DAOIniciativasAgrupadas {
     public void insertarInicitivasAgrupadas(int id, String name);
     public List<IniciativasAgrupadas> selectIniciativaAgrupada();
+    public void cambiarAgrupados(String newname, String oldname);
 
 }

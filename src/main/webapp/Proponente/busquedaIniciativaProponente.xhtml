@@ -23,6 +23,7 @@
 			<p:menuitem value="Iniciativas Registradas" outcome="busquedaIniciativaProponente.xhtml" icon="ui-icon-document"></p:menuitem>
 			<p:menuitem value="iniciativas del proponente" outcome="IniciativaProponente.xhtml" icon="ui-icon-document"></p:menuitem>
 		</p:tabMenu>
+
 	</h:form>
 		<h:form>
 			<p:accordionPanel activeIndex="-1" style="opacity:0.9;">
@@ -53,44 +54,60 @@
 		</h:form>
 
 		<h:form id="formaLista">
-			<p:growl id="msgs" showDetail="true"/>
+			<p:growl id="msgs" autoUpdate="true" showDetail="true"/>
 			<p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.consultarIniciativasPalabraClave()}"
-						 paginator="true" rows="8"
+						 editable="true" paginator="true" rows="8"
 						 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}">
-				<p:column headerText="Id del proponente" >
+				<p:column headerText="Id del proponente" style="width:100px;text-align: center">
 					<h:outputText value="#{iniciativa.proponente}"/>
 				</p:column>
-				<p:column headerText="Nombre">
-					<h:outputText value="#{iniciativa.nombre}"/>
-				</p:column>
-				<p:column headerText="Fecha">
+				<p:column headerText="Fecha" style="width:100px;text-align: center">
 					<h:outputText value="#{iniciativa.fecha}"/>
 				</p:column>
-				<p:column headerText="Estado">
+				<p:column headerText="Nombre">
+					<p:cellEditor>
+						<f:facet name="output"><h:outputText value="#{iniciativa.nombre}"/></f:facet>
+						<f:facet name="input"><p:inputText  value="#{proBean.nombreIniciativa}" style="width:100%"/></f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column headerText="Estado" style="width:200px">
 					<h:outputText value="#{iniciativa.estado}"/>
 				</p:column>
-				<p:column headerText="Votos">
-					<h:outputText value="#{comunBean.palabrasClavePorIniciativa(iniciativa.id)}"/>
+				<p:column headerText="Descripción">
+					<p:cellEditor>
+						<f:facet name="output"><h:outputText value="#{iniciativa.descripcion}"/></f:facet>
+						<f:facet name="input"><p:inputText  value="#{proBean.descripcion}" style="width:100%"/></f:facet>
+					</p:cellEditor>
 				</p:column>
-				<p:column filterBy="#{comunBean.consultaPalabrasClave(iniciativa.id)}" headerText="Palabras Clave" filterMatchMode="contains">
+				<p:column headerText="Votos" style="width:50px;text-align: center">
+					<h:outputText value="#{iniciativa.numeroVotos}"/>
+				</p:column>
+				<p:column filterBy="#{comunBean.consultaPalabrasClave(iniciativa.id)}" headerText="Palabras Clave" filterMatchMode="contains" style="width:150px;text-align: center">
 					<h:outputText value="#{comunBean.consultaPalabrasClave(iniciativa.id)}"/>
 				</p:column>
-				<p:column style="width:32px;text-align: center">
-					<p:commandButton icon="fa fa-pencil" title="View" action="CambiarIniciativaProponente.xhtml?faces-redirect=true">
-						<f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
-					</p:commandButton>
+
+				<p:column style="width:50px;text-align: center">
+					<f:facet name="header">
+						Editar fila
+					</f:facet>
+					<p:rowEditor />
 				</p:column>
 
-				<p:column style="width:32px;text-align: center">
+
+
+				<p:ajax event="rowEdit" listener="#{proBean.onRowEdit(iniciativa.nombre, iniciativa.estado, iniciativa.id, iniciativa.proponente, usuarioBean.getNombre())}" update=":formaLista:msgs" />
+				<p:ajax event="rowEditCancel" listener="#{proBean.onRowCancel}" update=":formaLista:msgs" />
+
+				<p:column style="width:50px;text-align: center">
+					<f:facet name="header">
+						Like!
+					</f:facet>
 					<p:commandButton icon="fa fa-comment" title="View" action="DatosReaccion.xhtml?faces-redirect=true">
 						<f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
-						<f:setPropertyActionListener value="#{iniciativa}" target="#{reaccionBean.iniciativaSeleccionada}" />
-						<f:setPropertyActionListener value="#{usuarioBean.getId()}" target="#{reaccionBean.id_usuario}" />
 					</p:commandButton>
 				</p:column>
 
 			</p:dataTable>
 		</h:form>
-
 	</h:body>
 </html>

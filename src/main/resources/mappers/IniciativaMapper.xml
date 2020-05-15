@@ -34,9 +34,11 @@
 		order by
 			case when #{columnaSeleccionada}='id' then i.id end,
 			case when #{columnaSeleccionada}='id del proponente' then i.usuario end,
-			case when #{columnaSeleccionada}='nombre' then i.nombreiniciativa end,
-			case when #{columnaSeleccionada}='estado' then i.estado end,
-			case when #{columnaSeleccionada}='fecha' then i.fechainicio end;
+			case when #{columnaSeleccionada}='Nombre' then i.nombreiniciativa end,
+			case when #{columnaSeleccionada}='Estado' then i.estado end,
+			case when #{columnaSeleccionada}='Fecha' then i.fechainicio end,
+			case when #{columnaSeleccionada}='votos' then i.numerovotos end,
+			case when #{columnaSeleccionada}='Descripcion' then i.descripcion end;
 	</select>
 	
 	<select id="selectIniciativaPorEstado" resultType="hashmap">

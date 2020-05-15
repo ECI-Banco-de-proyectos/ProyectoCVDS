@@ -183,7 +183,7 @@ public class ProponenteBean implements Serializable{
 		return res;
 	}
 
-	public void onRowEdit(EstadoIniciativa es, int id, int idU, String name) {
+	public void onRowEdit(String nameI, EstadoIniciativa es, int id, int idU, String name) {
 		int usu=-1;
 		if(es!=EstadoIniciativa.En_Espera_De_Revision){
 			addMessage("Actualizar iniciativa", "Solo se pueden actualizar iniciativas en espera de reivisión");
@@ -195,6 +195,7 @@ public class ProponenteBean implements Serializable{
 				}
 			}
 			if(usu==idU) {
+				IniciativasFactory.instancia().IniciativasAgrupadasImplementando().cambiarAgrupados(nombreIniciativa,nameI);
 				IniciativasFactory.instancia().iniciativaImplementado().cambiarIniciativas(nombreIniciativa, descripcion, id);
 				addMessage("Actualizar iniciativa", "Iniciativa actualizada, por favor recargue la página");
 			}else{

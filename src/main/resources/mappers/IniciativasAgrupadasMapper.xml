@@ -14,6 +14,10 @@
         from iniciativasAgrupadas u
     </select>
 
+    <update id="cambiarAgrupados" >
+        update iniciativasagrupadas set nombreiniciativa=#{newname}
+        where nombreiniciativa=#{oldname};
+    </update>
 
     <resultMap type="IniciativasAgrupadas" id="IniciativasAgrupadasResult">
         <result column="id" property="iniciativaAgrupada"/>

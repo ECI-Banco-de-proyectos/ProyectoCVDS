@@ -20,11 +20,14 @@
 		<f:event type="preRenderView" listener="#{usuarioBean.verificarSesionAdministrador()}" />
     </h:head>
 	<h:body>
+	<h:form>
 	<p:tabMenu activeIndex="0">
 		<p:menuitem value="Busqueda de iniciativas" outcome="busquedaIniciativa.xhtml" icon="ui-icon-script"></p:menuitem>
         <p:menuitem value="Datos del usuario" outcome="Administrador.xhtml" icon="ui-icon-script"></p:menuitem>
+		<p:menuitem value="Salir" action="#{usuarioBean.cerrarSesion()}" icon="ui-icon-close" style="position: absolute; left: 750px;"></p:menuitem>
 		<!--<p:menuitem value="Iniciativas Agrupadas" outcome="/iniciativasAgrupadas.xhtml" icon="ui-icon-script"></p:menuitem>-->
 	</p:tabMenu>
+	</h:form>
 	
 	<h:form>	
 	<p:accordionPanel activeIndex="-1" style="opacity:0.9;">
@@ -47,7 +50,12 @@
 		<p:accordionPanel activeIndex="-1" style="opacity:0.9;">
 			<p:tab title="Ordenar Columnas">
 				<center><h:panelGrid columns = "3" cellpadding="0">
-					<p:inputText id="columna" value="#{comunBean.columna}"/>
+					<p:outputLabel value="Colmunas" for="@next" />
+					<p:selectOneMenu id="Columna" value="#{comunBean.columna}" dynamic="true" style="width:300px">
+						<f:selectItem itemLabel="Seleccione Area" itemValue="" />
+						<f:selectItems value="#{comunBean.columnas}"/>
+					</p:selectOneMenu>
+
 					<p:commandButton value="Ordenar" action="#{comunBean.banderaDos()}" update="formaLista:tablaIniciativas" onsuccess="location.reload()"/>
 				</h:panelGrid></center>
 			</p:tab>
@@ -59,34 +67,38 @@
 	<p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.consultarIniciativasPalabraClave()}"
 				 paginator="true" rows="8"
 				 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}">
-					<p:column headerText="Id" sortBy="#{iniciativa.id}">
-						<h:outputText value="#{iniciativa.id}"/>
-					</p:column>
-					<p:column headerText="Id del proponente" sortBy="#{iniciativa.proponente}">
-						<h:outputText value="#{iniciativa.proponente}"/>
-					</p:column>
-					<p:column headerText="Nombre" sortBy="#{iniciativa.nombre}">
+
+					<p:column headerText="Nombre" >
 						<h:outputText value="#{iniciativa.nombre}"/>
 					</p:column>
-					<p:column headerText="Fecha" sortBy="#{iniciativa.fecha}">
+					<p:column headerText="Fecha" >
 						<h:outputText value="#{iniciativa.fecha}"/>
 					</p:column>
-					<p:column headerText="Estado" sortBy="#{iniciativa.estado}">	
-						<h:outputText value="#{iniciativa.estado}" sortBy="#{iniciativa.estado}"/>
+					<p:column headerText="Estado" style="width:250px">
+						<h:outputText value="#{iniciativa.estado}" />
 					</p:column>
-					<p:column headerText="Votos">
+					<p:column headerText="Descripción"  style="width:250px">
+						<h:outputText value="#{iniciativa.descripcion}"/>
+					</p:column>
+					<p:column headerText="Votos" style="width:50px;text-align: center">
 						<h:outputText value="#{comunBean.palabrasClavePorIniciativa(iniciativa.id)}"/>
 					</p:column>	
 					<p:column filterBy="#{comunBean.consultaPalabrasClave(iniciativa.id)}" headerText="Palabras Clave" filterMatchMode="contains" >
 						<h:outputText value="#{comunBean.consultaPalabrasClave(iniciativa.id)}"/>
 					</p:column>
-					<p:column style="width:32px;text-align: center">
+					<p:column style="width:50px;text-align: center">
+						<f:facet name="header">
+							Editar fila
+						</f:facet>
 						<p:commandButton icon="fa fa-pencil" title="View" action="CambiarIniciativa.xhtml?faces-redirect=true">
 							<f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
 						</p:commandButton>
 					</p:column>
 
-					<p:column style="width:32px;text-align: center">
+					<p:column style="width:50px;text-align: center">
+						<f:facet name="header">
+							Like it!!
+						</f:facet>
 						<p:commandButton icon="fa fa-comment" title="View" action="DatosReaccion.xhtml?faces-redirect=true">
 							<f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
 							<f:setPropertyActionListener value="#{iniciativa}" target="#{reaccionBean.iniciativaSeleccionada}" />

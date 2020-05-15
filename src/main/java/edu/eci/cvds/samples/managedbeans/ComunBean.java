@@ -26,11 +26,12 @@ public class ComunBean {
 	List<Usuario> listaUsuarios;
 	public int usu;
 	public String nombreIniciativa;
+	public List<String> columnas;
 
 	@PostConstruct
 	public void init() {
 		clave = "";
-		columna = "id";
+		columna = "Nombre";
 		areas = new ArrayList<TipoArea>();
 		areas.add(TipoArea.DireccionIplusi);
 		areas.add(TipoArea.Posgrados);
@@ -38,6 +39,21 @@ public class ComunBean {
 		areas.add(TipoArea.SecretariaGeneral);
 		areas.add(TipoArea.VicerrectoriaAcademica);
 
+		columnas = new ArrayList<String>();
+		columnas.add("Nombre");
+		columnas.add("Fecha");
+		columnas.add("Estado");
+		columnas.add("Descripcion");
+
+
+	}
+
+	public List<String> getColumnas() {
+		return columnas;
+	}
+
+	public void setColumnas(List<String> columnas) {
+		this.columnas = columnas;
 	}
 
 	public String getNombreIniciativa() {
