@@ -60,13 +60,13 @@
                 <h:outputText value="#{iniciativa.estado}"/>
             </p:column>
             <p:column headerText="Votos">
-                <h:outputText value="#{iniciativa.numeroVotos}"/>
+                <h:outputText value="#{comunBean.palabrasClavePorIniciativa(iniciativa.id)}"/>
             </p:column>
             <p:column filterBy="#{comunBean.consultaPalabrasClave(iniciativa.id)}" headerText="Palabras Clave" filterMatchMode="contains">
                 <h:outputText value="#{comunBean.consultaPalabrasClave(iniciativa.id)}"/>
             </p:column>
             <p:column style="width:32px;text-align: center">
-                <p:commandButton icon="fa fa-pencil" title="View" action="CambiarIniciativa.xhtml?faces-redirect=true">
+                <p:commandButton icon="fa fa-pencil" title="View" action="CambiarIniciativaPMO.xhtml?faces-redirect=true">
                     <f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
                 </p:commandButton>
             </p:column>

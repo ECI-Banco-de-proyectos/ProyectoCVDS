@@ -21,8 +21,7 @@
 			<p:menuitem value="Insertar Iniciativa" outcome="Proponente.xhtml"></p:menuitem>
 			<p:menuitem value="Salir" action="#{usuarioBean.cerrarSesion()}" icon="ui-icon-close" style="position: absolute; left: 1080px;"></p:menuitem>
 			<p:menuitem value="Iniciativas Registradas" outcome="busquedaIniciativaProponente.xhtml" icon="ui-icon-document"></p:menuitem>
-			<p:menuitem value="iniciativas del proponente" outcome="/IniciativaProponente.xhtml" icon="ui-icon-document"></p:menuitem>
-			<p:menuitem value="Filtrar Estados" outcome="/FiltrarIniciativas.xhtml"></p:menuitem>
+			<p:menuitem value="iniciativas del proponente" outcome="IniciativaProponente.xhtml" icon="ui-icon-document"></p:menuitem>
 		</p:tabMenu>
 	</h:form>
 		<h:form>
@@ -79,13 +78,11 @@
 				<p:column filterBy="#{comunBean.consultaPalabrasClave(iniciativa.id)}" headerText="Palabras Clave" filterMatchMode="contains">
 					<h:outputText value="#{comunBean.consultaPalabrasClave(iniciativa.id)}"/>
 				</p:column>
-				<!--
 				<p:column style="width:32px;text-align: center">
-					<p:commandButton icon="fa fa-pencil" title="View" action="CambiarIniciativa.xhtml?faces-redirect=true">
+					<p:commandButton icon="fa fa-pencil" title="View" action="CambiarIniciativaProponente.xhtml?faces-redirect=true">
 						<f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
 					</p:commandButton>
 				</p:column>
-				-->
 
 				<p:column style="width:32px;text-align: center">
 					<p:commandButton icon="fa fa-comment" title="View" action="DatosReaccion.xhtml?faces-redirect=true">
