@@ -47,23 +47,27 @@
 			<p:inputText value="#{usuarioBean.nombre}" readonly="true" style="color: black; background-color:silver"/>
 			<p:outputLabel for="@next" value="Rol de usuario"/>
 			<p:inputText value="Proponente Iniciativa" readonly="true" style="color: black; background-color:silver" />
-			<p:outputLabel for="@next" value="Area a la cual pertenece" />
-			<p:inputText value="#{usuarioBean.area}" readonly="true" style="color: black; background-color:silver" /> 
+
+			<p:outputLabel for="@next" value="Área a la cual pertenece" />
+			<p:inputText value="#{usuarioBean.area}" readonly="true" style="color: black; background-color:silver" />
+				<p:outputLabel value="Área de la Iniciativa" for="@next" />
+				<p:selectOneMenu id="Roles" value="#{comunBean.areaConocimiento}" dynamic="true" style="width:300px">
+					<f:selectItem itemLabel="Seleccione Área" itemValue="" />
+					<f:selectItems value="#{comunBean.areas}"/>
+				</p:selectOneMenu>
+
 			<p:outputLabel for="@next" value="Inserte las palabras clave" />
 			<p:inputText value="#{proBean.palabrasClave}" /> 
 			<p:outputLabel value="Inserte nombre de la iniciativa" for="nombre" />
             <p:inputText id="nombre" value="#{proBean.nombreIniciativa}"></p:inputText>
 			<p:outputLabel value="Seleccione estado" for="estado" />
             <p:selectOneMenu value="#{proBean.estado}" id="estado">
-				<f:selectItem itemValue = "En_Espera_De_Revision" itemLabel = "En espera de revision" />
-				<f:selectItem itemValue = "En_Revision" itemLabel = "En revision" />
-				<f:selectItem itemValue = "Proyecto" itemLabel = "Proyecto" />
-				<f:selectItem itemValue = "Solucionado" itemLabel = "Solucionado" />
+				<f:selectItem itemValue = "En_Espera_De_Revision" itemLabel = "En espera de revisión" />
 			</p:selectOneMenu>
-			<p:outputLabel value="Descripcion" for="des" />
+			<p:outputLabel value="Descripción" for="des" />
             <p:inputTextarea id="des" value="#{proBean.descripcion}" cols="30" rows="10"/>
 			</p:panelGrid>
-            <p:commandButton value="Insertar iniciativa" action="#{proBean.insertarIniciativa(usuarioBean.getNombre(),usuarioBean.getContraseña())}" update="confirmacion">
+            <p:commandButton value="Insertar iniciativa" action="#{proBean.insertarIniciativa(usuarioBean.getNombre(),usuarioBean.getContraseña(),comunBean.areaConocimiento)}" update="confirmacion">
 				<p:confirm header="Insertar iniciativa" message="¿Está seguro?" icon="pi pi-exclamation-triangle" />
 			</p:commandButton>
 			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">

@@ -14,10 +14,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import edu.eci.cvds.samples.entities.EstadoIniciativa;
-import edu.eci.cvds.samples.entities.Iniciativa;
-import edu.eci.cvds.samples.entities.TipoRol;
-import edu.eci.cvds.samples.entities.Usuario;
+import edu.eci.cvds.samples.entities.*;
 import edu.eci.cvds.servicios.IniciativasFactory;
 
 @ManagedBean(name="proBean")
@@ -53,12 +50,18 @@ public class ProponenteBean implements Serializable{
 	}
 
 
-	public void insertarIniciativa(String nombre, String contraseña) {
+	public void insertarIniciativa(String nombre, String contraseña, TipoArea area) {
 		int ind = obtenerId(nombre, contraseña);
 		id = IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativas().size();
-		IniciativasFactory.instancia().serviciosIniciativas().insertarIniciativa(id+1, ind, nombreIniciativa, estado, 0, Date.valueOf(LocalDate.now()), descripcion);
-		IniciativasFactory.instancia().serviciosIniciativas().insertarPalabraClave(palabrasClave, id+1);
-		addMessage("Insertar iniciativa", "Iniciativa insertada");
+		if (nombreIniciativa=="" || descripcion==""){
+			addMessage("Error al insertar", "El nombre de la iniciativa y la descripcion no pueden estar vacios");
+		}
+		else {
+			IniciativasFactory.instancia().serviciosIniciativas().insertarIniciativa(id + 1, ind, nombreIniciativa, estado, 0, Date.valueOf(LocalDate.now()), descripcion);
+			IniciativasFactory.instancia().serviciosIniciativas().insertarPalabraClave(palabrasClave, id + 1);
+			IniciativasFactory.instancia().areaIniciativaImplementado().insertAreaIniciativa(id + 1, area);
+			addMessage("Insertar iniciativa", "Iniciativa insertada");
+		}
 	}
 
 	public int obtenerId(String nombre, String contr) {

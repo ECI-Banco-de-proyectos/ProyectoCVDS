@@ -57,9 +57,6 @@
 			<p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.consultarIniciativasPalabraClave()}"
 						 paginator="true" rows="8"
 						 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}">
-				<p:column headerText="Id">
-					<h:outputText value="#{iniciativa.id}"/>
-				</p:column>
 				<p:column headerText="Id del proponente" >
 					<h:outputText value="#{iniciativa.proponente}"/>
 				</p:column>
@@ -94,13 +91,6 @@
 
 			</p:dataTable>
 		</h:form>
-		<!--
-		<p:chart type="bar" model="#{chartView.barModel}" style="height:300px"/>
-		<h:form id = "RecolectInfo">
-			<p:commandButton value="Exportar como PDF" ajax="false" >
-				<p:dataExporter type="pdf" target="formaLista:tablaIniciativas" fileName="DatosIniciativas"/>
-			</p:commandButton>
-		</h:form>
-		-->
+
 	</h:body>
 </html>

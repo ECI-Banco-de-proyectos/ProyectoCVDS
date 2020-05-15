@@ -21,15 +21,14 @@ import java.util.List;
 @ApplicationScoped
 public class ChartView implements Serializable {
 
+
     private BarChartModel barModel;
     private BarChartModel barModelEstados;
-    private int matematicas=0;
-    private int fisica=0;
-    private int robotica=0;
-    private int artes=0;
-    private int gerencia=0;
-    private int sistemas=0;
-    private int mecanica=0;
+    private int DireccionIplusi=0;
+    private int Posgrados=0;
+    private int VicerrectoriaAdministrativa=0;
+    private int SecretariaGeneral=0;
+    private int VicerrectoriaAcademica=0;
     private int maxi;
     
     private int enEsperaDeRevision=0;
@@ -60,43 +59,36 @@ public class ChartView implements Serializable {
         return barModelEstados;
     }
 
+
     private BarChartModel initBarModel() {
         BarChartModel model = new BarChartModel();
-
         ChartSeries mat = new ChartSeries();
-        mat.setLabel("Matematicas");
-        mat.set("2020", matematicas);
+        mat.setLabel("DireccionIplusi");
+        mat.set("2020", DireccionIplusi);
 
         ChartSeries fis = new ChartSeries();
-        fis.setLabel("Fisica");
-        fis.set("2020", fisica);
+        fis.setLabel("Posgrados");
+        fis.set("2020", Posgrados);
 
         ChartSeries sis = new ChartSeries();
-        sis.setLabel("Sistemas");
-        sis.set("2020", sistemas);
+        sis.setLabel("VicerrectoriaAdministrativa");
+        sis.set("2020", VicerrectoriaAdministrativa);
 
         ChartSeries rob = new ChartSeries();
-        rob.setLabel("Robotica");
-        rob.set("2020", robotica);
+        rob.setLabel("SecretariaGeneral");
+        rob.set("2020", SecretariaGeneral);
 
         ChartSeries art = new ChartSeries();
-        art.setLabel("Artes");
-        art.set("2020", artes);
+        art.setLabel("VicerrectoriaAcademica");
+        art.set("2020", VicerrectoriaAcademica);
 
-        ChartSeries ger = new ChartSeries();
-        ger.setLabel("Gerencia");
-        ger.set("2020", gerencia);
 
-        ChartSeries mec = new ChartSeries();
-        mec.setLabel("Mecanica");
-        mec.set("2020", mecanica);
 
         model.addSeries(mat);
         model.addSeries(fis);
         model.addSeries(sis);
         model.addSeries(rob);
-        model.addSeries(mec);
-        model.addSeries(ger);
+
         model.addSeries(art);
 
         return model;
@@ -167,30 +159,24 @@ public class ChartView implements Serializable {
 
     private void createBarModels() {
         List<AreaIniciativa> ser = IniciativasFactory.instancia().serviciosIniciativas().selectAreaIniciativa();
-        
+
         maxi=0;
         for(AreaIniciativa i:ser ){
-            if(i.getAreaConocimiento().equals(TipoArea.Matematicas)){
-                this.matematicas+=1;
-                maxi=Math.max(maxi,matematicas);
-            }else if(i.getAreaConocimiento().equals(TipoArea.Fisica)){
-                this.fisica+=1;
-                maxi=Math.max(maxi,fisica);
-            }else if(i.getAreaConocimiento().equals(TipoArea.Robotica)){
-                this.robotica+=1;
-                maxi=Math.max(maxi,robotica);
-            }else if(i.getAreaConocimiento().equals(TipoArea.Artes)){
-                this.artes+=1;
-                maxi=Math.max(maxi,artes);
-            }else if(i.getAreaConocimiento().equals(TipoArea.Gerencia)){
-                this.gerencia+=1;
-                maxi=Math.max(maxi,gerencia);
-            }else if(i.getAreaConocimiento().equals(TipoArea.Sistemas)){
-                this.sistemas+=1;
-                maxi=Math.max(maxi,sistemas);
-            }else if(i.getAreaConocimiento().equals(TipoArea.Mecanica)){
-                this.mecanica+=1;
-                maxi=Math.max(maxi,mecanica);
+            if(i.getAreaConocimiento().equals(TipoArea.DireccionIplusi)){
+                this.DireccionIplusi+=1;
+                maxi=Math.max(maxi,DireccionIplusi);
+            }else if(i.getAreaConocimiento().equals(TipoArea.Posgrados)){
+                this.Posgrados+=1;
+                maxi=Math.max(maxi,Posgrados);
+            }else if(i.getAreaConocimiento().equals(TipoArea.VicerrectoriaAdministrativa)){
+                this.VicerrectoriaAdministrativa+=1;
+                maxi=Math.max(maxi,VicerrectoriaAdministrativa);
+            }else if(i.getAreaConocimiento().equals(TipoArea.SecretariaGeneral)){
+                this.SecretariaGeneral+=1;
+                maxi=Math.max(maxi,SecretariaGeneral);
+            }else if(i.getAreaConocimiento().equals(TipoArea.VicerrectoriaAcademica)) {
+                this.VicerrectoriaAcademica += 1;
+                maxi = Math.max(maxi, VicerrectoriaAcademica);
             }
         }
         

@@ -32,15 +32,12 @@ public class ComunBean {
 		clave = "";
 		columna = "id";
 		areas = new ArrayList<TipoArea>();
+		areas.add(TipoArea.DireccionIplusi);
+		areas.add(TipoArea.Posgrados);
+		areas.add(TipoArea.VicerrectoriaAdministrativa);
+		areas.add(TipoArea.SecretariaGeneral);
+		areas.add(TipoArea.VicerrectoriaAcademica);
 
-		areas.add(TipoArea.Todas);
-		areas.add(TipoArea.Artes);
-		areas.add(TipoArea.Fisica);
-		areas.add(TipoArea.Matematicas);
-		areas.add(TipoArea.Gerencia);
-		areas.add(TipoArea.Mecanica);
-		areas.add(TipoArea.Robotica);
-		areas.add(TipoArea.Sistemas);
 	}
 
 	public String getNombreIniciativa() {

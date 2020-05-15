@@ -37,17 +37,24 @@ public class ReaccionBean {
 
 	
 	public void insertReaccion (String nombre,String contraseña,int id_ini,int id) {
-		IniciativasFactory.instancia().serviciosIniciativas().insertarReacciones(id_ini, nombre , comentario, fecha);
-		//actualizarIniciativa(id,voto+this.voto);
-		int userId = IniciativasFactory.instancia().serviciosIniciativas().consultarIdPorNombreyContraseña(nombre, contraseña);
-		boolean votado = votoPresente(userId,id);
-		if(voto && !votado) {
-			IniciativasFactory.instancia().serviciosIniciativas().insertarUsuarioIniciativa(userId, id, 1);
-		}else if(!voto && votado) {
-			IniciativasFactory.instancia().serviciosIniciativas().deleteUsuarioIniciativa(userId, id_ini);
+		System.out.println(comentario);
+		if (comentario==""){
+
+			addMessage("Error al insertar", "El comentario no puede ser vacio");
 		}
-		addMessage("Insertar reaccion", "Reaccion insertada");
-		
+		else {
+			IniciativasFactory.instancia().serviciosIniciativas().insertarReacciones(id_ini, nombre, comentario, fecha);
+			//actualizarIniciativa(id,voto+this.voto);
+			int userId = IniciativasFactory.instancia().serviciosIniciativas().consultarIdPorNombreyContraseña(nombre, contraseña);
+			boolean votado = votoPresente(userId, id);
+			if (voto && !votado) {
+				IniciativasFactory.instancia().serviciosIniciativas().insertarUsuarioIniciativa(userId, id, 1);
+			} else if (!voto && votado) {
+				IniciativasFactory.instancia().serviciosIniciativas().deleteUsuarioIniciativa(userId, id_ini);
+			}
+			addMessage("Insertar reaccion", "Reaccion insertada, actualice la página para ver sus cambios");
+
+		}
 	}
 	
 	private boolean votoPresente(int user, int iniciativa) {
@@ -111,6 +118,9 @@ public class ReaccionBean {
 		this.id_iniciativa=iniciativaSeleccionada.getId();
 	}
 
-	
+	public void addMessage() {
+		String summary = voto ? "Like" : "Dislike";
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
+	}
 
 }
