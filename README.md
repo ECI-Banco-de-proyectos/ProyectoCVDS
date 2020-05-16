@@ -167,6 +167,9 @@ Imagen del 'sprint-backlog'
 
 ![Sprint 3](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/burndown%20chart%203.JPG)
 
+### Reporte de pruebas usando EclEMMA
+
+![Pruebas 1](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/Reporte%20pruebas%201.JPG)
 
 
 
