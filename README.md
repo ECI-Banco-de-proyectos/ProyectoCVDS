@@ -171,6 +171,11 @@ Imagen del 'sprint-backlog'
 
 ![Pruebas 1](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/Reporte%20pruebas%201.JPG)
 
+![Pruebas 2](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/Reporte%20pruebas%202.JPG)
+
+
+
+
 
 
 
