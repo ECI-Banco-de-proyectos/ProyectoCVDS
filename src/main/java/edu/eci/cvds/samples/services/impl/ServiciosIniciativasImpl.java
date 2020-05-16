@@ -4,9 +4,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.bean.ApplicationScoped;
-
-import org.apache.shiro.config.Ini;
+import edu.eci.cvds.samples.managedbeans.ReaccionBean;
 
 import edu.eci.cvds.samples.entities.*;
 import edu.eci.cvds.samples.persistencia.DAOIniciativa;
@@ -80,10 +78,11 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 	}
 
 	@Override
-	public void insertarReacciones(int idIni, String nombre, String comentario, Date fecha) {
+	public ReaccionBean insertarReacciones(int idIni, String nombre, String comentario, Date fecha) {
 		IniciativasFactory.instancia().reaccionImplementado().insertReaccion(idIni,nombre,comentario,fecha);
-		
-	}
+
+        return null;
+    }
 
 	@Override
 	public void actualizarIniciativasVotos(int id, int voto) {

@@ -12,6 +12,7 @@ import edu.eci.cvds.samples.entities.PalabrasClave;
 import edu.eci.cvds.samples.entities.TipoRol;
 import edu.eci.cvds.samples.entities.Usuario;
 import edu.eci.cvds.samples.entities.UsuarioIniciativas;
+import edu.eci.cvds.samples.managedbeans.ReaccionBean;
 import edu.eci.cvds.samples.persistencia.DAOIniciativa;
 
 public interface ServiciosIniciativas {
@@ -44,7 +45,7 @@ public interface ServiciosIniciativas {
 
 	public List<Iniciativa> ordenandoIniciativas(String columnaSeleccionada);
 
-	public void insertarReacciones (int idIni,String nombre, String comentario, Date fecha);
+	public ReaccionBean insertarReacciones (int idIni, String nombre, String comentario, Date fecha);
 	
 	public void actualizarIniciativasVotos (int id, int voto);
 
