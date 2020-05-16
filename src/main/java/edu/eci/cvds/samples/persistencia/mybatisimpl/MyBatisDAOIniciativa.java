@@ -59,16 +59,4 @@ public class MyBatisDAOIniciativa implements DAOIniciativa{
 		return iniciativaMapper.selectIniciativaPorEstado();
 	}
 
-	@Override
-	public Iniciativa consultarIniciativaId(int id) {
-		return iniciativaMapper.consultarIniciativaId(id);
-		
-	}
-
-	@Override
-	public void borrarIniciativa(int id) {
-		iniciativaMapper.borrarIniciativa(id);
-		
-	}
-
 }

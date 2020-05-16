@@ -3,8 +3,6 @@ package edu.eci.cvds.servicios;
 import java.sql.Date;
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
-
 import edu.eci.cvds.samples.entities.Area;
 import edu.eci.cvds.samples.entities.AreaIniciativa;
 import edu.eci.cvds.samples.entities.EstadoIniciativa;
@@ -14,7 +12,6 @@ import edu.eci.cvds.samples.entities.PalabrasClave;
 import edu.eci.cvds.samples.entities.TipoRol;
 import edu.eci.cvds.samples.entities.Usuario;
 import edu.eci.cvds.samples.entities.UsuarioIniciativas;
-import edu.eci.cvds.samples.managedbeans.ReaccionBean;
 import edu.eci.cvds.samples.persistencia.DAOIniciativa;
 
 public interface ServiciosIniciativas {
@@ -47,7 +44,7 @@ public interface ServiciosIniciativas {
 
 	public List<Iniciativa> ordenandoIniciativas(String columnaSeleccionada);
 
-	public ReaccionBean insertarReacciones (int idIni, String nombre, String comentario, Date fecha);
+	public void insertarReacciones (int idIni,String nombre, String comentario, Date fecha);
 	
 	public void actualizarIniciativasVotos (int id, int voto);
 
@@ -80,11 +77,5 @@ public interface ServiciosIniciativas {
 	public void deleteUsuarioIniciativa(int usuario, int iniciativa);
 	
 	public int numeroVotosPorIniciativa(int idIniciativa);
-	
-	public void borrarUsuario(String nombre, String contrasena);
-	
-	public Iniciativa consultarIniciativaId( int id);
-	
-	public void borrarIniciativa( int id);
 	
 }

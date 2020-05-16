@@ -64,6 +64,7 @@ public class ReaccionBean {
 			}
 		}
 		return res;
+		
 	}
 	
 	public void actualizarIniciativa(int id, int voto) {

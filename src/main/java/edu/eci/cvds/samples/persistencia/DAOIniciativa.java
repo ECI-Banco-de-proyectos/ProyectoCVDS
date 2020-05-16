@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Param;
-
 import edu.eci.cvds.samples.entities.EstadoIniciativa;
 import edu.eci.cvds.samples.entities.Iniciativa;
 
@@ -26,9 +24,5 @@ public interface DAOIniciativa {
 	public List<Iniciativa> ordenDeIniciativa(String columnaSeleccionada);
 	
 	public List<HashMap> selectIniciativaPorEstado();
-	
-	public Iniciativa consultarIniciativaId( int id);
-	
-	public void borrarIniciativa( int id);
 
 }

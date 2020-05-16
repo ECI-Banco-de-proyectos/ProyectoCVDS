@@ -17,6 +17,5 @@ public class IniciativasAgrupadas {
     public void setIniciativaAgrupada(int iniciativaAgrupada) {
         this.iniciativaAgrupada = iniciativaAgrupada;
     }
-	
 
 }

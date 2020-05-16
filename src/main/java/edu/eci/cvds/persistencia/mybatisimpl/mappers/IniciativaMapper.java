@@ -24,8 +24,4 @@ public interface IniciativaMapper {
 	public List<Iniciativa> ordenDeIniciativa (@Param("columnaSeleccionada") String columna);
 	
 	public List<HashMap> selectIniciativaPorEstado();
-	
-	public Iniciativa consultarIniciativaId(@Param("id") int id);
-	
-	public void borrarIniciativa(@Param("id") int id);
 }

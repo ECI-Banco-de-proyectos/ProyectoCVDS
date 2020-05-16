@@ -4,7 +4,9 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.eci.cvds.samples.managedbeans.ReaccionBean;
+import javax.faces.bean.ApplicationScoped;
+
+import org.apache.shiro.config.Ini;
 
 import edu.eci.cvds.samples.entities.*;
 import edu.eci.cvds.samples.persistencia.DAOIniciativa;
@@ -78,11 +80,10 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 	}
 
 	@Override
-	public ReaccionBean insertarReacciones(int idIni, String nombre, String comentario, Date fecha) {
+	public void insertarReacciones(int idIni, String nombre, String comentario, Date fecha) {
 		IniciativasFactory.instancia().reaccionImplementado().insertReaccion(idIni,nombre,comentario,fecha);
-
-        return null;
-    }
+		
+	}
 
 	@Override
 	public void actualizarIniciativasVotos(int id, int voto) {
@@ -198,23 +199,6 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 			user = lista.get(0);
 		}
 		return user;
-	}
-
-	@Override
-	public void borrarUsuario(String nombre, String contrasena) {
-		
-		IniciativasFactory.instancia().usuarioImplementado().borrarUsuario(nombre, contrasena);
-	}
-
-	@Override
-	public Iniciativa consultarIniciativaId(int id) {
-		return IniciativasFactory.instancia().iniciativaImplementado().consultarIniciativaId(id);
-	}
-
-	@Override
-	public void borrarIniciativa(int id) {
-		IniciativasFactory.instancia().iniciativaImplementado().borrarIniciativa(id);
-		
 	}
 	
 }

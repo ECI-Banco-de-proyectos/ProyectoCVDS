@@ -38,12 +38,6 @@
 		update usuario set rol = #{rol}
 		where id = #{id}
 	</update>
-	
-	<delete id="borrarUsuario">
-	
-		delete from usuario where usuario.nombre= #{nombre} and usuario.contraseña = #{contrasena};
-		
-	</delete>
 
 
 	<resultMap type='Usuario' id='UsuarioResult'>

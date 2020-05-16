@@ -21,6 +21,6 @@ public interface UsuarioMapper {
 	
 	public List<Usuario> consultarUsuarioPorNombreyContraseña(@Param("nombre") String nombre, @Param("contraseña") String contraseña);
 
-	public void borrarUsuario(@Param("nombre") String nombre, @Param("contrasena") String contrasena);
+
 
 }
