@@ -28,11 +28,7 @@ public class Main {
 
 
 	public static void main(String[] args) {
-		List<Area> ser = IniciativasFactory.instancia().serviciosIniciativas().consultarAreas();
-		for(Area i: ser){
-			System.out.println(i.getNombre());
-			}
-		}
+
 		/*
 
 		public TipoArea areaConocimiento;
@@ -110,6 +106,7 @@ public class Main {
 		}
 
 		 */
+	}
 
 }
 
