@@ -28,6 +28,7 @@ public class ComunBean {
 	public String nombreIniciativa;
 	public List<String> columnas;
 
+
 	@PostConstruct
 	public void init() {
 		clave = "";

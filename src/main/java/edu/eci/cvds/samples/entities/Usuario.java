@@ -1,6 +1,7 @@
 package edu.eci.cvds.samples.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Usuario implements Serializable{
 	
@@ -13,6 +14,7 @@ public class Usuario implements Serializable{
 	public String nombre;
 	public TipoRol rol;
 	public String area;
+
 	
 	public Usuario(int id, String contraseña, String nombre, TipoRol rol, String area) {
 		this.id = id;

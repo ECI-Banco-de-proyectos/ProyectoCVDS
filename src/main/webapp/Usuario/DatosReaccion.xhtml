@@ -9,28 +9,23 @@
         <title>#{usuarioBean.nombre}</title>
 		<style>
 		html{
-				background: url("Fondo.jpg");
+				background: url("../Fondo.jpg");
 				background-size: 120% auto;
-				background-repeat: no-repeat;
 			}
 		</style>
     </h:head>
 	<h:body>
 		<p:tabMenu activeIndex="0">
 			<p:menuitem value="Comentarios a Iniciativa" outcome="DatosReaccion.xhtml" icon="ui-icon-document">
-			</p:menuitem>		
-			<p:menuitem value="Datos del usuario" outcome="Administrador.xhtml" icon="ui-icon-document">
 			</p:menuitem>
-			<p:menuitem value="Busqueda de iniciativas" outcome="busquedaIniciativa.xhtml" icon="ui-icon-document">
-			</p:menuitem>
-
+			<p:menuitem value="Datos Iniciativa" outcome="DatosIniciativa.xhtml" icon="ui-icon-document"></p:menuitem>
 		</p:tabMenu>
 		<h1></h1>
 		<center><h:form>
 		<p:growl id="confirmacion" showDetail="true" autoupdate="true"/>
 		<p:panelGrid columns="2">
-		<p:outputLabel value="ID Iniciativa seleccionada: " />
-		<p:inputText value="#{adminBean.idIniciativa}" readonly="true" style="color: black; background-color:silver"/>
+		<p:outputLabel value="Nombre Iniciativa seleccionada: " />
+		<p:inputText value="#{adminBean.nombreSelectedIniciativa}" readonly="true" style="color: black; background-color:silver"/>
 
 		<p:outputLabel value="Nombre: " />
 		<p:inputText value="#{usuarioBean.nombre}" readonly="true" style="color: black; background-color:silver"/>

@@ -27,57 +27,60 @@
         </p:tabMenu>
     </h:form>
 
-    <h:form>
-        <p:panelGrid columns = "3">
-            <p:outputLabel value="Estado" for="@next" />
-            <p:selectOneMenu id="estado" value="#{proBean.estado}" dynamic="true" style="width:300px">
-                <f:selectItem itemLabel="Seleccione Estado" itemValue="" />
-                <f:selectItems value="#{proBean.estados}"/>
-            </p:selectOneMenu>
-
-            <p:commandButton value="Agrupar estado"   update="formaLista:tablaIniciativas" />
-        </p:panelGrid>
-    </h:form>
-
     <h:form id="formaLista">
         <p:growl id="msgs" showDetail="true"/>
-        <p:dataTable id="tablaIniciativas" var="iniciativa" value="#{proBean.filtrarEstados()}"
+        <p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.consultarIniciativasPalabraClave()}"   widgetVar="carsTable1"
                      paginator="true" rows="8"
                      paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}">
-            <p:column headerText="Id">
-                <h:outputText value="#{iniciativa.id}"/>
-            </p:column>
-            <p:column headerText="Id del proponente">
-                <h:outputText value="#{iniciativa.proponente}"/>
-            </p:column>
-            <p:column headerText="Nombre">
+            <p:column headerText="Nombre" >
                 <h:outputText value="#{iniciativa.nombre}"/>
             </p:column>
-            <p:column headerText="Fecha">
+            <p:column headerText="Fecha" >
                 <h:outputText value="#{iniciativa.fecha}"/>
             </p:column>
-            <p:column headerText="Estado">
-                <h:outputText value="#{iniciativa.estado}"/>
+
+
+            <p:column filterBy="#{iniciativa.estado}" headerText="Estados" filterMatchMode="exact" style="width:250px">
+                <f:facet name="filter">
+                    <p:selectOneMenu onchange="PF('carsTable1').filter()" styleClass="custom-filter">
+                        <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true" />
+                        <f:selectItems value="#{proBean.estados}" />
+                    </p:selectOneMenu>
+                </f:facet>
+                <h:outputText value="#{iniciativa.estado}" />
             </p:column>
-            <p:column headerText="Votos">
+            <p:column headerText="Descripción"  style="width:250px">
+                <h:outputText value="#{iniciativa.descripcion}"/>
+            </p:column>
+            <p:column headerText="Votos" style="width:50px;text-align: center">
                 <h:outputText value="#{comunBean.palabrasClavePorIniciativa(iniciativa.id)}"/>
             </p:column>
             <p:column filterBy="#{comunBean.consultaPalabrasClave(iniciativa.id)}" headerText="Palabras Clave" filterMatchMode="contains">
                 <h:outputText value="#{comunBean.consultaPalabrasClave(iniciativa.id)}"/>
             </p:column>
-            <p:column style="width:32px;text-align: center">
+            <p:column style="width:32px;text-align: center"  exportable="false">
                 <p:commandButton icon="fa fa-pencil" title="View" action="CambiarIniciativaPMO.xhtml?faces-redirect=true">
-                    <f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
+                    <f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}"  update="formaLista:tablaIniciativas"/>
                 </p:commandButton>
             </p:column>
 
-            <p:column style="width:32px;text-align: center">
+            <p:column style="width:32px;text-align: center"  exportable="false">
                 <p:commandButton icon="fa fa-comment" title="View" action="DatosReaccion.xhtml?faces-redirect=true">
                     <f:setPropertyActionListener value="#{iniciativa}" target="#{adminBean.selectedIniciativa}" />
+                    <f:setPropertyActionListener value="#{iniciativa}" target="#{reaccionBean.iniciativaSeleccionada}" />
+                    <f:setPropertyActionListener value="#{usuarioBean.getId()}" target="#{reaccionBean.id_usuario}" />
                 </p:commandButton>
             </p:column>
 
         </p:dataTable>
+
+    <p:chart type="bar" model="#{chartView.barModelEstados}" style="height:300px"/>
+
+    <p:commandButton value="Exportar como PDF" ajax="false" >
+        <p:dataExporter type="pdf" target="formaLista:tablaIniciativas" pageOnly="true" fileName="DatosIniciativas"/>
+    </p:commandButton>
+
     </h:form>
+
 </h:body>
 </html>

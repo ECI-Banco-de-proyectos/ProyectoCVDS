@@ -37,7 +37,6 @@ public class ReaccionBean {
 
 	
 	public void insertReaccion (String nombre,String contraseña,int id_ini,int id) {
-		System.out.println(comentario);
 		if (comentario==""){
 
 			addMessage("Error al insertar", "El comentario no puede ser vacio");
@@ -52,7 +51,7 @@ public class ReaccionBean {
 			} else if (!voto && votado) {
 				IniciativasFactory.instancia().serviciosIniciativas().deleteUsuarioIniciativa(userId, id_ini);
 			}
-			addMessage("Insertar reaccion", "Reaccion insertada, actualice la página para ver sus cambios");
+			addMessage("Insertar reaccion", "Reaccion insertada");
 
 		}
 	}

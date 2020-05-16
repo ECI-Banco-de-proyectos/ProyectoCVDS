@@ -49,12 +49,15 @@
 			<p:inputText value="Proponente Iniciativa" readonly="true" style="color: black; background-color:silver" />
 
 			<p:outputLabel for="@next" value="Área a la cual pertenece" />
-			<p:inputText value="#{usuarioBean.area}" readonly="true" style="color: black; background-color:silver" />
-				<p:outputLabel value="Área de la Iniciativa" for="@next" />
-				<p:selectOneMenu id="Roles" value="#{comunBean.areaConocimiento}" dynamic="true" style="width:300px">
-					<f:selectItem itemLabel="Seleccione Área" itemValue="" />
-					<f:selectItems value="#{comunBean.areas}"/>
-				</p:selectOneMenu>
+			<p:inputText value="#{usuarioBean.areaUsuario(usuarioBean.getNombre(),usuarioBean.getContraseña())}" readonly="true" style="color: black; background-color:silver" />
+			<p:outputLabel value="Área del usuario" for="nombre"/>
+			<p:selectOneMenu value="#{usuarioBean.areaU}" id="Estadokjaf" panelStyle="width:150px">
+				<f:selectItem itemValue = "DireccionIplusi" itemLabel = "Direccion I+i" />
+				<f:selectItem itemValue = "VicerrectoriaAdministrativa" itemLabel = "Vicerrectoria Administrativa" />
+				<f:selectItem itemValue = "SecretariaGeneral" itemLabel = "Secretaria General" />
+				<f:selectItem itemValue = "VicerrectoriaAcademica" itemLabel = "Vicerrectoria Academica" />
+				<f:selectItem itemValue = "Posgrados" itemLabel = "Posgrado" />
+			</p:selectOneMenu>
 
 			<p:outputLabel for="@next" value="Inserte las palabras clave" />
 			<p:inputText value="#{proBean.palabrasClave}" /> 
@@ -67,7 +70,7 @@
 			<p:outputLabel value="Descripción" for="des" />
             <p:inputTextarea id="des" value="#{proBean.descripcion}" cols="30" rows="10"/>
 			</p:panelGrid>
-            <p:commandButton value="Insertar iniciativa" action="#{proBean.insertarIniciativa(usuarioBean.getNombre(),usuarioBean.getContraseña(),comunBean.areaConocimiento)}" update="confirmacion">
+            <p:commandButton value="Insertar iniciativa" action="#{proBean.insertarIniciativa(usuarioBean.getNombre(),usuarioBean.getContraseña(),usuarioBean.areaU)}" update="confirmacion">
 				<p:confirm header="Insertar iniciativa" message="¿Está seguro?" icon="pi pi-exclamation-triangle" />
 			</p:commandButton>
 			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">

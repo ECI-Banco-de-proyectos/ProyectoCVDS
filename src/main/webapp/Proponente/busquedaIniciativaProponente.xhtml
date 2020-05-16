@@ -46,7 +46,12 @@
 			<p:accordionPanel activeIndex="-1" style="opacity:0.9;">
 				<p:tab title="Ordenar Columnas">
 					<center><h:panelGrid columns = "3" cellpadding="0">
-						<p:inputText id="columna" value="#{comunBean.columna}"/>
+						<p:outputLabel value="Colmunas" for="@next" />
+						<p:selectOneMenu id="Columna" value="#{comunBean.columna}" dynamic="true" style="width:300px">
+							<f:selectItem itemLabel="Seleccione Area" itemValue="" />
+							<f:selectItems value="#{comunBean.columnas}"/>
+						</p:selectOneMenu>
+
 						<p:commandButton value="Ordenar" action="#{comunBean.banderaDos()}" update="formaLista:tablaIniciativas" onsuccess="location.reload()"/>
 					</h:panelGrid></center>
 				</p:tab>
@@ -58,9 +63,6 @@
 			<p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.consultarIniciativasPalabraClave()}"
 						 editable="true" paginator="true" rows="8"
 						 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}">
-				<p:column headerText="Id del proponente" style="width:100px;text-align: center">
-					<h:outputText value="#{iniciativa.proponente}"/>
-				</p:column>
 				<p:column headerText="Fecha" style="width:100px;text-align: center">
 					<h:outputText value="#{iniciativa.fecha}"/>
 				</p:column>
@@ -80,7 +82,7 @@
 					</p:cellEditor>
 				</p:column>
 				<p:column headerText="Votos" style="width:50px;text-align: center">
-					<h:outputText value="#{iniciativa.numeroVotos}"/>
+					<h:outputText value="#{comunBean.palabrasClavePorIniciativa(iniciativa.id)}"/>
 				</p:column>
 				<p:column filterBy="#{comunBean.consultaPalabrasClave(iniciativa.id)}" headerText="Palabras Clave" filterMatchMode="contains" style="width:150px;text-align: center">
 					<h:outputText value="#{comunBean.consultaPalabrasClave(iniciativa.id)}"/>
@@ -95,7 +97,7 @@
 
 
 
-				<p:ajax event="rowEdit" listener="#{proBean.onRowEdit(iniciativa.nombre, iniciativa.estado, iniciativa.id, iniciativa.proponente, usuarioBean.getNombre())}" update=":formaLista:msgs" />
+				<p:ajax event="rowEdit" listener="#{proBean.onRowEdit(iniciativa.nombre, iniciativa.estado, iniciativa.id, iniciativa.proponente, usuarioBean.getNombre())}" update=":formaLista:msgs" onsuccess="location.reload()" />
 				<p:ajax event="rowEditCancel" listener="#{proBean.onRowCancel}" update=":formaLista:msgs" />
 
 				<p:column style="width:50px;text-align: center">

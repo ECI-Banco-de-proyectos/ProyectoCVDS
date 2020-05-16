@@ -17,6 +17,7 @@ import javax.faces.validator.ValidatorException;
 
 import com.google.inject.Inject;
 
+import edu.eci.cvds.samples.entities.Area;
 import edu.eci.cvds.samples.entities.Iniciativa;
 import edu.eci.cvds.samples.entities.TipoRol;
 import edu.eci.cvds.samples.entities.Usuario;
@@ -39,7 +40,35 @@ public class UsuarioBean implements Serializable {
 	String mensajeErrorLogin = "";
 	List<Usuario> lista;
 	List<Iniciativa> lista2;
-	
+	List<String> areaUsuario;
+	String areaU;
+
+
+	@PostConstruct
+	public void init() {
+		List<Area> lis = IniciativasFactory.instancia().serviciosIniciativas().consultarAreas();
+		areaUsuario = new ArrayList<String>();
+		for(Area i: lis){
+			areaUsuario.add(i.getNombre());
+		}
+
+	}
+	public String getAreaU() {
+		return areaU;
+	}
+
+	public void setAreaU(String areaU) {
+		this.areaU = areaU;
+	}
+
+	public void setUsuario(boolean usuario) {
+		isUsuario = usuario;
+	}
+
+	public List<String> getAreaUsuario() {
+		return areaUsuario;
+	}
+
 	public boolean getIsUsuario() {
 		return isUsuario;
 	}
@@ -101,9 +130,10 @@ public class UsuarioBean implements Serializable {
 	}
 
 	public void insertarUsuario() {
+
 		addMessage("Insertar usuario", "Usuario Insertado");
 		ServiciosIniciativas ser = IniciativasFactory.instancia().serviciosIniciativas();
-		ser.insertarUsuario(contraseña, nombre, rol, area);
+		ser.insertarUsuario(contraseña, nombre, rol, areaU);
 	}
 	
 	private void addMessage(String summary, String detail) {
@@ -152,7 +182,7 @@ public class UsuarioBean implements Serializable {
 		return res;
 	}
 	
-	private String areaUsuario(String nombre, String contraseña) {
+	public String areaUsuario(String nombre, String contraseña) {
 		List<Usuario> usuarios = IniciativasFactory.instancia().serviciosIniciativas().consultarUsuarios();
 		String res = null;
 		for(Usuario u: usuarios) {

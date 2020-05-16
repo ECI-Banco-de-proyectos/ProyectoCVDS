@@ -197,7 +197,7 @@ public class ProponenteBean implements Serializable{
 			if(usu==idU) {
 				IniciativasFactory.instancia().IniciativasAgrupadasImplementando().cambiarAgrupados(nombreIniciativa,nameI);
 				IniciativasFactory.instancia().iniciativaImplementado().cambiarIniciativas(nombreIniciativa, descripcion, id);
-				addMessage("Actualizar iniciativa", "Iniciativa actualizada, por favor recargue la página");
+				addMessage("Actualizar iniciativa", "Iniciativa actualizada");
 			}else{
 				addMessage("Actualizar iniciativa", "El usuario registrado no es quien ha creado esta iniciativa");
 			}

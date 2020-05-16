@@ -17,14 +17,17 @@
 		<f:event type="preRenderView" listener="#{usuarioBean.verificarSesionPMO()}" />
     </h:head>
       <h:body>
+		  <h:form>
           <p:tabMenu activeIndex="0">
 			  <p:menuitem value="Cambiar Iniciativa" outcome="CambiarIniciativaPMO.xhtml" icon="ui-icon-script"></p:menuitem>
 			  <p:menuitem value="Consultar Iniciativas" outcome="busquedaIniciativaProp.xhtml" icon="ui-icon-script"></p:menuitem>
+			  <p:menuitem value="Salir" action="#{usuarioBean.cerrarSesion()}" icon="ui-icon-close" style="position: absolute; left: 700px;"></p:menuitem>
              <!-- <p:menuitem value="Datos del usuario" outcome="Administrador.xhtml" icon="ui-icon-script">
               </p:menuitem>
 			  <p:menuitem value="Busqueda de iniciativas" outcome="busquedaIniciativa.xhtml" icon="ui-icon-script">
               </p:menuitem>-->
           </p:tabMenu>
+		  </h:form>
 		  <h1></h1>
           <center><h:form>
 			  <p:growl id="confirmacion" showDetail="true" />
@@ -38,6 +41,7 @@
 			  <p:outputLabel for="@next" value="Estado de la iniciativa seleccionada " />
 			  <p:inputText value="#{adminBean.estadoSelectedIniciativa}" readonly="true" style="color: black; background-color:silver"/>				  
               <p:outputLabel value="Seleccione estado" for="estado" />
+
               <p:selectOneMenu value="#{adminBean.estado}" id="estado">
                   <f:selectItem itemValue = "En_Espera_De_Revision" itemLabel = "En espera de revision" />
                   <f:selectItem itemValue = "En_Revision" itemLabel = "En revision" />

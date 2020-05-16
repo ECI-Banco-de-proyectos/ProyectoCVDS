@@ -7,7 +7,7 @@
 
 
 	<select id="consultarAreas" resultMap="AreaResult">
-		select nombre, descipcion
+		select nombre, descripcion
 		from area;
 	</select>
 	

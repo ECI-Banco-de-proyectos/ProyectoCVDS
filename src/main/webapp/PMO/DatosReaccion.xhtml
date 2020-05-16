@@ -16,19 +16,22 @@
 		</style>
     </h:head>
 	<h:body>
+		<h:form>
 		<p:tabMenu activeIndex="0">
 			<p:menuitem value="Comentarios a Iniciativa" outcome="DatosReaccion.xhtml" icon="ui-icon-document">
 			</p:menuitem>		
 			<p:menuitem value="Consultar Iniciativas" outcome="busquedaIniciativaProp.xhtml" icon="ui-icon-document">
 			</p:menuitem>
+			<p:menuitem value="Salir" action="#{usuarioBean.cerrarSesion()}" icon="ui-icon-close" style="position: absolute; left: 700px;"></p:menuitem>
 
 		</p:tabMenu>
+		</h:form>
 		<h1></h1>
 		<center><h:form>
 		<p:growl id="confirmacion" showDetail="true" autoupdate="true"/>
 		<p:panelGrid columns="2">
-		<p:outputLabel value="ID Iniciativa seleccionada: " />
-		<p:inputText value="#{adminBean.idIniciativa}" readonly="true" style="color: black; background-color:silver"/>
+		<p:outputLabel value="Nombre Iniciativa seleccionada: " />
+		<p:inputText value="#{adminBean.nombreSelectedIniciativa}" readonly="true" style="color: black; background-color:silver"/>
 
 		<p:outputLabel value="Nombre: " />
 		<p:inputText value="#{usuarioBean.nombre}" readonly="true" style="color: black; background-color:silver"/>
@@ -45,7 +48,7 @@
 		</p:selectBooleanButton>
 		</p:panelGrid>
 		<h1></h1>
-		<p:commandButton value="Aplicar Cambios" action="#{reaccionBean.insertReaccion(usuarioBean.nombre,usuarioBean.contraseña,adminBean.idIniciativa,adminBean.idIniciativa)}" update="confirmacion" >
+		<p:commandButton value="Aplicar Cambios" action="#{reaccionBean.insertReaccion(usuarioBean.nombre,usuarioBean.contraseña,adminBean.idIniciativa,adminBean.idIniciativa)}" update="confirmacion" onsuccess="location.reload()" >
 		</p:commandButton>
 		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
 			<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />

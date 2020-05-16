@@ -70,7 +70,7 @@
         <center><h:form>
 		<h1></h1>
 			<p:growl id="confirmacion" showDetail="true" />
-			<p:panelGrid columns="2" styleClass="table">
+			<p:panelGrid columns="2" style="width:200px" >
 			<f:facet name = "header">
 				<p:outputLabel value = "Registro"/>
 			</f:facet>
@@ -78,14 +78,25 @@
             <p:inputText id="nombre" value="#{usuarioBean.nombre}"></p:inputText>
 			<p:outputLabel value="Contraseña" for="contraseña" />
 			<p:password id="contraseña" value="#{usuarioBean.contraseña}" />
-            <p:commandButton value="Registrar" action="#{usuarioBean.insertarUsuario()}" update="confirmacion" styleClass="botones">
+
+				<p:outputLabel value="Área del usuario" for="nombre"/>
+				<p:selectOneMenu value="#{usuarioBean.areaU}" id="estado" panelStyle="width:150px">
+					<f:selectItem itemValue = "DireccionIplusi" itemLabel = "Direccion I+i" />
+					<f:selectItem itemValue = "VicerrectoriaAdministrativa" itemLabel = "Vicerrectoria Administrativa" />
+					<f:selectItem itemValue = "SecretariaGeneral" itemLabel = "Secretaria General" />
+					<f:selectItem itemValue = "VicerrectoriaAcademica" itemLabel = "Vicerrectoria Academica" />
+					<f:selectItem itemValue = "Posgrados" itemLabel = "Posgrado" />
+				</p:selectOneMenu>
+
+			</p:panelGrid>
+
+			<p:commandButton value="Registrar" action="#{usuarioBean.insertarUsuario()}" update="confirmacion" styleClass="botones">
 				<p:confirm header="Insertar Usuario" message="¿Está seguro?" icon="pi pi-exclamation-triangle" />
 			</p:commandButton>
 			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
 				<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
 				<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="fa fa-close" />
 			</p:confirmDialog>
-			</p:panelGrid>
         </h:form></center>
 		<footer class="foot">
 				<h1 style="float:left">Si ya está registrado ingrese aquí</h1>

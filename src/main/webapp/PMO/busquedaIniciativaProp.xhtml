@@ -79,16 +79,21 @@
 	</p:accordionPanel>
 	</h:form>
 
-    <h:form id = "OrdenarInfo">
-        <p:accordionPanel activeIndex="-1" style="opacity:0.9;">
-        <p:tab title="Ordenar Columnas">
-        <center><h:panelGrid columns = "3" cellpadding="0">
-        <p:inputText id="columna" value="#{comunBean.columna}"/>
-        <p:commandButton value="Ordenar" action="#{comunBean.banderaDos()}" update="formaLista:tablaIniciativas" onsuccess="location.reload()"/>
-        </h:panelGrid></center>
-        </p:tab>
-        </p:accordionPanel>
-    </h:form>
+		<h:form id = "OrdenarInfo">
+			<p:accordionPanel activeIndex="-1" style="opacity:0.9;">
+				<p:tab title="Ordenar Columnas">
+					<center><h:panelGrid columns = "3" cellpadding="0">
+						<p:outputLabel value="Colmunas" for="@next" />
+						<p:selectOneMenu id="Columna" value="#{comunBean.columna}" dynamic="true" style="width:300px">
+							<f:selectItem itemLabel="Seleccione Area" itemValue="" />
+							<f:selectItems value="#{comunBean.columnas}"/>
+						</p:selectOneMenu>
+
+						<p:commandButton value="Ordenar" action="#{comunBean.banderaDos()}" update="formaLista:tablaIniciativas" onsuccess="location.reload()"/>
+					</h:panelGrid></center>
+				</p:tab>
+			</p:accordionPanel>
+		</h:form>
 
 	
 	<h:form id="formaLista">
