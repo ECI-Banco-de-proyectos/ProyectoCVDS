@@ -29,11 +29,7 @@ public class CheckboxView {
 
     @PostConstruct
     public void init() {
-        cities = new ArrayList<String>();
-        List<Iniciativa> ini = IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativas();
-        for(Iniciativa i: ini){
-            cities.add(i.getNombre());
-        }
+
     }
 
     public String[] getSelectedConsoles() {
@@ -69,6 +65,11 @@ public class CheckboxView {
     }
 
     public List<String> getCities() {
+        cities = new ArrayList<String>();
+        List<Iniciativa> ini = IniciativasFactory.instancia().serviciosIniciativas().consultarIniciativas();
+        for(Iniciativa i: ini){
+            cities.add(i.getNombre());
+        }
         return cities;
     }
 

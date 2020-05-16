@@ -42,7 +42,7 @@
 					<h:outputLabel for="grouped" value="Iniciativas:" />
 					<p:selectCheckboxMenu id="grouped" value="#{cbox.selectedCities}" label="Cities" multiple="true"
 										  filter="true" filterMatchMode="startsWith">
-						<f:selectItems value="#{cbox.cities}" />
+						<f:selectItems value="#{cbox.getCities()}" />
 					</p:selectCheckboxMenu>
 				</h:panelGrid></center>
 				<center><p:commandButton value="Agrupar" update="forma:displayItems" oncomplete="PF('itemDialog').show()" action="#{cbox.insertarIniciativasAgrupadas()}" /></center>
@@ -52,7 +52,6 @@
 		<p:dialog id = "dial" header="Items seleccionados" modal="true" showEffect="fade" hideEffect="fade" widgetVar="itemDialog" width="250">
 			<p:outputPanel id="displayItems">
 				<p:dataList value="#{cbox.selectedCities}" var="city" emptyMessage="No se ha seleccionado iniciativas" action="#{comunBean.insertarIniciativasAgrupadas(cbox.selectedCities)}" >
-
 					<f:facet name="header">
 						Agrupados
 					</f:facet>

@@ -39,8 +39,6 @@ public class ChartView implements Serializable {
 
     @PostConstruct
     public void init() {
-        createBarModels();
-        createBarModelEstados();
         
     }
 
@@ -52,10 +50,23 @@ public class ChartView implements Serializable {
     }
 
     public BarChartModel getBarModel() {
+        DireccionIplusi=0;
+        Posgrados=0;
+        VicerrectoriaAdministrativa=0;
+        SecretariaGeneral=0;
+        VicerrectoriaAcademica=0;
+        maxi=0;
+        createBarModels();
         return barModel;
     }
     
     public BarChartModel getBarModelEstados() {
+        enEsperaDeRevision=0;
+        enRevision=0;
+        proyecto=0;
+        solucionado=0;
+        maxi2=0;
+        createBarModelEstados();
         return barModelEstados;
     }
 
@@ -86,10 +97,10 @@ public class ChartView implements Serializable {
 
         model.addSeries(mat);
         model.addSeries(fis);
-        model.addSeries(sis);
         model.addSeries(rob);
-
         model.addSeries(art);
+        model.addSeries(sis);
+
 
         return model;
     }

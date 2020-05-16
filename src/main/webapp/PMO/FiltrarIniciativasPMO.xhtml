@@ -30,7 +30,7 @@
     <h:form id="formaLista">
         <p:growl id="msgs" showDetail="true"/>
         <p:dataTable id="tablaIniciativas" var="iniciativa" value="#{comunBean.consultarIniciativasPalabraClave()}"   widgetVar="carsTable1"
-                     paginator="true" rows="8"
+                     paginator="true" rows="10"
                      paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}">
             <p:column headerText="Nombre" >
                 <h:outputText value="#{iniciativa.nombre}"/>
