@@ -3,6 +3,8 @@ package edu.eci.cvds.servicios;
 import java.sql.Date;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import edu.eci.cvds.samples.entities.Area;
 import edu.eci.cvds.samples.entities.AreaIniciativa;
 import edu.eci.cvds.samples.entities.EstadoIniciativa;
@@ -78,5 +80,11 @@ public interface ServiciosIniciativas {
 	public void deleteUsuarioIniciativa(int usuario, int iniciativa);
 	
 	public int numeroVotosPorIniciativa(int idIniciativa);
+	
+	public void borrarUsuario(String nombre, String contrasena);
+	
+	public Iniciativa consultarIniciativaId( int id);
+	
+	public void borrarIniciativa( int id);
 	
 }

@@ -20,5 +20,7 @@ public interface DAOUsuario {
 	public int consultarIdPorNombreyContraseña(String nombre, String contraseña);
 	
 	public List<Usuario> consultarUsuarioPorNombreyContraseña(String nombre, String contraseña);
+	
+	public void borrarUsuario( String nombre, String contrasena);
 
 }

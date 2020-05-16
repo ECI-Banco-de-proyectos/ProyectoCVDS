@@ -153,6 +153,19 @@ Imagen del 'sprint-backlog'
 
 ### Sprint 3:
 
+Imagen del 'sprint-burndown chart'
+
+![Sprint 3](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/Grafica%20sprint%203.JPG)
+
+Para el caso del Sprint tres corregimos la mayoría de problemas surgidos en el Sprint uno y dos y mejoramos en general nuestro desempeño logrando terminar satisfactoriamente el desarrollo del proyecto.
+
+Imagen del 'sprint-backlog'
+
+![Sprint 3](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/burndown%20chart%201.JPG)
+
+![Sprint 3](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/burndown%20chart%202.JPG)
+
+![Sprint 3](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/burndown%20chart%203.JPG)
 
 
 

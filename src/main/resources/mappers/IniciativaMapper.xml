@@ -46,7 +46,19 @@
 		from iniciativa
 		group by estado;
 	</select>
-
+	
+	<select id="consultarIniciativaId" resultMap="IniciativaResult">
+	
+		select * from iniciativa where id =#{id};
+		
+	</select>
+	
+	<delete id="borrarIniciativa">
+	
+		delete from iniciativa where id = #{id};
+		
+	</delete>
+	
 	<resultMap type="Iniciativa" id="IniciativaResult">
 		<id column="id" property="id"/>	
 		<result column="usuario" property="proponente"/>
