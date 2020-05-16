@@ -153,6 +153,13 @@ Imagen del 'sprint-backlog'
 
 ### Sprint 3:
 
+![Sprint 3](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/Grafica%20sprint%203.JPG)
+
+![Sprint 3](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/burndown%20chart%201.JPG)
+
+![Sprint 3](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/burndown%20chart%202.JPG)
+
+![Sprint 3](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/burndown%20chart%203.JPG)
 
 
 
