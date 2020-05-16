@@ -17,6 +17,8 @@
 |Ing. Julián Mauricio Velasco Briceño |Product Owner   |
 
 ## Definición del proyecto y documentación del proyecto:
+### Asignación de áreas
+Para la asignación de áreas nos basamos en el organigrama presentado por la Escuela Colombiana de Ingenieria Julio Garavito, debemos tener presente que para la fecha 16/05/2020, el organigrama tuvo su ultima actualizacion en 2017. Podrá verlo en el siguiente [link.](https://www.escuelaing.edu.co/uploads/descargables/5564_organigrama_2017_modificado.pdf)
 
 ### Descripción General
 Esta aplicación tiene como objetivo principal brindar a la comunidad una herramienta fácil y eficiente para la socialización de iniciativas.
@@ -170,6 +172,8 @@ Imagen del 'sprint-backlog'
 ### Reporte de pruebas usando EclEMMA
 
 ![Pruebas 1](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/Reporte%20pruebas%201.JPG)
+
+![Pruebas 2](https://github.com/ECI-Banco-de-proyectos/ProyectoCVDS/blob/master/imagenes/Reporte%20pruebas%202.JPG)
 
 
 
