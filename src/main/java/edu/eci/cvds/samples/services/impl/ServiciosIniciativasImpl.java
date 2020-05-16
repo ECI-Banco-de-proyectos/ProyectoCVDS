@@ -200,5 +200,22 @@ public class ServiciosIniciativasImpl implements ServiciosIniciativas {
 		}
 		return user;
 	}
+
+	@Override
+	public void borrarUsuario(String nombre, String contrasena) {
+		
+		IniciativasFactory.instancia().usuarioImplementado().borrarUsuario(nombre, contrasena);
+	}
+
+	@Override
+	public Iniciativa consultarIniciativaId(int id) {
+		return IniciativasFactory.instancia().iniciativaImplementado().consultarIniciativaId(id);
+	}
+
+	@Override
+	public void borrarIniciativa(int id) {
+		IniciativasFactory.instancia().iniciativaImplementado().borrarIniciativa(id);
+		
+	}
 	
 }

@@ -44,6 +44,12 @@ public class MyBatisDAOUsuario implements DAOUsuario{
 	public List<Usuario> consultarUsuarioPorNombreyContraseña(String nombre, String contraseña) {
 		return usuarioMapper.consultarUsuarioPorNombreyContraseña(nombre, contraseña);
 	}
+
+	@Override
+	public void borrarUsuario(String nombre, String contrasena) {
+		usuarioMapper.borrarUsuario(nombre, contrasena);
+		
+	}
 	
 	
 
