@@ -53,7 +53,7 @@
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-web</artifactId>
 			<!-- See the latest version on the project's homepage -->
-			<version>1.2.4</version>
+			<version>1.7.1</version>
 		</dependency>
 
 		<dependency>
